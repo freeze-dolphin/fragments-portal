@@ -17,6 +17,7 @@ jobs:
       - uses: actions/checkout@v4
         with: 
           repository: freeze-dolphin/fragments-category
+          path: fragments-category
           ref: master
           token: ${{ secrets.CATEGORY_TOKEN }}
 
