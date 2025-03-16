@@ -19,7 +19,7 @@ jobs:
           ref: master
           token: ${{ secrets.CATEGORY_TOKEN }}
 
-      - run: python scripts/update.py
+      - run: dir && echo && dir fragments-category && python scripts/update.py
 
       - uses: stefanzweifel/git-auto-commit-action@v5
         with:
