@@ -24,9 +24,9 @@ jobs:
         with:
           name: metadata
           path: |
-            fragments-category/songlist
-            fragments-category/packlist
-            fragments-category/unlocks
+            fragments-category/songs/songlist
+            fragments-category/songs/packlist
+            fragments-category/songs/unlocks
           overwrite: true"""
 
 
@@ -35,12 +35,12 @@ def song(song_id: str) -> str:
       - uses: actions/upload-artifact@v4
         with:
           name: {song_id}
-          path: fragments-category/{song_id}
+          path: fragments-category/songs/{song_id}
           overwrite: true"""
 
 
 if __name__ == "__main__":
-    with open("fragments-category/songlist", "r", encoding="utf-8") as songlist_f:
+    with open("fragments-category/songs/songlist", "r", encoding="utf-8") as songlist_f:
         songlist = json.loads(songlist_f.read())["songs"]
 
     for song_info in songlist:
