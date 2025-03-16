@@ -1,0 +1,2280 @@
+name: packer
+
+on:
+  workflow_dispatch:
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/checkout@v4
+        with: 
+          repository: freeze-dolphin/fragments-category
+          ref: master
+          token: ${{ secrets.CATEGORY_TOKEN }}
+
+      - uses: actions/upload-artifact@v4
+        with:
+          name: metadata
+          path: |
+            fragments-category/songlist
+            fragments-category/packlist
+            fragments-category/unlocks
+          overwrite: true
+      - uses: actions/upload-artifact@v4
+        with:
+          name: sayonarahatsukoi
+          path: fragments-category/sayonarahatsukoi
+          overwrite: true
+      - uses: actions/upload-artifact@v4
+        with:
+          name: lostcivilization
+          path: fragments-category/lostcivilization
+          overwrite: true
+      - uses: actions/upload-artifact@v4
+        with:
+          name: goodtek
+          path: fragments-category/goodtek
+          overwrite: true
+      - uses: actions/upload-artifact@v4
+        with:
+          name: viyella
+          path: fragments-category/viyella
+          overwrite: true
+      - uses: actions/upload-artifact@v4
+        with:
+          name: rise
+          path: fragments-category/rise
+          overwrite: true
+      - uses: actions/upload-artifact@v4
+        with:
+          name: lucifer
+          path: fragments-category/lucifer
+          overwrite: true
+      - uses: actions/upload-artifact@v4
+        with:
+          name: fairytale
+          path: fragments-category/fairytale
+          overwrite: true
+      - uses: actions/upload-artifact@v4
+        with:
+          name: hearditsaid
+          path: fragments-category/hearditsaid
+          overwrite: true
+      - uses: actions/upload-artifact@v4
+        with:
+          name: babaroque
+          path: fragments-category/babaroque
+          overwrite: true
+      - uses: actions/upload-artifact@v4
+        with:
+          name: memoryfactory
+          path: fragments-category/memoryfactory
+          overwrite: true
+      - uses: actions/upload-artifact@v4
+        with:
+          name: snowwhite
+          path: fragments-category/snowwhite
+          overwrite: true
+      - uses: actions/upload-artifact@v4
+        with:
+          name: relentless
+          path: fragments-category/relentless
+          overwrite: true
+      - uses: actions/upload-artifact@v4
+        with:
+          name: shadesoflight
+          path: fragments-category/shadesoflight
+          overwrite: true
+      - uses: actions/upload-artifact@v4
+        with:
+          name: vexaria
+          path: fragments-category/vexaria
+          overwrite: true
+      - uses: actions/upload-artifact@v4
+        with:
+          name: essenceoftwilight
+          path: fragments-category/essenceoftwilight
+          overwrite: true
+      - uses: actions/upload-artifact@v4
+        with:
+          name: qualia
+          path: fragments-category/qualia
+          overwrite: true
+      - uses: actions/upload-artifact@v4
+        with:
+          name: pragmatism
+          path: fragments-category/pragmatism
+          overwrite: true
+      - uses: actions/upload-artifact@v4
+        with:
+          name: sheriruth
+          path: fragments-category/sheriruth
+          overwrite: true
+      - uses: actions/upload-artifact@v4
+        with:
+          name: lumia
+          path: fragments-category/lumia
+          overwrite: true
+      - uses: actions/upload-artifact@v4
+        with:
+          name: dement
+          path: fragments-category/dement
+          overwrite: true
+      - uses: actions/upload-artifact@v4
+        with:
+          name: dandelion
+          path: fragments-category/dandelion
+          overwrite: true
+      - uses: actions/upload-artifact@v4
+        with:
+          name: anokumene
+          path: fragments-category/anokumene
+          overwrite: true
+      - uses: actions/upload-artifact@v4
+        with:
+          name: infinityheaven
+          path: fragments-category/infinityheaven
+          overwrite: true
+      - uses: actions/upload-artifact@v4
+        with:
+          name: partyvinyl
+          path: fragments-category/partyvinyl
+          overwrite: true
+      - uses: actions/upload-artifact@v4
+        with:
+          name: flashback
+          path: fragments-category/flashback
+          overwrite: true
+      - uses: actions/upload-artifact@v4
+        with:
+          name: flyburg
+          path: fragments-category/flyburg
+          overwrite: true
+      - uses: actions/upload-artifact@v4
+        with:
+          name: nirvluce
+          path: fragments-category/nirvluce
+          overwrite: true
+      - uses: actions/upload-artifact@v4
+        with:
+          name: paradise
+          path: fragments-category/paradise
+          overwrite: true
+      - uses: actions/upload-artifact@v4
+        with:
+          name: brandnewworld
+          path: fragments-category/brandnewworld
+          overwrite: true
+      - uses: actions/upload-artifact@v4
+        with:
+          name: dataerror
+          path: fragments-category/dataerror
+          overwrite: true
+      - uses: actions/upload-artifact@v4
+        with:
+          name: crosssoul
+          path: fragments-category/crosssoul
+          overwrite: true
+      - uses: actions/upload-artifact@v4
+        with:
+          name: yourvoiceso
+          path: fragments-category/yourvoiceso
+          overwrite: true
+      - uses: actions/upload-artifact@v4
+        with:
+          name: chronostasis
+          path: fragments-category/chronostasis
+          overwrite: true
+      - uses: actions/upload-artifact@v4
+        with:
+          name: kanagawa
+          path: fragments-category/kanagawa
+          overwrite: true
+      - uses: actions/upload-artifact@v4
+        with:
+          name: moonlightofsandcastle
+          path: fragments-category/moonlightofsandcastle
+          overwrite: true
+      - uses: actions/upload-artifact@v4
+        with:
+          name: reconstruction
+          path: fragments-category/reconstruction
+          overwrite: true
+      - uses: actions/upload-artifact@v4
+        with:
+          name: evoltex
+          path: fragments-category/evoltex
+          overwrite: true
+      - uses: actions/upload-artifact@v4
+        with:
+          name: oracle
+          path: fragments-category/oracle
+          overwrite: true
+      - uses: actions/upload-artifact@v4
+        with:
+          name: aterlbus
+          path: fragments-category/aterlbus
+          overwrite: true
+      - uses: actions/upload-artifact@v4
+        with:
+          name: clotho
+          path: fragments-category/clotho
+          overwrite: true
+      - uses: actions/upload-artifact@v4
+        with:
+          name: impurebird
+          path: fragments-category/impurebird
+          overwrite: true
+      - uses: actions/upload-artifact@v4
+        with:
+          name: ignotus
+          path: fragments-category/ignotus
+          overwrite: true
+      - uses: actions/upload-artifact@v4
+        with:
+          name: lethaeus
+          path: fragments-category/lethaeus
+          overwrite: true
+      - uses: actions/upload-artifact@v4
+        with:
+          name: romancewars
+          path: fragments-category/romancewars
+          overwrite: true
+      - uses: actions/upload-artifact@v4
+        with:
+          name: blossoms
+          path: fragments-category/blossoms
+          overwrite: true
+      - uses: actions/upload-artifact@v4
+        with:
+          name: moonheart
+          path: fragments-category/moonheart
+          overwrite: true
+      - uses: actions/upload-artifact@v4
+        with:
+          name: genesis
+          path: fragments-category/genesis
+          overwrite: true
+      - uses: actions/upload-artifact@v4
+        with:
+          name: harutopia
+          path: fragments-category/harutopia
+          overwrite: true
+      - uses: actions/upload-artifact@v4
+        with:
+          name: auxesia
+          path: fragments-category/auxesia
+          overwrite: true
+      - uses: actions/upload-artifact@v4
+        with:
+          name: rabbitintheblackroom
+          path: fragments-category/rabbitintheblackroom
+          overwrite: true
+      - uses: actions/upload-artifact@v4
+        with:
+          name: modelista
+          path: fragments-category/modelista
+          overwrite: true
+      - uses: actions/upload-artifact@v4
+        with:
+          name: soundwitch
+          path: fragments-category/soundwitch
+          overwrite: true
+      - uses: actions/upload-artifact@v4
+        with:
+          name: trappola
+          path: fragments-category/trappola
+          overwrite: true
+      - uses: actions/upload-artifact@v4
+        with:
+          name: iconoclast
+          path: fragments-category/iconoclast
+          overwrite: true
+      - uses: actions/upload-artifact@v4
+        with:
+          name: conflict
+          path: fragments-category/conflict
+          overwrite: true
+      - uses: actions/upload-artifact@v4
+        with:
+          name: axiumcrisis
+          path: fragments-category/axiumcrisis
+          overwrite: true
+      - uses: actions/upload-artifact@v4
+        with:
+          name: grievouslady
+          path: fragments-category/grievouslady
+          overwrite: true
+      - uses: actions/upload-artifact@v4
+        with:
+          name: dreaminattraction
+          path: fragments-category/dreaminattraction
+          overwrite: true
+      - uses: actions/upload-artifact@v4
+        with:
+          name: redandblue
+          path: fragments-category/redandblue
+          overwrite: true
+      - uses: actions/upload-artifact@v4
+        with:
+          name: onelastdrive
+          path: fragments-category/onelastdrive
+          overwrite: true
+      - uses: actions/upload-artifact@v4
+        with:
+          name: surrender
+          path: fragments-category/surrender
+          overwrite: true
+      - uses: actions/upload-artifact@v4
+        with:
+          name: yozakurafubuki
+          path: fragments-category/yozakurafubuki
+          overwrite: true
+      - uses: actions/upload-artifact@v4
+        with:
+          name: cyanine
+          path: fragments-category/cyanine
+          overwrite: true
+      - uses: actions/upload-artifact@v4
+        with:
+          name: dreamgoeson
+          path: fragments-category/dreamgoeson
+          overwrite: true
+      - uses: actions/upload-artifact@v4
+        with:
+          name: journey
+          path: fragments-category/journey
+          overwrite: true
+      - uses: actions/upload-artifact@v4
+        with:
+          name: specta
+          path: fragments-category/specta
+          overwrite: true
+      - uses: actions/upload-artifact@v4
+        with:
+          name: quon
+          path: fragments-category/quon
+          overwrite: true
+      - uses: actions/upload-artifact@v4
+        with:
+          name: syro
+          path: fragments-category/syro
+          overwrite: true
+      - uses: actions/upload-artifact@v4
+        with:
+          name: reinvent
+          path: fragments-category/reinvent
+          overwrite: true
+      - uses: actions/upload-artifact@v4
+        with:
+          name: silentrush
+          path: fragments-category/silentrush
+          overwrite: true
+      - uses: actions/upload-artifact@v4
+        with:
+          name: singularity
+          path: fragments-category/singularity
+          overwrite: true
+      - uses: actions/upload-artifact@v4
+        with:
+          name: memoryforest
+          path: fragments-category/memoryforest
+          overwrite: true
+      - uses: actions/upload-artifact@v4
+        with:
+          name: strongholds
+          path: fragments-category/strongholds
+          overwrite: true
+      - uses: actions/upload-artifact@v4
+        with:
+          name: nexttoyou
+          path: fragments-category/nexttoyou
+          overwrite: true
+      - uses: actions/upload-artifact@v4
+        with:
+          name: metallicpunisher
+          path: fragments-category/metallicpunisher
+          overwrite: true
+      - uses: actions/upload-artifact@v4
+        with:
+          name: blaster
+          path: fragments-category/blaster
+          overwrite: true
+      - uses: actions/upload-artifact@v4
+        with:
+          name: guardina
+          path: fragments-category/guardina
+          overwrite: true
+      - uses: actions/upload-artifact@v4
+        with:
+          name: carminescythe
+          path: fragments-category/carminescythe
+          overwrite: true
+      - uses: actions/upload-artifact@v4
+        with:
+          name: bethere
+          path: fragments-category/bethere
+          overwrite: true
+      - uses: actions/upload-artifact@v4
+        with:
+          name: cyberneciacatharsis
+          path: fragments-category/cyberneciacatharsis
+          overwrite: true
+      - uses: actions/upload-artifact@v4
+        with:
+          name: callmyname
+          path: fragments-category/callmyname
+          overwrite: true
+      - uses: actions/upload-artifact@v4
+        with:
+          name: inkarusi
+          path: fragments-category/inkarusi
+          overwrite: true
+      - uses: actions/upload-artifact@v4
+        with:
+          name: mazenine
+          path: fragments-category/mazenine
+          overwrite: true
+      - uses: actions/upload-artifact@v4
+        with:
+          name: themessage
+          path: fragments-category/themessage
+          overwrite: true
+      - uses: actions/upload-artifact@v4
+        with:
+          name: sulfur
+          path: fragments-category/sulfur
+          overwrite: true
+      - uses: actions/upload-artifact@v4
+        with:
+          name: halcyon
+          path: fragments-category/halcyon
+          overwrite: true
+      - uses: actions/upload-artifact@v4
+        with:
+          name: etherstrike
+          path: fragments-category/etherstrike
+          overwrite: true
+      - uses: actions/upload-artifact@v4
+        with:
+          name: fractureray
+          path: fragments-category/fractureray
+          overwrite: true
+      - uses: actions/upload-artifact@v4
+        with:
+          name: suomi
+          path: fragments-category/suomi
+          overwrite: true
+      - uses: actions/upload-artifact@v4
+        with:
+          name: bookmaker
+          path: fragments-category/bookmaker
+          overwrite: true
+      - uses: actions/upload-artifact@v4
+        with:
+          name: darakunosono
+          path: fragments-category/darakunosono
+          overwrite: true
+      - uses: actions/upload-artifact@v4
+        with:
+          name: dropdead
+          path: fragments-category/dropdead
+          overwrite: true
+      - uses: actions/upload-artifact@v4
+        with:
+          name: fallensquare
+          path: fragments-category/fallensquare
+          overwrite: true
+      - uses: actions/upload-artifact@v4
+        with:
+          name: nhelv
+          path: fragments-category/nhelv
+          overwrite: true
+      - uses: actions/upload-artifact@v4
+        with:
+          name: espebranch
+          path: fragments-category/espebranch
+          overwrite: true
+      - uses: actions/upload-artifact@v4
+        with:
+          name: purgatorium
+          path: fragments-category/purgatorium
+          overwrite: true
+      - uses: actions/upload-artifact@v4
+        with:
+          name: hikari
+          path: fragments-category/hikari
+          overwrite: true
+      - uses: actions/upload-artifact@v4
+        with:
+          name: stager
+          path: fragments-category/stager
+          overwrite: true
+      - uses: actions/upload-artifact@v4
+        with:
+          name: hallofmirrors
+          path: fragments-category/hallofmirrors
+          overwrite: true
+      - uses: actions/upload-artifact@v4
+        with:
+          name: linearaccelerator
+          path: fragments-category/linearaccelerator
+          overwrite: true
+      - uses: actions/upload-artifact@v4
+        with:
+          name: tiferet
+          path: fragments-category/tiferet
+          overwrite: true
+      - uses: actions/upload-artifact@v4
+        with:
+          name: alexandrite
+          path: fragments-category/alexandrite
+          overwrite: true
+      - uses: actions/upload-artifact@v4
+        with:
+          name: rugie
+          path: fragments-category/rugie
+          overwrite: true
+      - uses: actions/upload-artifact@v4
+        with:
+          name: astraltale
+          path: fragments-category/astraltale
+          overwrite: true
+      - uses: actions/upload-artifact@v4
+        with:
+          name: phantasia
+          path: fragments-category/phantasia
+          overwrite: true
+      - uses: actions/upload-artifact@v4
+        with:
+          name: empireofwinter
+          path: fragments-category/empireofwinter
+          overwrite: true
+      - uses: actions/upload-artifact@v4
+        with:
+          name: merlin
+          path: fragments-category/merlin
+          overwrite: true
+      - uses: actions/upload-artifact@v4
+        with:
+          name: dxfullmetal
+          path: fragments-category/dxfullmetal
+          overwrite: true
+      - uses: actions/upload-artifact@v4
+        with:
+          name: omakeno
+          path: fragments-category/omakeno
+          overwrite: true
+      - uses: actions/upload-artifact@v4
+        with:
+          name: scarletlance
+          path: fragments-category/scarletlance
+          overwrite: true
+      - uses: actions/upload-artifact@v4
+        with:
+          name: ouroboros
+          path: fragments-category/ouroboros
+          overwrite: true
+      - uses: actions/upload-artifact@v4
+        with:
+          name: libertas
+          path: fragments-category/libertas
+          overwrite: true
+      - uses: actions/upload-artifact@v4
+        with:
+          name: solitarydream
+          path: fragments-category/solitarydream
+          overwrite: true
+      - uses: actions/upload-artifact@v4
+        with:
+          name: antithese
+          path: fragments-category/antithese
+          overwrite: true
+      - uses: actions/upload-artifact@v4
+        with:
+          name: corruption
+          path: fragments-category/corruption
+          overwrite: true
+      - uses: actions/upload-artifact@v4
+        with:
+          name: blackterritory
+          path: fragments-category/blackterritory
+          overwrite: true
+      - uses: actions/upload-artifact@v4
+        with:
+          name: viciousheroism
+          path: fragments-category/viciousheroism
+          overwrite: true
+      - uses: actions/upload-artifact@v4
+        with:
+          name: cyaegha
+          path: fragments-category/cyaegha
+          overwrite: true
+      - uses: actions/upload-artifact@v4
+        with:
+          name: revixy
+          path: fragments-category/revixy
+          overwrite: true
+      - uses: actions/upload-artifact@v4
+        with:
+          name: grimheart
+          path: fragments-category/grimheart
+          overwrite: true
+      - uses: actions/upload-artifact@v4
+        with:
+          name: vector
+          path: fragments-category/vector
+          overwrite: true
+      - uses: actions/upload-artifact@v4
+        with:
+          name: supernova
+          path: fragments-category/supernova
+          overwrite: true
+      - uses: actions/upload-artifact@v4
+        with:
+          name: dottodot
+          path: fragments-category/dottodot
+          overwrite: true
+      - uses: actions/upload-artifact@v4
+        with:
+          name: garakuta
+          path: fragments-category/garakuta
+          overwrite: true
+      - uses: actions/upload-artifact@v4
+        with:
+          name: ikazuchi
+          path: fragments-category/ikazuchi
+          overwrite: true
+      - uses: actions/upload-artifact@v4
+        with:
+          name: worldvanquisher
+          path: fragments-category/worldvanquisher
+          overwrite: true
+      - uses: actions/upload-artifact@v4
+        with:
+          name: dreadnought
+          path: fragments-category/dreadnought
+          overwrite: true
+      - uses: actions/upload-artifact@v4
+        with:
+          name: particlearts
+          path: fragments-category/particlearts
+          overwrite: true
+      - uses: actions/upload-artifact@v4
+        with:
+          name: vindication
+          path: fragments-category/vindication
+          overwrite: true
+      - uses: actions/upload-artifact@v4
+        with:
+          name: heavensdoor
+          path: fragments-category/heavensdoor
+          overwrite: true
+      - uses: actions/upload-artifact@v4
+        with:
+          name: ringedgenesis
+          path: fragments-category/ringedgenesis
+          overwrite: true
+      - uses: actions/upload-artifact@v4
+        with:
+          name: chelsea
+          path: fragments-category/chelsea
+          overwrite: true
+      - uses: actions/upload-artifact@v4
+        with:
+          name: aiueoon
+          path: fragments-category/aiueoon
+          overwrite: true
+      - uses: actions/upload-artifact@v4
+        with:
+          name: melodyoflove
+          path: fragments-category/melodyoflove
+          overwrite: true
+      - uses: actions/upload-artifact@v4
+        with:
+          name: tiemedowngently
+          path: fragments-category/tiemedowngently
+          overwrite: true
+      - uses: actions/upload-artifact@v4
+        with:
+          name: valhallazero
+          path: fragments-category/valhallazero
+          overwrite: true
+      - uses: actions/upload-artifact@v4
+        with:
+          name: mirzam
+          path: fragments-category/mirzam
+          overwrite: true
+      - uses: actions/upload-artifact@v4
+        with:
+          name: diode
+          path: fragments-category/diode
+          overwrite: true
+      - uses: actions/upload-artifact@v4
+        with:
+          name: freefall
+          path: fragments-category/freefall
+          overwrite: true
+      - uses: actions/upload-artifact@v4
+        with:
+          name: gloryroad
+          path: fragments-category/gloryroad
+          overwrite: true
+      - uses: actions/upload-artifact@v4
+        with:
+          name: monochromeprincess
+          path: fragments-category/monochromeprincess
+          overwrite: true
+      - uses: actions/upload-artifact@v4
+        with:
+          name: heavenlycaress
+          path: fragments-category/heavenlycaress
+          overwrite: true
+      - uses: actions/upload-artifact@v4
+        with:
+          name: senkyou
+          path: fragments-category/senkyou
+          overwrite: true
+      - uses: actions/upload-artifact@v4
+        with:
+          name: filament
+          path: fragments-category/filament
+          overwrite: true
+      - uses: actions/upload-artifact@v4
+        with:
+          name: avantraze
+          path: fragments-category/avantraze
+          overwrite: true
+      - uses: actions/upload-artifact@v4
+        with:
+          name: battlenoone
+          path: fragments-category/battlenoone
+          overwrite: true
+      - uses: actions/upload-artifact@v4
+        with:
+          name: laqryma
+          path: fragments-category/laqryma
+          overwrite: true
+      - uses: actions/upload-artifact@v4
+        with:
+          name: einherjar
+          path: fragments-category/einherjar
+          overwrite: true
+      - uses: actions/upload-artifact@v4
+        with:
+          name: izana
+          path: fragments-category/izana
+          overwrite: true
+      - uses: actions/upload-artifact@v4
+        with:
+          name: saikyostronger
+          path: fragments-category/saikyostronger
+          overwrite: true
+      - uses: actions/upload-artifact@v4
+        with:
+          name: worldexecuteme
+          path: fragments-category/worldexecuteme
+          overwrite: true
+      - uses: actions/upload-artifact@v4
+        with:
+          name: blrink
+          path: fragments-category/blrink
+          overwrite: true
+      - uses: actions/upload-artifact@v4
+        with:
+          name: oblivia
+          path: fragments-category/oblivia
+          overwrite: true
+      - uses: actions/upload-artifact@v4
+        with:
+          name: amygdata
+          path: fragments-category/amygdata
+          overwrite: true
+      - uses: actions/upload-artifact@v4
+        with:
+          name: corpssansorganes
+          path: fragments-category/corpssansorganes
+          overwrite: true
+      - uses: actions/upload-artifact@v4
+        with:
+          name: equilibrium
+          path: fragments-category/equilibrium
+          overwrite: true
+      - uses: actions/upload-artifact@v4
+        with:
+          name: antagonism
+          path: fragments-category/antagonism
+          overwrite: true
+      - uses: actions/upload-artifact@v4
+        with:
+          name: lostdesire
+          path: fragments-category/lostdesire
+          overwrite: true
+      - uses: actions/upload-artifact@v4
+        with:
+          name: dantalion
+          path: fragments-category/dantalion
+          overwrite: true
+      - uses: actions/upload-artifact@v4
+        with:
+          name: ifi
+          path: fragments-category/ifi
+          overwrite: true
+      - uses: actions/upload-artifact@v4
+        with:
+          name: tempestissimo
+          path: fragments-category/tempestissimo
+          overwrite: true
+      - uses: actions/upload-artifact@v4
+        with:
+          name: arcahv
+          path: fragments-category/arcahv
+          overwrite: true
+      - uses: actions/upload-artifact@v4
+        with:
+          name: altale
+          path: fragments-category/altale
+          overwrite: true
+      - uses: actions/upload-artifact@v4
+        with:
+          name: givemeanightmare
+          path: fragments-category/givemeanightmare
+          overwrite: true
+      - uses: actions/upload-artifact@v4
+        with:
+          name: blacklotus
+          path: fragments-category/blacklotus
+          overwrite: true
+      - uses: actions/upload-artifact@v4
+        with:
+          name: gekka
+          path: fragments-category/gekka
+          overwrite: true
+      - uses: actions/upload-artifact@v4
+        with:
+          name: vividtheory
+          path: fragments-category/vividtheory
+          overwrite: true
+      - uses: actions/upload-artifact@v4
+        with:
+          name: onefr
+          path: fragments-category/onefr
+          overwrite: true
+      - uses: actions/upload-artifact@v4
+        with:
+          name: scarletcage
+          path: fragments-category/scarletcage
+          overwrite: true
+      - uses: actions/upload-artifact@v4
+        with:
+          name: faintlight
+          path: fragments-category/faintlight
+          overwrite: true
+      - uses: actions/upload-artifact@v4
+        with:
+          name: feelssoright
+          path: fragments-category/feelssoright
+          overwrite: true
+      - uses: actions/upload-artifact@v4
+        with:
+          name: teriqma
+          path: fragments-category/teriqma
+          overwrite: true
+      - uses: actions/upload-artifact@v4
+        with:
+          name: mahoroba
+          path: fragments-category/mahoroba
+          overwrite: true
+      - uses: actions/upload-artifact@v4
+        with:
+          name: badtek
+          path: fragments-category/badtek
+          overwrite: true
+      - uses: actions/upload-artifact@v4
+        with:
+          name: maliciousmischance
+          path: fragments-category/maliciousmischance
+          overwrite: true
+      - uses: actions/upload-artifact@v4
+        with:
+          name: gothiveofra
+          path: fragments-category/gothiveofra
+          overwrite: true
+      - uses: actions/upload-artifact@v4
+        with:
+          name: buchigireberserker
+          path: fragments-category/buchigireberserker
+          overwrite: true
+      - uses: actions/upload-artifact@v4
+        with:
+          name: galaxyfriends
+          path: fragments-category/galaxyfriends
+          overwrite: true
+      - uses: actions/upload-artifact@v4
+        with:
+          name: crossover
+          path: fragments-category/crossover
+          overwrite: true
+      - uses: actions/upload-artifact@v4
+        with:
+          name: xeraphinite
+          path: fragments-category/xeraphinite
+          overwrite: true
+      - uses: actions/upload-artifact@v4
+        with:
+          name: lapis
+          path: fragments-category/lapis
+          overwrite: true
+      - uses: actions/upload-artifact@v4
+        with:
+          name: xanatos
+          path: fragments-category/xanatos
+          overwrite: true
+      - uses: actions/upload-artifact@v4
+        with:
+          name: purpleverse
+          path: fragments-category/purpleverse
+          overwrite: true
+      - uses: actions/upload-artifact@v4
+        with:
+          name: alicealamode
+          path: fragments-category/alicealamode
+          overwrite: true
+      - uses: actions/upload-artifact@v4
+        with:
+          name: eccentrictale
+          path: fragments-category/eccentrictale
+          overwrite: true
+      - uses: actions/upload-artifact@v4
+        with:
+          name: alicessuitcase
+          path: fragments-category/alicessuitcase
+          overwrite: true
+      - uses: actions/upload-artifact@v4
+        with:
+          name: jump
+          path: fragments-category/jump
+          overwrite: true
+      - uses: actions/upload-artifact@v4
+        with:
+          name: felis
+          path: fragments-category/felis
+          overwrite: true
+      - uses: actions/upload-artifact@v4
+        with:
+          name: besideyou
+          path: fragments-category/besideyou
+          overwrite: true
+      - uses: actions/upload-artifact@v4
+        with:
+          name: heartjackin
+          path: fragments-category/heartjackin
+          overwrite: true
+      - uses: actions/upload-artifact@v4
+        with:
+          name: toaliceliddell
+          path: fragments-category/toaliceliddell
+          overwrite: true
+      - uses: actions/upload-artifact@v4
+        with:
+          name: lazyaddiction
+          path: fragments-category/lazyaddiction
+          overwrite: true
+      - uses: actions/upload-artifact@v4
+        with:
+          name: dazzlehop
+          path: fragments-category/dazzlehop
+          overwrite: true
+      - uses: actions/upload-artifact@v4
+        with:
+          name: viyellastears
+          path: fragments-category/viyellastears
+          overwrite: true
+      - uses: actions/upload-artifact@v4
+        with:
+          name: omegafour
+          path: fragments-category/omegafour
+          overwrite: true
+      - uses: actions/upload-artifact@v4
+        with:
+          name: aprilshowers
+          path: fragments-category/aprilshowers
+          overwrite: true
+      - uses: actions/upload-artifact@v4
+        with:
+          name: seventhsense
+          path: fragments-category/seventhsense
+          overwrite: true
+      - uses: actions/upload-artifact@v4
+        with:
+          name: oshamascramble
+          path: fragments-category/oshamascramble
+          overwrite: true
+      - uses: actions/upload-artifact@v4
+        with:
+          name: amazingmightyyyy
+          path: fragments-category/amazingmightyyyy
+          overwrite: true
+      - uses: actions/upload-artifact@v4
+        with:
+          name: climax
+          path: fragments-category/climax
+          overwrite: true
+      - uses: actions/upload-artifact@v4
+        with:
+          name: lastcelebration
+          path: fragments-category/lastcelebration
+          overwrite: true
+      - uses: actions/upload-artifact@v4
+        with:
+          name: gou
+          path: fragments-category/gou
+          overwrite: true
+      - uses: actions/upload-artifact@v4
+        with:
+          name: glow
+          path: fragments-category/glow
+          overwrite: true
+      - uses: actions/upload-artifact@v4
+        with:
+          name: attraqtia
+          path: fragments-category/attraqtia
+          overwrite: true
+      - uses: actions/upload-artifact@v4
+        with:
+          name: enchantedlove
+          path: fragments-category/enchantedlove
+          overwrite: true
+      - uses: actions/upload-artifact@v4
+        with:
+          name: take
+          path: fragments-category/take
+          overwrite: true
+      - uses: actions/upload-artifact@v4
+        with:
+          name: gimmedablood
+          path: fragments-category/gimmedablood
+          overwrite: true
+      - uses: actions/upload-artifact@v4
+        with:
+          name: bassline
+          path: fragments-category/bassline
+          overwrite: true
+      - uses: actions/upload-artifact@v4
+        with:
+          name: lifeispiano
+          path: fragments-category/lifeispiano
+          overwrite: true
+      - uses: actions/upload-artifact@v4
+        with:
+          name: paperwitch
+          path: fragments-category/paperwitch
+          overwrite: true
+      - uses: actions/upload-artifact@v4
+        with:
+          name: crystalgravity
+          path: fragments-category/crystalgravity
+          overwrite: true
+      - uses: actions/upload-artifact@v4
+        with:
+          name: farawaylight
+          path: fragments-category/farawaylight
+          overwrite: true
+      - uses: actions/upload-artifact@v4
+        with:
+          name: loschen
+          path: fragments-category/loschen
+          overwrite: true
+      - uses: actions/upload-artifact@v4
+        with:
+          name: aegleseeker
+          path: fragments-category/aegleseeker
+          overwrite: true
+      - uses: actions/upload-artifact@v4
+        with:
+          name: coastalhighway
+          path: fragments-category/coastalhighway
+          overwrite: true
+      - uses: actions/upload-artifact@v4
+        with:
+          name: odysseia
+          path: fragments-category/odysseia
+          overwrite: true
+      - uses: actions/upload-artifact@v4
+        with:
+          name: overwhelm
+          path: fragments-category/overwhelm
+          overwrite: true
+      - uses: actions/upload-artifact@v4
+        with:
+          name: vandalism
+          path: fragments-category/vandalism
+          overwrite: true
+      - uses: actions/upload-artifact@v4
+        with:
+          name: turbocharger
+          path: fragments-category/turbocharger
+          overwrite: true
+      - uses: actions/upload-artifact@v4
+        with:
+          name: theultimacy
+          path: fragments-category/theultimacy
+          overwrite: true
+      - uses: actions/upload-artifact@v4
+        with:
+          name: rekkaresonance
+          path: fragments-category/rekkaresonance
+          overwrite: true
+      - uses: actions/upload-artifact@v4
+        with:
+          name: kyogenkigo
+          path: fragments-category/kyogenkigo
+          overwrite: true
+      - uses: actions/upload-artifact@v4
+        with:
+          name: hivemind
+          path: fragments-category/hivemind
+          overwrite: true
+      - uses: actions/upload-artifact@v4
+        with:
+          name: seclusion
+          path: fragments-category/seclusion
+          overwrite: true
+      - uses: actions/upload-artifact@v4
+        with:
+          name: smallcloud
+          path: fragments-category/smallcloud
+          overwrite: true
+      - uses: actions/upload-artifact@v4
+        with:
+          name: alterale
+          path: fragments-category/alterale
+          overwrite: true
+      - uses: actions/upload-artifact@v4
+        with:
+          name: divinelight
+          path: fragments-category/divinelight
+          overwrite: true
+      - uses: actions/upload-artifact@v4
+        with:
+          name: mazymetroplex
+          path: fragments-category/mazymetroplex
+          overwrite: true
+      - uses: actions/upload-artifact@v4
+        with:
+          name: quonwacca
+          path: fragments-category/quonwacca
+          overwrite: true
+      - uses: actions/upload-artifact@v4
+        with:
+          name: withu
+          path: fragments-category/withu
+          overwrite: true
+      - uses: actions/upload-artifact@v4
+        with:
+          name: genocider
+          path: fragments-category/genocider
+          overwrite: true
+      - uses: actions/upload-artifact@v4
+        with:
+          name: letyoudivermx
+          path: fragments-category/letyoudivermx
+          overwrite: true
+      - uses: actions/upload-artifact@v4
+        with:
+          name: sheriruthrmx
+          path: fragments-category/sheriruthrmx
+          overwrite: true
+      - uses: actions/upload-artifact@v4
+        with:
+          name: eveninginscarlet
+          path: fragments-category/eveninginscarlet
+          overwrite: true
+      - uses: actions/upload-artifact@v4
+        with:
+          name: bluecomet
+          path: fragments-category/bluecomet
+          overwrite: true
+      - uses: actions/upload-artifact@v4
+        with:
+          name: energysynergymatrix
+          path: fragments-category/energysynergymatrix
+          overwrite: true
+      - uses: actions/upload-artifact@v4
+        with:
+          name: gengaozo
+          path: fragments-category/gengaozo
+          overwrite: true
+      - uses: actions/upload-artifact@v4
+        with:
+          name: goldenslaughterer
+          path: fragments-category/goldenslaughterer
+          overwrite: true
+      - uses: actions/upload-artifact@v4
+        with:
+          name: lastendconductor
+          path: fragments-category/lastendconductor
+          overwrite: true
+      - uses: actions/upload-artifact@v4
+        with:
+          name: redolentshape
+          path: fragments-category/redolentshape
+          overwrite: true
+      - uses: actions/upload-artifact@v4
+        with:
+          name: cosmica
+          path: fragments-category/cosmica
+          overwrite: true
+      - uses: actions/upload-artifact@v4
+        with:
+          name: ascent
+          path: fragments-category/ascent
+          overwrite: true
+      - uses: actions/upload-artifact@v4
+        with:
+          name: livefastdieyoung
+          path: fragments-category/livefastdieyoung
+          overwrite: true
+      - uses: actions/upload-artifact@v4
+        with:
+          name: summerfireworks
+          path: fragments-category/summerfireworks
+          overwrite: true
+      - uses: actions/upload-artifact@v4
+        with:
+          name: firstsnow
+          path: fragments-category/firstsnow
+          overwrite: true
+      - uses: actions/upload-artifact@v4
+        with:
+          name: bluerose
+          path: fragments-category/bluerose
+          overwrite: true
+      - uses: actions/upload-artifact@v4
+        with:
+          name: blockedlibrary
+          path: fragments-category/blockedlibrary
+          overwrite: true
+      - uses: actions/upload-artifact@v4
+        with:
+          name: neokosmo
+          path: fragments-category/neokosmo
+          overwrite: true
+      - uses: actions/upload-artifact@v4
+        with:
+          name: lightningscrew
+          path: fragments-category/lightningscrew
+          overwrite: true
+      - uses: actions/upload-artifact@v4
+        with:
+          name: lightsofmuse
+          path: fragments-category/lightsofmuse
+          overwrite: true
+      - uses: actions/upload-artifact@v4
+        with:
+          name: finalstep
+          path: fragments-category/finalstep
+          overwrite: true
+      - uses: actions/upload-artifact@v4
+        with:
+          name: akinokagerou
+          path: fragments-category/akinokagerou
+          overwrite: true
+      - uses: actions/upload-artifact@v4
+        with:
+          name: medusa
+          path: fragments-category/medusa
+          overwrite: true
+      - uses: actions/upload-artifact@v4
+        with:
+          name: init
+          path: fragments-category/init
+          overwrite: true
+      - uses: actions/upload-artifact@v4
+        with:
+          name: internetoverdose
+          path: fragments-category/internetoverdose
+          overwrite: true
+      - uses: actions/upload-artifact@v4
+        with:
+          name: sakurafubuki
+          path: fragments-category/sakurafubuki
+          overwrite: true
+      - uses: actions/upload-artifact@v4
+        with:
+          name: nulctrl
+          path: fragments-category/nulctrl
+          overwrite: true
+      - uses: actions/upload-artifact@v4
+        with:
+          name: macromod
+          path: fragments-category/macromod
+          overwrite: true
+      - uses: actions/upload-artifact@v4
+        with:
+          name: neowings
+          path: fragments-category/neowings
+          overwrite: true
+      - uses: actions/upload-artifact@v4
+        with:
+          name: kissinglucifer
+          path: fragments-category/kissinglucifer
+          overwrite: true
+      - uses: actions/upload-artifact@v4
+        with:
+          name: avril
+          path: fragments-category/avril
+          overwrite: true
+      - uses: actions/upload-artifact@v4
+        with:
+          name: aurgelmir
+          path: fragments-category/aurgelmir
+          overwrite: true
+      - uses: actions/upload-artifact@v4
+        with:
+          name: headbonkache
+          path: fragments-category/headbonkache
+          overwrite: true
+      - uses: actions/upload-artifact@v4
+        with:
+          name: ddd
+          path: fragments-category/ddd
+          overwrite: true
+      - uses: actions/upload-artifact@v4
+        with:
+          name: prism
+          path: fragments-category/prism
+          overwrite: true
+      - uses: actions/upload-artifact@v4
+        with:
+          name: protoflicker
+          path: fragments-category/protoflicker
+          overwrite: true
+      - uses: actions/upload-artifact@v4
+        with:
+          name: stasis
+          path: fragments-category/stasis
+          overwrite: true
+      - uses: actions/upload-artifact@v4
+        with:
+          name: picopicotranslation
+          path: fragments-category/picopicotranslation
+          overwrite: true
+      - uses: actions/upload-artifact@v4
+        with:
+          name: nekonote
+          path: fragments-category/nekonote
+          overwrite: true
+      - uses: actions/upload-artifact@v4
+        with:
+          name: mu
+          path: fragments-category/mu
+          overwrite: true
+      - uses: actions/upload-artifact@v4
+        with:
+          name: sanskia
+          path: fragments-category/sanskia
+          overwrite: true
+      - uses: actions/upload-artifact@v4
+        with:
+          name: altair
+          path: fragments-category/altair
+          overwrite: true
+      - uses: actions/upload-artifact@v4
+        with:
+          name: mukishitsu
+          path: fragments-category/mukishitsu
+          overwrite: true
+      - uses: actions/upload-artifact@v4
+        with:
+          name: trapcrow
+          path: fragments-category/trapcrow
+          overwrite: true
+      - uses: actions/upload-artifact@v4
+        with:
+          name: pupa
+          path: fragments-category/pupa
+          overwrite: true
+      - uses: actions/upload-artifact@v4
+        with:
+          name: defection
+          path: fragments-category/defection
+          overwrite: true
+      - uses: actions/upload-artifact@v4
+        with:
+          name: infinitestrife
+          path: fragments-category/infinitestrife
+          overwrite: true
+      - uses: actions/upload-artifact@v4
+        with:
+          name: worldender
+          path: fragments-category/worldender
+          overwrite: true
+      - uses: actions/upload-artifact@v4
+        with:
+          name: pentiment
+          path: fragments-category/pentiment
+          overwrite: true
+      - uses: actions/upload-artifact@v4
+        with:
+          name: arcanaeden
+          path: fragments-category/arcanaeden
+          overwrite: true
+      - uses: actions/upload-artifact@v4
+        with:
+          name: testify
+          path: fragments-category/testify
+          overwrite: true
+      - uses: actions/upload-artifact@v4
+        with:
+          name: lovelessdress
+          path: fragments-category/lovelessdress
+          overwrite: true
+      - uses: actions/upload-artifact@v4
+        with:
+          name: last
+          path: fragments-category/last
+          overwrite: true
+      - uses: actions/upload-artifact@v4
+        with:
+          name: lasteternity
+          path: fragments-category/lasteternity
+          overwrite: true
+      - uses: actions/upload-artifact@v4
+        with:
+          name: callimakarma
+          path: fragments-category/callimakarma
+          overwrite: true
+      - uses: actions/upload-artifact@v4
+        with:
+          name: kokoro
+          path: fragments-category/kokoro
+          overwrite: true
+      - uses: actions/upload-artifact@v4
+        with:
+          name: aidrew
+          path: fragments-category/aidrew
+          overwrite: true
+      - uses: actions/upload-artifact@v4
+        with:
+          name: fluffyflash
+          path: fragments-category/fluffyflash
+          overwrite: true
+      - uses: actions/upload-artifact@v4
+        with:
+          name: goodbyemerry
+          path: fragments-category/goodbyemerry
+          overwrite: true
+      - uses: actions/upload-artifact@v4
+        with:
+          name: lamia
+          path: fragments-category/lamia
+          overwrite: true
+      - uses: actions/upload-artifact@v4
+        with:
+          name: freemyself
+          path: fragments-category/freemyself
+          overwrite: true
+      - uses: actions/upload-artifact@v4
+        with:
+          name: cocorocosmetic
+          path: fragments-category/cocorocosmetic
+          overwrite: true
+      - uses: actions/upload-artifact@v4
+        with:
+          name: capella
+          path: fragments-category/capella
+          overwrite: true
+      - uses: actions/upload-artifact@v4
+        with:
+          name: dialnote
+          path: fragments-category/dialnote
+          overwrite: true
+      - uses: actions/upload-artifact@v4
+        with:
+          name: tsukinimurakumo
+          path: fragments-category/tsukinimurakumo
+          overwrite: true
+      - uses: actions/upload-artifact@v4
+        with:
+          name: mantis
+          path: fragments-category/mantis
+          overwrite: true
+      - uses: actions/upload-artifact@v4
+        with:
+          name: worldfragments
+          path: fragments-category/worldfragments
+          overwrite: true
+      - uses: actions/upload-artifact@v4
+        with:
+          name: astrawalkthrough
+          path: fragments-category/astrawalkthrough
+          overwrite: true
+      - uses: actions/upload-artifact@v4
+        with:
+          name: chronicle
+          path: fragments-category/chronicle
+          overwrite: true
+      - uses: actions/upload-artifact@v4
+        with:
+          name: nullapophenia
+          path: fragments-category/nullapophenia
+          overwrite: true
+      - uses: actions/upload-artifact@v4
+        with:
+          name: crimsonthrone
+          path: fragments-category/crimsonthrone
+          overwrite: true
+      - uses: actions/upload-artifact@v4
+        with:
+          name: manicjeer
+          path: fragments-category/manicjeer
+          overwrite: true
+      - uses: actions/upload-artifact@v4
+        with:
+          name: hiirogekka
+          path: fragments-category/hiirogekka
+          overwrite: true
+      - uses: actions/upload-artifact@v4
+        with:
+          name: letsrock
+          path: fragments-category/letsrock
+          overwrite: true
+      - uses: actions/upload-artifact@v4
+        with:
+          name: cycles
+          path: fragments-category/cycles
+          overwrite: true
+      - uses: actions/upload-artifact@v4
+        with:
+          name: maxrage
+          path: fragments-category/maxrage
+          overwrite: true
+      - uses: actions/upload-artifact@v4
+        with:
+          name: infinity
+          path: fragments-category/infinity
+          overwrite: true
+      - uses: actions/upload-artifact@v4
+        with:
+          name: temptation
+          path: fragments-category/temptation
+          overwrite: true
+      - uses: actions/upload-artifact@v4
+        with:
+          name: primitivelights
+          path: fragments-category/primitivelights
+          overwrite: true
+      - uses: actions/upload-artifact@v4
+        with:
+          name: cosmopop
+          path: fragments-category/cosmopop
+          overwrite: true
+      - uses: actions/upload-artifact@v4
+        with:
+          name: impact
+          path: fragments-category/impact
+          overwrite: true
+      - uses: actions/upload-artifact@v4
+        with:
+          name: genesischunithm
+          path: fragments-category/genesischunithm
+          overwrite: true
+      - uses: actions/upload-artifact@v4
+        with:
+          name: trrricksters
+          path: fragments-category/trrricksters
+          overwrite: true
+      - uses: actions/upload-artifact@v4
+        with:
+          name: spidersthread
+          path: fragments-category/spidersthread
+          overwrite: true
+      - uses: actions/upload-artifact@v4
+        with:
+          name: lostemotion
+          path: fragments-category/lostemotion
+          overwrite: true
+      - uses: actions/upload-artifact@v4
+        with:
+          name: gimmick
+          path: fragments-category/gimmick
+          overwrite: true
+      - uses: actions/upload-artifact@v4
+        with:
+          name: thesurvivor
+          path: fragments-category/thesurvivor
+          overwrite: true
+      - uses: actions/upload-artifact@v4
+        with:
+          name: newyorkbackraise
+          path: fragments-category/newyorkbackraise
+          overwrite: true
+      - uses: actions/upload-artifact@v4
+        with:
+          name: galacticlove
+          path: fragments-category/galacticlove
+          overwrite: true
+      - uses: actions/upload-artifact@v4
+        with:
+          name: lawlesspoint
+          path: fragments-category/lawlesspoint
+          overwrite: true
+      - uses: actions/upload-artifact@v4
+        with:
+          name: lostintheabyss
+          path: fragments-category/lostintheabyss
+          overwrite: true
+      - uses: actions/upload-artifact@v4
+        with:
+          name: hybris
+          path: fragments-category/hybris
+          overwrite: true
+      - uses: actions/upload-artifact@v4
+        with:
+          name: tothemilkyway
+          path: fragments-category/tothemilkyway
+          overwrite: true
+      - uses: actions/upload-artifact@v4
+        with:
+          name: internetyamero
+          path: fragments-category/internetyamero
+          overwrite: true
+      - uses: actions/upload-artifact@v4
+        with:
+          name: bulletwaiting
+          path: fragments-category/bulletwaiting
+          overwrite: true
+      - uses: actions/upload-artifact@v4
+        with:
+          name: devillicsphere
+          path: fragments-category/devillicsphere
+          overwrite: true
+      - uses: actions/upload-artifact@v4
+        with:
+          name: lucidtraveler
+          path: fragments-category/lucidtraveler
+          overwrite: true
+      - uses: actions/upload-artifact@v4
+        with:
+          name: chaos
+          path: fragments-category/chaos
+          overwrite: true
+      - uses: actions/upload-artifact@v4
+        with:
+          name: usedtobe
+          path: fragments-category/usedtobe
+          overwrite: true
+      - uses: actions/upload-artifact@v4
+        with:
+          name: ultimatetaste
+          path: fragments-category/ultimatetaste
+          overwrite: true
+      - uses: actions/upload-artifact@v4
+        with:
+          name: syuten
+          path: fragments-category/syuten
+          overwrite: true
+      - uses: actions/upload-artifact@v4
+        with:
+          name: drg
+          path: fragments-category/drg
+          overwrite: true
+      - uses: actions/upload-artifact@v4
+        with:
+          name: nnglooms
+          path: fragments-category/nnglooms
+          overwrite: true
+      - uses: actions/upload-artifact@v4
+        with:
+          name: ii
+          path: fragments-category/ii
+          overwrite: true
+      - uses: actions/upload-artifact@v4
+        with:
+          name: magnolia
+          path: fragments-category/magnolia
+          overwrite: true
+      - uses: actions/upload-artifact@v4
+        with:
+          name: sacrifice
+          path: fragments-category/sacrifice
+          overwrite: true
+      - uses: actions/upload-artifact@v4
+        with:
+          name: rgb
+          path: fragments-category/rgb
+          overwrite: true
+      - uses: actions/upload-artifact@v4
+        with:
+          name: waitfordawn
+          path: fragments-category/waitfordawn
+          overwrite: true
+      - uses: actions/upload-artifact@v4
+        with:
+          name: ravenspride
+          path: fragments-category/ravenspride
+          overwrite: true
+      - uses: actions/upload-artifact@v4
+        with:
+          name: riseoftheworld
+          path: fragments-category/riseoftheworld
+          overwrite: true
+      - uses: actions/upload-artifact@v4
+        with:
+          name: unknownlevels
+          path: fragments-category/unknownlevels
+          overwrite: true
+      - uses: actions/upload-artifact@v4
+        with:
+          name: abstrusedilemma
+          path: fragments-category/abstrusedilemma
+          overwrite: true
+      - uses: actions/upload-artifact@v4
+        with:
+          name: matenrou
+          path: fragments-category/matenrou
+          overwrite: true
+      - uses: actions/upload-artifact@v4
+        with:
+          name: tothefurthestdream
+          path: fragments-category/tothefurthestdream
+          overwrite: true
+      - uses: actions/upload-artifact@v4
+        with:
+          name: remindthesouls
+          path: fragments-category/remindthesouls
+          overwrite: true
+      - uses: actions/upload-artifact@v4
+        with:
+          name: dynitikos
+          path: fragments-category/dynitikos
+          overwrite: true
+      - uses: actions/upload-artifact@v4
+        with:
+          name: amekagura
+          path: fragments-category/amekagura
+          overwrite: true
+      - uses: actions/upload-artifact@v4
+        with:
+          name: bbkkbkk
+          path: fragments-category/bbkkbkk
+          overwrite: true
+      - uses: actions/upload-artifact@v4
+        with:
+          name: primevaltexture
+          path: fragments-category/primevaltexture
+          overwrite: true
+      - uses: actions/upload-artifact@v4
+        with:
+          name: technicolour
+          path: fragments-category/technicolour
+          overwrite: true
+      - uses: actions/upload-artifact@v4
+        with:
+          name: logos
+          path: fragments-category/logos
+          overwrite: true
+      - uses: actions/upload-artifact@v4
+        with:
+          name: egoeimi
+          path: fragments-category/egoeimi
+          overwrite: true
+      - uses: actions/upload-artifact@v4
+        with:
+          name: arghena
+          path: fragments-category/arghena
+          overwrite: true
+      - uses: actions/upload-artifact@v4
+        with:
+          name: fantasy
+          path: fragments-category/fantasy
+          overwrite: true
+      - uses: actions/upload-artifact@v4
+        with:
+          name: transientspace
+          path: fragments-category/transientspace
+          overwrite: true
+      - uses: actions/upload-artifact@v4
+        with:
+          name: namelesspassion
+          path: fragments-category/namelesspassion
+          overwrite: true
+      - uses: actions/upload-artifact@v4
+        with:
+          name: teravolt
+          path: fragments-category/teravolt
+          overwrite: true
+      - uses: actions/upload-artifact@v4
+        with:
+          name: stratoliner
+          path: fragments-category/stratoliner
+          overwrite: true
+      - uses: actions/upload-artifact@v4
+        with:
+          name: ouverture
+          path: fragments-category/ouverture
+          overwrite: true
+      - uses: actions/upload-artifact@v4
+        with:
+          name: xtreme
+          path: fragments-category/xtreme
+          overwrite: true
+      - uses: actions/upload-artifact@v4
+        with:
+          name: edenwacca
+          path: fragments-category/edenwacca
+          overwrite: true
+      - uses: actions/upload-artifact@v4
+        with:
+          name: metamysteria
+          path: fragments-category/metamysteria
+          overwrite: true
+      - uses: actions/upload-artifact@v4
+        with:
+          name: aloneandlorn
+          path: fragments-category/aloneandlorn
+          overwrite: true
+      - uses: actions/upload-artifact@v4
+        with:
+          name: wishuponasnow
+          path: fragments-category/wishuponasnow
+          overwrite: true
+      - uses: actions/upload-artifact@v4
+        with:
+          name: overdrive
+          path: fragments-category/overdrive
+          overwrite: true
+      - uses: actions/upload-artifact@v4
+        with:
+          name: felys
+          path: fragments-category/felys
+          overwrite: true
+      - uses: actions/upload-artifact@v4
+        with:
+          name: onandon
+          path: fragments-category/onandon
+          overwrite: true
+      - uses: actions/upload-artifact@v4
+        with:
+          name: lightmyway
+          path: fragments-category/lightmyway
+          overwrite: true
+      - uses: actions/upload-artifact@v4
+        with:
+          name: hotarubinoyuki
+          path: fragments-category/hotarubinoyuki
+          overwrite: true
+      - uses: actions/upload-artifact@v4
+        with:
+          name: theformula
+          path: fragments-category/theformula
+          overwrite: true
+      - uses: actions/upload-artifact@v4
+        with:
+          name: lunarossa
+          path: fragments-category/lunarossa
+          overwrite: true
+      - uses: actions/upload-artifact@v4
+        with:
+          name: jingle
+          path: fragments-category/jingle
+          overwrite: true
+      - uses: actions/upload-artifact@v4
+        with:
+          name: innocence
+          path: fragments-category/innocence
+          overwrite: true
+      - uses: actions/upload-artifact@v4
+        with:
+          name: ionostream
+          path: fragments-category/ionostream
+          overwrite: true
+      - uses: actions/upload-artifact@v4
+        with:
+          name: alephzero
+          path: fragments-category/alephzero
+          overwrite: true
+      - uses: actions/upload-artifact@v4
+        with:
+          name: masqueradelegion
+          path: fragments-category/masqueradelegion
+          overwrite: true
+      - uses: actions/upload-artifact@v4
+        with:
+          name: kyorenromance
+          path: fragments-category/kyorenromance
+          overwrite: true
+      - uses: actions/upload-artifact@v4
+        with:
+          name: qovat
+          path: fragments-category/qovat
+          overwrite: true
+      - uses: actions/upload-artifact@v4
+        with:
+          name: hellohell
+          path: fragments-category/hellohell
+          overwrite: true
+      - uses: actions/upload-artifact@v4
+        with:
+          name: ichirin
+          path: fragments-category/ichirin
+          overwrite: true
+      - uses: actions/upload-artifact@v4
+        with:
+          name: awakeninruins
+          path: fragments-category/awakeninruins
+          overwrite: true
+      - uses: actions/upload-artifact@v4
+        with:
+          name: morningloom
+          path: fragments-category/morningloom
+          overwrite: true
+      - uses: actions/upload-artifact@v4
+        with:
+          name: lethalvoltage
+          path: fragments-category/lethalvoltage
+          overwrite: true
+      - uses: actions/upload-artifact@v4
+        with:
+          name: mirinae
+          path: fragments-category/mirinae
+          overwrite: true
+      - uses: actions/upload-artifact@v4
+        with:
+          name: ultradiaxon
+          path: fragments-category/ultradiaxon
+          overwrite: true
+      - uses: actions/upload-artifact@v4
+        with:
+          name: leaveallbehind
+          path: fragments-category/leaveallbehind
+          overwrite: true
+      - uses: actions/upload-artifact@v4
+        with:
+          name: distortedfate
+          path: fragments-category/distortedfate
+          overwrite: true
+      - uses: actions/upload-artifact@v4
+        with:
+          name: floatingworld
+          path: fragments-category/floatingworld
+          overwrite: true
+      - uses: actions/upload-artifact@v4
+        with:
+          name: chromafill
+          path: fragments-category/chromafill
+          overwrite: true
+      - uses: actions/upload-artifact@v4
+        with:
+          name: desive
+          path: fragments-category/desive
+          overwrite: true
+      - uses: actions/upload-artifact@v4
+        with:
+          name: epicurus
+          path: fragments-category/epicurus
+          overwrite: true
+      - uses: actions/upload-artifact@v4
+        with:
+          name: tasogare
+          path: fragments-category/tasogare
+          overwrite: true
+      - uses: actions/upload-artifact@v4
+        with:
+          name: oldschoolsalvage
+          path: fragments-category/oldschoolsalvage
+          overwrite: true
+      - uses: actions/upload-artifact@v4
+        with:
+          name: beautifuldreamer
+          path: fragments-category/beautifuldreamer
+          overwrite: true
+      - uses: actions/upload-artifact@v4
+        with:
+          name: backtobasics
+          path: fragments-category/backtobasics
+          overwrite: true
+      - uses: actions/upload-artifact@v4
+        with:
+          name: stargateextreme
+          path: fragments-category/stargateextreme
+          overwrite: true
+      - uses: actions/upload-artifact@v4
+        with:
+          name: signof
+          path: fragments-category/signof
+          overwrite: true
+      - uses: actions/upload-artifact@v4
+        with:
+          name: temptationgc
+          path: fragments-category/temptationgc
+          overwrite: true
+      - uses: actions/upload-artifact@v4
+        with:
+          name: blackmind
+          path: fragments-category/blackmind
+          overwrite: true
+      - uses: actions/upload-artifact@v4
+        with:
+          name: hypervision
+          path: fragments-category/hypervision
+          overwrite: true
+      - uses: actions/upload-artifact@v4
+        with:
+          name: distortionhuman
+          path: fragments-category/distortionhuman
+          overwrite: true
+      - uses: actions/upload-artifact@v4
+        with:
+          name: shrink
+          path: fragments-category/shrink
+          overwrite: true
+      - uses: actions/upload-artifact@v4
+        with:
+          name: invain
+          path: fragments-category/invain
+          overwrite: true
+      - uses: actions/upload-artifact@v4
+        with:
+          name: hypnotize
+          path: fragments-category/hypnotize
+          overwrite: true
+      - uses: actions/upload-artifact@v4
+        with:
+          name: ashenboundary
+          path: fragments-category/ashenboundary
+          overwrite: true
+      - uses: actions/upload-artifact@v4
+        with:
+          name: judgement
+          path: fragments-category/judgement
+          overwrite: true
+      - uses: actions/upload-artifact@v4
+        with:
+          name: alterego
+          path: fragments-category/alterego
+          overwrite: true
+      - uses: actions/upload-artifact@v4
+        with:
+          name: epitaxy
+          path: fragments-category/epitaxy
+          overwrite: true
+      - uses: actions/upload-artifact@v4
+        with:
+          name: waltzforlorelei
+          path: fragments-category/waltzforlorelei
+          overwrite: true
+      - uses: actions/upload-artifact@v4
+        with:
+          name: dualdoom
+          path: fragments-category/dualdoom
+          overwrite: true
+      - uses: actions/upload-artifact@v4
+        with:
+          name: invertedworld
+          path: fragments-category/invertedworld
+          overwrite: true
+      - uses: actions/upload-artifact@v4
+        with:
+          name: mvurbd
+          path: fragments-category/mvurbd
+          overwrite: true
+      - uses: actions/upload-artifact@v4
+        with:
+          name: vulcanus
+          path: fragments-category/vulcanus
+          overwrite: true
+      - uses: actions/upload-artifact@v4
+        with:
+          name: rainofconflict
+          path: fragments-category/rainofconflict
+          overwrite: true
+      - uses: actions/upload-artifact@v4
+        with:
+          name: saintorsinner
+          path: fragments-category/saintorsinner
+          overwrite: true
+      - uses: actions/upload-artifact@v4
+        with:
+          name: hailstone
+          path: fragments-category/hailstone
+          overwrite: true
+      - uses: actions/upload-artifact@v4
+        with:
+          name: furetemitai
+          path: fragments-category/furetemitai
+          overwrite: true
+      - uses: actions/upload-artifact@v4
+        with:
+          name: gensounosatellite
+          path: fragments-category/gensounosatellite
+          overwrite: true
+      - uses: actions/upload-artifact@v4
+        with:
+          name: prayer
+          path: fragments-category/prayer
+          overwrite: true
+      - uses: actions/upload-artifact@v4
+        with:
+          name: crimsonquartz
+          path: fragments-category/crimsonquartz
+          overwrite: true
+      - uses: actions/upload-artifact@v4
+        with:
+          name: thirdsun
+          path: fragments-category/thirdsun
+          overwrite: true
+      - uses: actions/upload-artifact@v4
+        with:
+          name: spiritdauntless
+          path: fragments-category/spiritdauntless
+          overwrite: true
+      - uses: actions/upload-artifact@v4
+        with:
+          name: diesirae
+          path: fragments-category/diesirae
+          overwrite: true
+      - uses: actions/upload-artifact@v4
+        with:
+          name: astralexe
+          path: fragments-category/astralexe
+          overwrite: true
+      - uses: actions/upload-artifact@v4
+        with:
+          name: liftoff
+          path: fragments-category/liftoff
+          overwrite: true
+      - uses: actions/upload-artifact@v4
+        with:
+          name: superambulance
+          path: fragments-category/superambulance
+          overwrite: true
+      - uses: actions/upload-artifact@v4
+        with:
+          name: dontfightmusic
+          path: fragments-category/dontfightmusic
+          overwrite: true
+      - uses: actions/upload-artifact@v4
+        with:
+          name: andrevivemelody
+          path: fragments-category/andrevivemelody
+          overwrite: true
+      - uses: actions/upload-artifact@v4
+        with:
+          name: swansong
+          path: fragments-category/swansong
+          overwrite: true
+      - uses: actions/upload-artifact@v4
+        with:
+          name: renegade
+          path: fragments-category/renegade
+          overwrite: true
+      - uses: actions/upload-artifact@v4
+        with:
+          name: raysofremnant
+          path: fragments-category/raysofremnant
+          overwrite: true
+      - uses: actions/upload-artifact@v4
+        with:
+          name: breachoffaith
+          path: fragments-category/breachoffaith
+          overwrite: true
+      - uses: actions/upload-artifact@v4
+        with:
+          name: lamentrain
+          path: fragments-category/lamentrain
+          overwrite: true
+      - uses: actions/upload-artifact@v4
+        with:
+          name: designant
+          path: fragments-category/designant
+          overwrite: true
+      - uses: actions/upload-artifact@v4
+        with:
+          name: astralquant
+          path: fragments-category/astralquant
+          overwrite: true
+      - uses: actions/upload-artifact@v4
+        with:
+          name: ignition
+          path: fragments-category/ignition
+          overwrite: true
+      - uses: actions/upload-artifact@v4
+        with:
+          name: blazingair
+          path: fragments-category/blazingair
+          overwrite: true
+      - uses: actions/upload-artifact@v4
+        with:
+          name: eightem
+          path: fragments-category/eightem
+          overwrite: true
+      - uses: actions/upload-artifact@v4
+        with:
+          name: daat
+          path: fragments-category/daat
+          overwrite: true
+      - uses: actions/upload-artifact@v4
+        with:
+          name: breakbreak
+          path: fragments-category/breakbreak
+          overwrite: true
+      - uses: actions/upload-artifact@v4
+        with:
+          name: straightintolights
+          path: fragments-category/straightintolights
+          overwrite: true
+      - uses: actions/upload-artifact@v4
+        with:
+          name: virtus
+          path: fragments-category/virtus
+          overwrite: true
+      - uses: actions/upload-artifact@v4
+        with:
+          name: yomibitoshirazu
+          path: fragments-category/yomibitoshirazu
+          overwrite: true
+      - uses: actions/upload-artifact@v4
+        with:
+          name: aethercrest
+          path: fragments-category/aethercrest
+          overwrite: true
+      - uses: actions/upload-artifact@v4
+        with:
+          name: heartache
+          path: fragments-category/heartache
+          overwrite: true
+      - uses: actions/upload-artifact@v4
+        with:
+          name: deathbyglamour
+          path: fragments-category/deathbyglamour
+          overwrite: true
+      - uses: actions/upload-artifact@v4
+        with:
+          name: yourbestnightmare
+          path: fragments-category/yourbestnightmare
+          overwrite: true
+      - uses: actions/upload-artifact@v4
+        with:
+          name: lastgoodbye
+          path: fragments-category/lastgoodbye
+          overwrite: true
+      - uses: actions/upload-artifact@v4
+        with:
+          name: megalovania
+          path: fragments-category/megalovania
+          overwrite: true
+      - uses: actions/upload-artifact@v4
+        with:
+          name: megalovaniarmx
+          path: fragments-category/megalovaniarmx
+          overwrite: true
+      - uses: actions/upload-artifact@v4
+        with:
+          name: placebobattler
+          path: fragments-category/placebobattler
+          overwrite: true

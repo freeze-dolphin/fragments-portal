@@ -1,0 +1,28 @@
+name: update
+
+on:
+  workflow_dispatch:
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/checkout@v4
+        with: 
+          repository: freeze-dolphin/fragments-category
+          ref: master
+          token: ${{ secrets.CATEGORY_TOKEN }}
+
+      - run: python scripts/update.py
+      - uses: stefanzweifel/git-auto-commit-action@v5
+        with:
+          commit_message: "update.py triggered"
+      
+      - uses: benc-uk/workflow-dispatch@v1
+        with:
+          workflow: packer.yml
