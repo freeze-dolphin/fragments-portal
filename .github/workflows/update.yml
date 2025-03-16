@@ -23,6 +23,7 @@ jobs:
           token: ${{ secrets.CATEGORY_TOKEN }}
 
       - run: python scripts/update.py
+      - run: cd fragments-category && python scripts/gen_songdoc.py && mv songdoc.html ../index.html
 
       - uses: stefanzweifel/git-auto-commit-action@v5
         with:
