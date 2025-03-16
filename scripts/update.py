@@ -44,7 +44,9 @@ if __name__ == "__main__":
         songlist = json.loads(songlist_f.read())["songs"]
 
     for song_info in songlist:
-        PACKER_ACTION_CONTENT += song(song_info["id"])
+        song_id = song_info["id"]
+        PACKER_ACTION_CONTENT += song(song_id)
+        print(f"- {song_id}")
 
     with open(".github/workflows/packer.yml", "w") as packer_f:
         packer_f.write(PACKER_ACTION_CONTENT)
