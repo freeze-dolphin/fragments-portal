@@ -68,8 +68,8 @@ def song_arcpkg(song_id: str) -> str:
     return f"""
       - uses: actions/upload-artifact@v4
         with:
-          name: lowiro.{song_id}.arcpkg
-          path: fragments-category/{song_id}.arcpkg
+          name: {song_id}
+          path: fragments-category/lowiro.{song_id}.arcpkg
           overwrite: true"""
 
 
