@@ -92,7 +92,7 @@ if __name__ == "__main__":
         PACKER_ACTION_CONTENT += song(song_id)
         PACKER_ARCPKG_ACTION_CONTENT += song_arcpkg(song_id)
         os.system(
-            f"scripts\\{etoile_version}\\bin\\EtoileResurrection.bat pack fragments-category\\songs --songId={song_id} --prefix=lowiro -o ."
+            f"scripts/{etoile_version}/bin/EtoileResurrection pack fragments-category/songs --songId={song_id} --prefix=lowiro -o ."
         )
         print(f"- {song_id}")
 
