@@ -36,3 +36,7 @@ jobs:
       - uses: benc-uk/workflow-dispatch@v1
         with:
           workflow: packer.yml
+      
+      - uses: benc-uk/workflow-dispatch@v1
+        with:
+          workflow: packer_arcpkg.yml
