@@ -78,9 +78,10 @@ if __name__ == "__main__":
         songlist = json.loads(songlist_f.read())["songs"]
 
     for song_info in songlist:
-        song_id = song_info["id"]
+        if "deleted" in song_info and song_info["deleted"]:
+            continue
 
-        song_info["difficulties"]
+        song_id = song_info["id"]
 
         PACKER_ACTION_CONTENT += song(song_id)
         PACKER_ARCPKG_ACTION_CONTENT += song_arcpkg(song_id)

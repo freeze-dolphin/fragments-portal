@@ -20,8 +20,10 @@ if __name__ == "__main__":
         zip_ref.extractall("scripts/")
 
     for song_info in songlist:
+        if "deleted" in song_info and song_info["deleted"]:
+            continue
+
         song_id = song_info["id"]
-        song_info["difficulties"]
 
         os.system(
             f"scripts/{etoile_version}/bin/EtoileResurrection pack fragments-category/songs --songId={song_id} --prefix=lowiro -o ."
