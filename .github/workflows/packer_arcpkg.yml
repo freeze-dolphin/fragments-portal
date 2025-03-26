@@ -15,3 +15,2260 @@ jobs:
           path: fragments-category
           ref: master
           token: ${{ secrets.CATEGORY_TOKEN }}
+          
+      - uses: actions/setup-java@v4
+        with:
+          distribution: 'temurin'
+          java-version: '17'
+          
+      - run: python scripts/generate_arcpkgs.py
+      - uses: actions/upload-artifact@v4
+        with:
+          name: lowiro.sayonarahatsukoi.arcpkg
+          path: fragments-category/sayonarahatsukoi.arcpkg
+          overwrite: true
+      - uses: actions/upload-artifact@v4
+        with:
+          name: lowiro.lostcivilization.arcpkg
+          path: fragments-category/lostcivilization.arcpkg
+          overwrite: true
+      - uses: actions/upload-artifact@v4
+        with:
+          name: lowiro.goodtek.arcpkg
+          path: fragments-category/goodtek.arcpkg
+          overwrite: true
+      - uses: actions/upload-artifact@v4
+        with:
+          name: lowiro.viyella.arcpkg
+          path: fragments-category/viyella.arcpkg
+          overwrite: true
+      - uses: actions/upload-artifact@v4
+        with:
+          name: lowiro.rise.arcpkg
+          path: fragments-category/rise.arcpkg
+          overwrite: true
+      - uses: actions/upload-artifact@v4
+        with:
+          name: lowiro.lucifer.arcpkg
+          path: fragments-category/lucifer.arcpkg
+          overwrite: true
+      - uses: actions/upload-artifact@v4
+        with:
+          name: lowiro.fairytale.arcpkg
+          path: fragments-category/fairytale.arcpkg
+          overwrite: true
+      - uses: actions/upload-artifact@v4
+        with:
+          name: lowiro.hearditsaid.arcpkg
+          path: fragments-category/hearditsaid.arcpkg
+          overwrite: true
+      - uses: actions/upload-artifact@v4
+        with:
+          name: lowiro.babaroque.arcpkg
+          path: fragments-category/babaroque.arcpkg
+          overwrite: true
+      - uses: actions/upload-artifact@v4
+        with:
+          name: lowiro.memoryfactory.arcpkg
+          path: fragments-category/memoryfactory.arcpkg
+          overwrite: true
+      - uses: actions/upload-artifact@v4
+        with:
+          name: lowiro.snowwhite.arcpkg
+          path: fragments-category/snowwhite.arcpkg
+          overwrite: true
+      - uses: actions/upload-artifact@v4
+        with:
+          name: lowiro.relentless.arcpkg
+          path: fragments-category/relentless.arcpkg
+          overwrite: true
+      - uses: actions/upload-artifact@v4
+        with:
+          name: lowiro.shadesoflight.arcpkg
+          path: fragments-category/shadesoflight.arcpkg
+          overwrite: true
+      - uses: actions/upload-artifact@v4
+        with:
+          name: lowiro.vexaria.arcpkg
+          path: fragments-category/vexaria.arcpkg
+          overwrite: true
+      - uses: actions/upload-artifact@v4
+        with:
+          name: lowiro.essenceoftwilight.arcpkg
+          path: fragments-category/essenceoftwilight.arcpkg
+          overwrite: true
+      - uses: actions/upload-artifact@v4
+        with:
+          name: lowiro.qualia.arcpkg
+          path: fragments-category/qualia.arcpkg
+          overwrite: true
+      - uses: actions/upload-artifact@v4
+        with:
+          name: lowiro.pragmatism.arcpkg
+          path: fragments-category/pragmatism.arcpkg
+          overwrite: true
+      - uses: actions/upload-artifact@v4
+        with:
+          name: lowiro.sheriruth.arcpkg
+          path: fragments-category/sheriruth.arcpkg
+          overwrite: true
+      - uses: actions/upload-artifact@v4
+        with:
+          name: lowiro.lumia.arcpkg
+          path: fragments-category/lumia.arcpkg
+          overwrite: true
+      - uses: actions/upload-artifact@v4
+        with:
+          name: lowiro.dement.arcpkg
+          path: fragments-category/dement.arcpkg
+          overwrite: true
+      - uses: actions/upload-artifact@v4
+        with:
+          name: lowiro.dandelion.arcpkg
+          path: fragments-category/dandelion.arcpkg
+          overwrite: true
+      - uses: actions/upload-artifact@v4
+        with:
+          name: lowiro.anokumene.arcpkg
+          path: fragments-category/anokumene.arcpkg
+          overwrite: true
+      - uses: actions/upload-artifact@v4
+        with:
+          name: lowiro.infinityheaven.arcpkg
+          path: fragments-category/infinityheaven.arcpkg
+          overwrite: true
+      - uses: actions/upload-artifact@v4
+        with:
+          name: lowiro.partyvinyl.arcpkg
+          path: fragments-category/partyvinyl.arcpkg
+          overwrite: true
+      - uses: actions/upload-artifact@v4
+        with:
+          name: lowiro.flashback.arcpkg
+          path: fragments-category/flashback.arcpkg
+          overwrite: true
+      - uses: actions/upload-artifact@v4
+        with:
+          name: lowiro.flyburg.arcpkg
+          path: fragments-category/flyburg.arcpkg
+          overwrite: true
+      - uses: actions/upload-artifact@v4
+        with:
+          name: lowiro.nirvluce.arcpkg
+          path: fragments-category/nirvluce.arcpkg
+          overwrite: true
+      - uses: actions/upload-artifact@v4
+        with:
+          name: lowiro.paradise.arcpkg
+          path: fragments-category/paradise.arcpkg
+          overwrite: true
+      - uses: actions/upload-artifact@v4
+        with:
+          name: lowiro.brandnewworld.arcpkg
+          path: fragments-category/brandnewworld.arcpkg
+          overwrite: true
+      - uses: actions/upload-artifact@v4
+        with:
+          name: lowiro.dataerror.arcpkg
+          path: fragments-category/dataerror.arcpkg
+          overwrite: true
+      - uses: actions/upload-artifact@v4
+        with:
+          name: lowiro.crosssoul.arcpkg
+          path: fragments-category/crosssoul.arcpkg
+          overwrite: true
+      - uses: actions/upload-artifact@v4
+        with:
+          name: lowiro.yourvoiceso.arcpkg
+          path: fragments-category/yourvoiceso.arcpkg
+          overwrite: true
+      - uses: actions/upload-artifact@v4
+        with:
+          name: lowiro.chronostasis.arcpkg
+          path: fragments-category/chronostasis.arcpkg
+          overwrite: true
+      - uses: actions/upload-artifact@v4
+        with:
+          name: lowiro.kanagawa.arcpkg
+          path: fragments-category/kanagawa.arcpkg
+          overwrite: true
+      - uses: actions/upload-artifact@v4
+        with:
+          name: lowiro.moonlightofsandcastle.arcpkg
+          path: fragments-category/moonlightofsandcastle.arcpkg
+          overwrite: true
+      - uses: actions/upload-artifact@v4
+        with:
+          name: lowiro.reconstruction.arcpkg
+          path: fragments-category/reconstruction.arcpkg
+          overwrite: true
+      - uses: actions/upload-artifact@v4
+        with:
+          name: lowiro.evoltex.arcpkg
+          path: fragments-category/evoltex.arcpkg
+          overwrite: true
+      - uses: actions/upload-artifact@v4
+        with:
+          name: lowiro.oracle.arcpkg
+          path: fragments-category/oracle.arcpkg
+          overwrite: true
+      - uses: actions/upload-artifact@v4
+        with:
+          name: lowiro.aterlbus.arcpkg
+          path: fragments-category/aterlbus.arcpkg
+          overwrite: true
+      - uses: actions/upload-artifact@v4
+        with:
+          name: lowiro.clotho.arcpkg
+          path: fragments-category/clotho.arcpkg
+          overwrite: true
+      - uses: actions/upload-artifact@v4
+        with:
+          name: lowiro.impurebird.arcpkg
+          path: fragments-category/impurebird.arcpkg
+          overwrite: true
+      - uses: actions/upload-artifact@v4
+        with:
+          name: lowiro.ignotus.arcpkg
+          path: fragments-category/ignotus.arcpkg
+          overwrite: true
+      - uses: actions/upload-artifact@v4
+        with:
+          name: lowiro.lethaeus.arcpkg
+          path: fragments-category/lethaeus.arcpkg
+          overwrite: true
+      - uses: actions/upload-artifact@v4
+        with:
+          name: lowiro.romancewars.arcpkg
+          path: fragments-category/romancewars.arcpkg
+          overwrite: true
+      - uses: actions/upload-artifact@v4
+        with:
+          name: lowiro.blossoms.arcpkg
+          path: fragments-category/blossoms.arcpkg
+          overwrite: true
+      - uses: actions/upload-artifact@v4
+        with:
+          name: lowiro.moonheart.arcpkg
+          path: fragments-category/moonheart.arcpkg
+          overwrite: true
+      - uses: actions/upload-artifact@v4
+        with:
+          name: lowiro.genesis.arcpkg
+          path: fragments-category/genesis.arcpkg
+          overwrite: true
+      - uses: actions/upload-artifact@v4
+        with:
+          name: lowiro.harutopia.arcpkg
+          path: fragments-category/harutopia.arcpkg
+          overwrite: true
+      - uses: actions/upload-artifact@v4
+        with:
+          name: lowiro.auxesia.arcpkg
+          path: fragments-category/auxesia.arcpkg
+          overwrite: true
+      - uses: actions/upload-artifact@v4
+        with:
+          name: lowiro.rabbitintheblackroom.arcpkg
+          path: fragments-category/rabbitintheblackroom.arcpkg
+          overwrite: true
+      - uses: actions/upload-artifact@v4
+        with:
+          name: lowiro.modelista.arcpkg
+          path: fragments-category/modelista.arcpkg
+          overwrite: true
+      - uses: actions/upload-artifact@v4
+        with:
+          name: lowiro.soundwitch.arcpkg
+          path: fragments-category/soundwitch.arcpkg
+          overwrite: true
+      - uses: actions/upload-artifact@v4
+        with:
+          name: lowiro.trappola.arcpkg
+          path: fragments-category/trappola.arcpkg
+          overwrite: true
+      - uses: actions/upload-artifact@v4
+        with:
+          name: lowiro.iconoclast.arcpkg
+          path: fragments-category/iconoclast.arcpkg
+          overwrite: true
+      - uses: actions/upload-artifact@v4
+        with:
+          name: lowiro.conflict.arcpkg
+          path: fragments-category/conflict.arcpkg
+          overwrite: true
+      - uses: actions/upload-artifact@v4
+        with:
+          name: lowiro.axiumcrisis.arcpkg
+          path: fragments-category/axiumcrisis.arcpkg
+          overwrite: true
+      - uses: actions/upload-artifact@v4
+        with:
+          name: lowiro.grievouslady.arcpkg
+          path: fragments-category/grievouslady.arcpkg
+          overwrite: true
+      - uses: actions/upload-artifact@v4
+        with:
+          name: lowiro.dreaminattraction.arcpkg
+          path: fragments-category/dreaminattraction.arcpkg
+          overwrite: true
+      - uses: actions/upload-artifact@v4
+        with:
+          name: lowiro.redandblue.arcpkg
+          path: fragments-category/redandblue.arcpkg
+          overwrite: true
+      - uses: actions/upload-artifact@v4
+        with:
+          name: lowiro.onelastdrive.arcpkg
+          path: fragments-category/onelastdrive.arcpkg
+          overwrite: true
+      - uses: actions/upload-artifact@v4
+        with:
+          name: lowiro.surrender.arcpkg
+          path: fragments-category/surrender.arcpkg
+          overwrite: true
+      - uses: actions/upload-artifact@v4
+        with:
+          name: lowiro.yozakurafubuki.arcpkg
+          path: fragments-category/yozakurafubuki.arcpkg
+          overwrite: true
+      - uses: actions/upload-artifact@v4
+        with:
+          name: lowiro.cyanine.arcpkg
+          path: fragments-category/cyanine.arcpkg
+          overwrite: true
+      - uses: actions/upload-artifact@v4
+        with:
+          name: lowiro.dreamgoeson.arcpkg
+          path: fragments-category/dreamgoeson.arcpkg
+          overwrite: true
+      - uses: actions/upload-artifact@v4
+        with:
+          name: lowiro.journey.arcpkg
+          path: fragments-category/journey.arcpkg
+          overwrite: true
+      - uses: actions/upload-artifact@v4
+        with:
+          name: lowiro.specta.arcpkg
+          path: fragments-category/specta.arcpkg
+          overwrite: true
+      - uses: actions/upload-artifact@v4
+        with:
+          name: lowiro.quon.arcpkg
+          path: fragments-category/quon.arcpkg
+          overwrite: true
+      - uses: actions/upload-artifact@v4
+        with:
+          name: lowiro.syro.arcpkg
+          path: fragments-category/syro.arcpkg
+          overwrite: true
+      - uses: actions/upload-artifact@v4
+        with:
+          name: lowiro.reinvent.arcpkg
+          path: fragments-category/reinvent.arcpkg
+          overwrite: true
+      - uses: actions/upload-artifact@v4
+        with:
+          name: lowiro.silentrush.arcpkg
+          path: fragments-category/silentrush.arcpkg
+          overwrite: true
+      - uses: actions/upload-artifact@v4
+        with:
+          name: lowiro.singularity.arcpkg
+          path: fragments-category/singularity.arcpkg
+          overwrite: true
+      - uses: actions/upload-artifact@v4
+        with:
+          name: lowiro.memoryforest.arcpkg
+          path: fragments-category/memoryforest.arcpkg
+          overwrite: true
+      - uses: actions/upload-artifact@v4
+        with:
+          name: lowiro.strongholds.arcpkg
+          path: fragments-category/strongholds.arcpkg
+          overwrite: true
+      - uses: actions/upload-artifact@v4
+        with:
+          name: lowiro.nexttoyou.arcpkg
+          path: fragments-category/nexttoyou.arcpkg
+          overwrite: true
+      - uses: actions/upload-artifact@v4
+        with:
+          name: lowiro.metallicpunisher.arcpkg
+          path: fragments-category/metallicpunisher.arcpkg
+          overwrite: true
+      - uses: actions/upload-artifact@v4
+        with:
+          name: lowiro.blaster.arcpkg
+          path: fragments-category/blaster.arcpkg
+          overwrite: true
+      - uses: actions/upload-artifact@v4
+        with:
+          name: lowiro.guardina.arcpkg
+          path: fragments-category/guardina.arcpkg
+          overwrite: true
+      - uses: actions/upload-artifact@v4
+        with:
+          name: lowiro.carminescythe.arcpkg
+          path: fragments-category/carminescythe.arcpkg
+          overwrite: true
+      - uses: actions/upload-artifact@v4
+        with:
+          name: lowiro.bethere.arcpkg
+          path: fragments-category/bethere.arcpkg
+          overwrite: true
+      - uses: actions/upload-artifact@v4
+        with:
+          name: lowiro.cyberneciacatharsis.arcpkg
+          path: fragments-category/cyberneciacatharsis.arcpkg
+          overwrite: true
+      - uses: actions/upload-artifact@v4
+        with:
+          name: lowiro.callmyname.arcpkg
+          path: fragments-category/callmyname.arcpkg
+          overwrite: true
+      - uses: actions/upload-artifact@v4
+        with:
+          name: lowiro.inkarusi.arcpkg
+          path: fragments-category/inkarusi.arcpkg
+          overwrite: true
+      - uses: actions/upload-artifact@v4
+        with:
+          name: lowiro.mazenine.arcpkg
+          path: fragments-category/mazenine.arcpkg
+          overwrite: true
+      - uses: actions/upload-artifact@v4
+        with:
+          name: lowiro.themessage.arcpkg
+          path: fragments-category/themessage.arcpkg
+          overwrite: true
+      - uses: actions/upload-artifact@v4
+        with:
+          name: lowiro.sulfur.arcpkg
+          path: fragments-category/sulfur.arcpkg
+          overwrite: true
+      - uses: actions/upload-artifact@v4
+        with:
+          name: lowiro.halcyon.arcpkg
+          path: fragments-category/halcyon.arcpkg
+          overwrite: true
+      - uses: actions/upload-artifact@v4
+        with:
+          name: lowiro.etherstrike.arcpkg
+          path: fragments-category/etherstrike.arcpkg
+          overwrite: true
+      - uses: actions/upload-artifact@v4
+        with:
+          name: lowiro.fractureray.arcpkg
+          path: fragments-category/fractureray.arcpkg
+          overwrite: true
+      - uses: actions/upload-artifact@v4
+        with:
+          name: lowiro.suomi.arcpkg
+          path: fragments-category/suomi.arcpkg
+          overwrite: true
+      - uses: actions/upload-artifact@v4
+        with:
+          name: lowiro.bookmaker.arcpkg
+          path: fragments-category/bookmaker.arcpkg
+          overwrite: true
+      - uses: actions/upload-artifact@v4
+        with:
+          name: lowiro.darakunosono.arcpkg
+          path: fragments-category/darakunosono.arcpkg
+          overwrite: true
+      - uses: actions/upload-artifact@v4
+        with:
+          name: lowiro.dropdead.arcpkg
+          path: fragments-category/dropdead.arcpkg
+          overwrite: true
+      - uses: actions/upload-artifact@v4
+        with:
+          name: lowiro.fallensquare.arcpkg
+          path: fragments-category/fallensquare.arcpkg
+          overwrite: true
+      - uses: actions/upload-artifact@v4
+        with:
+          name: lowiro.nhelv.arcpkg
+          path: fragments-category/nhelv.arcpkg
+          overwrite: true
+      - uses: actions/upload-artifact@v4
+        with:
+          name: lowiro.espebranch.arcpkg
+          path: fragments-category/espebranch.arcpkg
+          overwrite: true
+      - uses: actions/upload-artifact@v4
+        with:
+          name: lowiro.purgatorium.arcpkg
+          path: fragments-category/purgatorium.arcpkg
+          overwrite: true
+      - uses: actions/upload-artifact@v4
+        with:
+          name: lowiro.hikari.arcpkg
+          path: fragments-category/hikari.arcpkg
+          overwrite: true
+      - uses: actions/upload-artifact@v4
+        with:
+          name: lowiro.stager.arcpkg
+          path: fragments-category/stager.arcpkg
+          overwrite: true
+      - uses: actions/upload-artifact@v4
+        with:
+          name: lowiro.hallofmirrors.arcpkg
+          path: fragments-category/hallofmirrors.arcpkg
+          overwrite: true
+      - uses: actions/upload-artifact@v4
+        with:
+          name: lowiro.linearaccelerator.arcpkg
+          path: fragments-category/linearaccelerator.arcpkg
+          overwrite: true
+      - uses: actions/upload-artifact@v4
+        with:
+          name: lowiro.tiferet.arcpkg
+          path: fragments-category/tiferet.arcpkg
+          overwrite: true
+      - uses: actions/upload-artifact@v4
+        with:
+          name: lowiro.alexandrite.arcpkg
+          path: fragments-category/alexandrite.arcpkg
+          overwrite: true
+      - uses: actions/upload-artifact@v4
+        with:
+          name: lowiro.rugie.arcpkg
+          path: fragments-category/rugie.arcpkg
+          overwrite: true
+      - uses: actions/upload-artifact@v4
+        with:
+          name: lowiro.astraltale.arcpkg
+          path: fragments-category/astraltale.arcpkg
+          overwrite: true
+      - uses: actions/upload-artifact@v4
+        with:
+          name: lowiro.phantasia.arcpkg
+          path: fragments-category/phantasia.arcpkg
+          overwrite: true
+      - uses: actions/upload-artifact@v4
+        with:
+          name: lowiro.empireofwinter.arcpkg
+          path: fragments-category/empireofwinter.arcpkg
+          overwrite: true
+      - uses: actions/upload-artifact@v4
+        with:
+          name: lowiro.merlin.arcpkg
+          path: fragments-category/merlin.arcpkg
+          overwrite: true
+      - uses: actions/upload-artifact@v4
+        with:
+          name: lowiro.dxfullmetal.arcpkg
+          path: fragments-category/dxfullmetal.arcpkg
+          overwrite: true
+      - uses: actions/upload-artifact@v4
+        with:
+          name: lowiro.omakeno.arcpkg
+          path: fragments-category/omakeno.arcpkg
+          overwrite: true
+      - uses: actions/upload-artifact@v4
+        with:
+          name: lowiro.scarletlance.arcpkg
+          path: fragments-category/scarletlance.arcpkg
+          overwrite: true
+      - uses: actions/upload-artifact@v4
+        with:
+          name: lowiro.ouroboros.arcpkg
+          path: fragments-category/ouroboros.arcpkg
+          overwrite: true
+      - uses: actions/upload-artifact@v4
+        with:
+          name: lowiro.libertas.arcpkg
+          path: fragments-category/libertas.arcpkg
+          overwrite: true
+      - uses: actions/upload-artifact@v4
+        with:
+          name: lowiro.solitarydream.arcpkg
+          path: fragments-category/solitarydream.arcpkg
+          overwrite: true
+      - uses: actions/upload-artifact@v4
+        with:
+          name: lowiro.antithese.arcpkg
+          path: fragments-category/antithese.arcpkg
+          overwrite: true
+      - uses: actions/upload-artifact@v4
+        with:
+          name: lowiro.corruption.arcpkg
+          path: fragments-category/corruption.arcpkg
+          overwrite: true
+      - uses: actions/upload-artifact@v4
+        with:
+          name: lowiro.blackterritory.arcpkg
+          path: fragments-category/blackterritory.arcpkg
+          overwrite: true
+      - uses: actions/upload-artifact@v4
+        with:
+          name: lowiro.viciousheroism.arcpkg
+          path: fragments-category/viciousheroism.arcpkg
+          overwrite: true
+      - uses: actions/upload-artifact@v4
+        with:
+          name: lowiro.cyaegha.arcpkg
+          path: fragments-category/cyaegha.arcpkg
+          overwrite: true
+      - uses: actions/upload-artifact@v4
+        with:
+          name: lowiro.revixy.arcpkg
+          path: fragments-category/revixy.arcpkg
+          overwrite: true
+      - uses: actions/upload-artifact@v4
+        with:
+          name: lowiro.grimheart.arcpkg
+          path: fragments-category/grimheart.arcpkg
+          overwrite: true
+      - uses: actions/upload-artifact@v4
+        with:
+          name: lowiro.vector.arcpkg
+          path: fragments-category/vector.arcpkg
+          overwrite: true
+      - uses: actions/upload-artifact@v4
+        with:
+          name: lowiro.supernova.arcpkg
+          path: fragments-category/supernova.arcpkg
+          overwrite: true
+      - uses: actions/upload-artifact@v4
+        with:
+          name: lowiro.dottodot.arcpkg
+          path: fragments-category/dottodot.arcpkg
+          overwrite: true
+      - uses: actions/upload-artifact@v4
+        with:
+          name: lowiro.garakuta.arcpkg
+          path: fragments-category/garakuta.arcpkg
+          overwrite: true
+      - uses: actions/upload-artifact@v4
+        with:
+          name: lowiro.ikazuchi.arcpkg
+          path: fragments-category/ikazuchi.arcpkg
+          overwrite: true
+      - uses: actions/upload-artifact@v4
+        with:
+          name: lowiro.worldvanquisher.arcpkg
+          path: fragments-category/worldvanquisher.arcpkg
+          overwrite: true
+      - uses: actions/upload-artifact@v4
+        with:
+          name: lowiro.dreadnought.arcpkg
+          path: fragments-category/dreadnought.arcpkg
+          overwrite: true
+      - uses: actions/upload-artifact@v4
+        with:
+          name: lowiro.vindication.arcpkg
+          path: fragments-category/vindication.arcpkg
+          overwrite: true
+      - uses: actions/upload-artifact@v4
+        with:
+          name: lowiro.heavensdoor.arcpkg
+          path: fragments-category/heavensdoor.arcpkg
+          overwrite: true
+      - uses: actions/upload-artifact@v4
+        with:
+          name: lowiro.ringedgenesis.arcpkg
+          path: fragments-category/ringedgenesis.arcpkg
+          overwrite: true
+      - uses: actions/upload-artifact@v4
+        with:
+          name: lowiro.chelsea.arcpkg
+          path: fragments-category/chelsea.arcpkg
+          overwrite: true
+      - uses: actions/upload-artifact@v4
+        with:
+          name: lowiro.aiueoon.arcpkg
+          path: fragments-category/aiueoon.arcpkg
+          overwrite: true
+      - uses: actions/upload-artifact@v4
+        with:
+          name: lowiro.melodyoflove.arcpkg
+          path: fragments-category/melodyoflove.arcpkg
+          overwrite: true
+      - uses: actions/upload-artifact@v4
+        with:
+          name: lowiro.tiemedowngently.arcpkg
+          path: fragments-category/tiemedowngently.arcpkg
+          overwrite: true
+      - uses: actions/upload-artifact@v4
+        with:
+          name: lowiro.valhallazero.arcpkg
+          path: fragments-category/valhallazero.arcpkg
+          overwrite: true
+      - uses: actions/upload-artifact@v4
+        with:
+          name: lowiro.mirzam.arcpkg
+          path: fragments-category/mirzam.arcpkg
+          overwrite: true
+      - uses: actions/upload-artifact@v4
+        with:
+          name: lowiro.diode.arcpkg
+          path: fragments-category/diode.arcpkg
+          overwrite: true
+      - uses: actions/upload-artifact@v4
+        with:
+          name: lowiro.freefall.arcpkg
+          path: fragments-category/freefall.arcpkg
+          overwrite: true
+      - uses: actions/upload-artifact@v4
+        with:
+          name: lowiro.gloryroad.arcpkg
+          path: fragments-category/gloryroad.arcpkg
+          overwrite: true
+      - uses: actions/upload-artifact@v4
+        with:
+          name: lowiro.monochromeprincess.arcpkg
+          path: fragments-category/monochromeprincess.arcpkg
+          overwrite: true
+      - uses: actions/upload-artifact@v4
+        with:
+          name: lowiro.heavenlycaress.arcpkg
+          path: fragments-category/heavenlycaress.arcpkg
+          overwrite: true
+      - uses: actions/upload-artifact@v4
+        with:
+          name: lowiro.senkyou.arcpkg
+          path: fragments-category/senkyou.arcpkg
+          overwrite: true
+      - uses: actions/upload-artifact@v4
+        with:
+          name: lowiro.filament.arcpkg
+          path: fragments-category/filament.arcpkg
+          overwrite: true
+      - uses: actions/upload-artifact@v4
+        with:
+          name: lowiro.avantraze.arcpkg
+          path: fragments-category/avantraze.arcpkg
+          overwrite: true
+      - uses: actions/upload-artifact@v4
+        with:
+          name: lowiro.battlenoone.arcpkg
+          path: fragments-category/battlenoone.arcpkg
+          overwrite: true
+      - uses: actions/upload-artifact@v4
+        with:
+          name: lowiro.laqryma.arcpkg
+          path: fragments-category/laqryma.arcpkg
+          overwrite: true
+      - uses: actions/upload-artifact@v4
+        with:
+          name: lowiro.einherjar.arcpkg
+          path: fragments-category/einherjar.arcpkg
+          overwrite: true
+      - uses: actions/upload-artifact@v4
+        with:
+          name: lowiro.izana.arcpkg
+          path: fragments-category/izana.arcpkg
+          overwrite: true
+      - uses: actions/upload-artifact@v4
+        with:
+          name: lowiro.saikyostronger.arcpkg
+          path: fragments-category/saikyostronger.arcpkg
+          overwrite: true
+      - uses: actions/upload-artifact@v4
+        with:
+          name: lowiro.worldexecuteme.arcpkg
+          path: fragments-category/worldexecuteme.arcpkg
+          overwrite: true
+      - uses: actions/upload-artifact@v4
+        with:
+          name: lowiro.blrink.arcpkg
+          path: fragments-category/blrink.arcpkg
+          overwrite: true
+      - uses: actions/upload-artifact@v4
+        with:
+          name: lowiro.oblivia.arcpkg
+          path: fragments-category/oblivia.arcpkg
+          overwrite: true
+      - uses: actions/upload-artifact@v4
+        with:
+          name: lowiro.amygdata.arcpkg
+          path: fragments-category/amygdata.arcpkg
+          overwrite: true
+      - uses: actions/upload-artifact@v4
+        with:
+          name: lowiro.corpssansorganes.arcpkg
+          path: fragments-category/corpssansorganes.arcpkg
+          overwrite: true
+      - uses: actions/upload-artifact@v4
+        with:
+          name: lowiro.equilibrium.arcpkg
+          path: fragments-category/equilibrium.arcpkg
+          overwrite: true
+      - uses: actions/upload-artifact@v4
+        with:
+          name: lowiro.antagonism.arcpkg
+          path: fragments-category/antagonism.arcpkg
+          overwrite: true
+      - uses: actions/upload-artifact@v4
+        with:
+          name: lowiro.lostdesire.arcpkg
+          path: fragments-category/lostdesire.arcpkg
+          overwrite: true
+      - uses: actions/upload-artifact@v4
+        with:
+          name: lowiro.dantalion.arcpkg
+          path: fragments-category/dantalion.arcpkg
+          overwrite: true
+      - uses: actions/upload-artifact@v4
+        with:
+          name: lowiro.ifi.arcpkg
+          path: fragments-category/ifi.arcpkg
+          overwrite: true
+      - uses: actions/upload-artifact@v4
+        with:
+          name: lowiro.tempestissimo.arcpkg
+          path: fragments-category/tempestissimo.arcpkg
+          overwrite: true
+      - uses: actions/upload-artifact@v4
+        with:
+          name: lowiro.arcahv.arcpkg
+          path: fragments-category/arcahv.arcpkg
+          overwrite: true
+      - uses: actions/upload-artifact@v4
+        with:
+          name: lowiro.altale.arcpkg
+          path: fragments-category/altale.arcpkg
+          overwrite: true
+      - uses: actions/upload-artifact@v4
+        with:
+          name: lowiro.givemeanightmare.arcpkg
+          path: fragments-category/givemeanightmare.arcpkg
+          overwrite: true
+      - uses: actions/upload-artifact@v4
+        with:
+          name: lowiro.blacklotus.arcpkg
+          path: fragments-category/blacklotus.arcpkg
+          overwrite: true
+      - uses: actions/upload-artifact@v4
+        with:
+          name: lowiro.gekka.arcpkg
+          path: fragments-category/gekka.arcpkg
+          overwrite: true
+      - uses: actions/upload-artifact@v4
+        with:
+          name: lowiro.vividtheory.arcpkg
+          path: fragments-category/vividtheory.arcpkg
+          overwrite: true
+      - uses: actions/upload-artifact@v4
+        with:
+          name: lowiro.onefr.arcpkg
+          path: fragments-category/onefr.arcpkg
+          overwrite: true
+      - uses: actions/upload-artifact@v4
+        with:
+          name: lowiro.scarletcage.arcpkg
+          path: fragments-category/scarletcage.arcpkg
+          overwrite: true
+      - uses: actions/upload-artifact@v4
+        with:
+          name: lowiro.faintlight.arcpkg
+          path: fragments-category/faintlight.arcpkg
+          overwrite: true
+      - uses: actions/upload-artifact@v4
+        with:
+          name: lowiro.feelssoright.arcpkg
+          path: fragments-category/feelssoright.arcpkg
+          overwrite: true
+      - uses: actions/upload-artifact@v4
+        with:
+          name: lowiro.teriqma.arcpkg
+          path: fragments-category/teriqma.arcpkg
+          overwrite: true
+      - uses: actions/upload-artifact@v4
+        with:
+          name: lowiro.mahoroba.arcpkg
+          path: fragments-category/mahoroba.arcpkg
+          overwrite: true
+      - uses: actions/upload-artifact@v4
+        with:
+          name: lowiro.badtek.arcpkg
+          path: fragments-category/badtek.arcpkg
+          overwrite: true
+      - uses: actions/upload-artifact@v4
+        with:
+          name: lowiro.maliciousmischance.arcpkg
+          path: fragments-category/maliciousmischance.arcpkg
+          overwrite: true
+      - uses: actions/upload-artifact@v4
+        with:
+          name: lowiro.gothiveofra.arcpkg
+          path: fragments-category/gothiveofra.arcpkg
+          overwrite: true
+      - uses: actions/upload-artifact@v4
+        with:
+          name: lowiro.buchigireberserker.arcpkg
+          path: fragments-category/buchigireberserker.arcpkg
+          overwrite: true
+      - uses: actions/upload-artifact@v4
+        with:
+          name: lowiro.galaxyfriends.arcpkg
+          path: fragments-category/galaxyfriends.arcpkg
+          overwrite: true
+      - uses: actions/upload-artifact@v4
+        with:
+          name: lowiro.crossover.arcpkg
+          path: fragments-category/crossover.arcpkg
+          overwrite: true
+      - uses: actions/upload-artifact@v4
+        with:
+          name: lowiro.xeraphinite.arcpkg
+          path: fragments-category/xeraphinite.arcpkg
+          overwrite: true
+      - uses: actions/upload-artifact@v4
+        with:
+          name: lowiro.lapis.arcpkg
+          path: fragments-category/lapis.arcpkg
+          overwrite: true
+      - uses: actions/upload-artifact@v4
+        with:
+          name: lowiro.xanatos.arcpkg
+          path: fragments-category/xanatos.arcpkg
+          overwrite: true
+      - uses: actions/upload-artifact@v4
+        with:
+          name: lowiro.purpleverse.arcpkg
+          path: fragments-category/purpleverse.arcpkg
+          overwrite: true
+      - uses: actions/upload-artifact@v4
+        with:
+          name: lowiro.alicealamode.arcpkg
+          path: fragments-category/alicealamode.arcpkg
+          overwrite: true
+      - uses: actions/upload-artifact@v4
+        with:
+          name: lowiro.eccentrictale.arcpkg
+          path: fragments-category/eccentrictale.arcpkg
+          overwrite: true
+      - uses: actions/upload-artifact@v4
+        with:
+          name: lowiro.alicessuitcase.arcpkg
+          path: fragments-category/alicessuitcase.arcpkg
+          overwrite: true
+      - uses: actions/upload-artifact@v4
+        with:
+          name: lowiro.jump.arcpkg
+          path: fragments-category/jump.arcpkg
+          overwrite: true
+      - uses: actions/upload-artifact@v4
+        with:
+          name: lowiro.felis.arcpkg
+          path: fragments-category/felis.arcpkg
+          overwrite: true
+      - uses: actions/upload-artifact@v4
+        with:
+          name: lowiro.besideyou.arcpkg
+          path: fragments-category/besideyou.arcpkg
+          overwrite: true
+      - uses: actions/upload-artifact@v4
+        with:
+          name: lowiro.heartjackin.arcpkg
+          path: fragments-category/heartjackin.arcpkg
+          overwrite: true
+      - uses: actions/upload-artifact@v4
+        with:
+          name: lowiro.toaliceliddell.arcpkg
+          path: fragments-category/toaliceliddell.arcpkg
+          overwrite: true
+      - uses: actions/upload-artifact@v4
+        with:
+          name: lowiro.lazyaddiction.arcpkg
+          path: fragments-category/lazyaddiction.arcpkg
+          overwrite: true
+      - uses: actions/upload-artifact@v4
+        with:
+          name: lowiro.dazzlehop.arcpkg
+          path: fragments-category/dazzlehop.arcpkg
+          overwrite: true
+      - uses: actions/upload-artifact@v4
+        with:
+          name: lowiro.viyellastears.arcpkg
+          path: fragments-category/viyellastears.arcpkg
+          overwrite: true
+      - uses: actions/upload-artifact@v4
+        with:
+          name: lowiro.omegafour.arcpkg
+          path: fragments-category/omegafour.arcpkg
+          overwrite: true
+      - uses: actions/upload-artifact@v4
+        with:
+          name: lowiro.aprilshowers.arcpkg
+          path: fragments-category/aprilshowers.arcpkg
+          overwrite: true
+      - uses: actions/upload-artifact@v4
+        with:
+          name: lowiro.seventhsense.arcpkg
+          path: fragments-category/seventhsense.arcpkg
+          overwrite: true
+      - uses: actions/upload-artifact@v4
+        with:
+          name: lowiro.oshamascramble.arcpkg
+          path: fragments-category/oshamascramble.arcpkg
+          overwrite: true
+      - uses: actions/upload-artifact@v4
+        with:
+          name: lowiro.amazingmightyyyy.arcpkg
+          path: fragments-category/amazingmightyyyy.arcpkg
+          overwrite: true
+      - uses: actions/upload-artifact@v4
+        with:
+          name: lowiro.climax.arcpkg
+          path: fragments-category/climax.arcpkg
+          overwrite: true
+      - uses: actions/upload-artifact@v4
+        with:
+          name: lowiro.lastcelebration.arcpkg
+          path: fragments-category/lastcelebration.arcpkg
+          overwrite: true
+      - uses: actions/upload-artifact@v4
+        with:
+          name: lowiro.gou.arcpkg
+          path: fragments-category/gou.arcpkg
+          overwrite: true
+      - uses: actions/upload-artifact@v4
+        with:
+          name: lowiro.glow.arcpkg
+          path: fragments-category/glow.arcpkg
+          overwrite: true
+      - uses: actions/upload-artifact@v4
+        with:
+          name: lowiro.attraqtia.arcpkg
+          path: fragments-category/attraqtia.arcpkg
+          overwrite: true
+      - uses: actions/upload-artifact@v4
+        with:
+          name: lowiro.enchantedlove.arcpkg
+          path: fragments-category/enchantedlove.arcpkg
+          overwrite: true
+      - uses: actions/upload-artifact@v4
+        with:
+          name: lowiro.take.arcpkg
+          path: fragments-category/take.arcpkg
+          overwrite: true
+      - uses: actions/upload-artifact@v4
+        with:
+          name: lowiro.gimmedablood.arcpkg
+          path: fragments-category/gimmedablood.arcpkg
+          overwrite: true
+      - uses: actions/upload-artifact@v4
+        with:
+          name: lowiro.bassline.arcpkg
+          path: fragments-category/bassline.arcpkg
+          overwrite: true
+      - uses: actions/upload-artifact@v4
+        with:
+          name: lowiro.lifeispiano.arcpkg
+          path: fragments-category/lifeispiano.arcpkg
+          overwrite: true
+      - uses: actions/upload-artifact@v4
+        with:
+          name: lowiro.paperwitch.arcpkg
+          path: fragments-category/paperwitch.arcpkg
+          overwrite: true
+      - uses: actions/upload-artifact@v4
+        with:
+          name: lowiro.crystalgravity.arcpkg
+          path: fragments-category/crystalgravity.arcpkg
+          overwrite: true
+      - uses: actions/upload-artifact@v4
+        with:
+          name: lowiro.farawaylight.arcpkg
+          path: fragments-category/farawaylight.arcpkg
+          overwrite: true
+      - uses: actions/upload-artifact@v4
+        with:
+          name: lowiro.loschen.arcpkg
+          path: fragments-category/loschen.arcpkg
+          overwrite: true
+      - uses: actions/upload-artifact@v4
+        with:
+          name: lowiro.aegleseeker.arcpkg
+          path: fragments-category/aegleseeker.arcpkg
+          overwrite: true
+      - uses: actions/upload-artifact@v4
+        with:
+          name: lowiro.coastalhighway.arcpkg
+          path: fragments-category/coastalhighway.arcpkg
+          overwrite: true
+      - uses: actions/upload-artifact@v4
+        with:
+          name: lowiro.odysseia.arcpkg
+          path: fragments-category/odysseia.arcpkg
+          overwrite: true
+      - uses: actions/upload-artifact@v4
+        with:
+          name: lowiro.overwhelm.arcpkg
+          path: fragments-category/overwhelm.arcpkg
+          overwrite: true
+      - uses: actions/upload-artifact@v4
+        with:
+          name: lowiro.vandalism.arcpkg
+          path: fragments-category/vandalism.arcpkg
+          overwrite: true
+      - uses: actions/upload-artifact@v4
+        with:
+          name: lowiro.turbocharger.arcpkg
+          path: fragments-category/turbocharger.arcpkg
+          overwrite: true
+      - uses: actions/upload-artifact@v4
+        with:
+          name: lowiro.theultimacy.arcpkg
+          path: fragments-category/theultimacy.arcpkg
+          overwrite: true
+      - uses: actions/upload-artifact@v4
+        with:
+          name: lowiro.rekkaresonance.arcpkg
+          path: fragments-category/rekkaresonance.arcpkg
+          overwrite: true
+      - uses: actions/upload-artifact@v4
+        with:
+          name: lowiro.kyogenkigo.arcpkg
+          path: fragments-category/kyogenkigo.arcpkg
+          overwrite: true
+      - uses: actions/upload-artifact@v4
+        with:
+          name: lowiro.hivemind.arcpkg
+          path: fragments-category/hivemind.arcpkg
+          overwrite: true
+      - uses: actions/upload-artifact@v4
+        with:
+          name: lowiro.seclusion.arcpkg
+          path: fragments-category/seclusion.arcpkg
+          overwrite: true
+      - uses: actions/upload-artifact@v4
+        with:
+          name: lowiro.smallcloud.arcpkg
+          path: fragments-category/smallcloud.arcpkg
+          overwrite: true
+      - uses: actions/upload-artifact@v4
+        with:
+          name: lowiro.alterale.arcpkg
+          path: fragments-category/alterale.arcpkg
+          overwrite: true
+      - uses: actions/upload-artifact@v4
+        with:
+          name: lowiro.divinelight.arcpkg
+          path: fragments-category/divinelight.arcpkg
+          overwrite: true
+      - uses: actions/upload-artifact@v4
+        with:
+          name: lowiro.mazymetroplex.arcpkg
+          path: fragments-category/mazymetroplex.arcpkg
+          overwrite: true
+      - uses: actions/upload-artifact@v4
+        with:
+          name: lowiro.quonwacca.arcpkg
+          path: fragments-category/quonwacca.arcpkg
+          overwrite: true
+      - uses: actions/upload-artifact@v4
+        with:
+          name: lowiro.withu.arcpkg
+          path: fragments-category/withu.arcpkg
+          overwrite: true
+      - uses: actions/upload-artifact@v4
+        with:
+          name: lowiro.genocider.arcpkg
+          path: fragments-category/genocider.arcpkg
+          overwrite: true
+      - uses: actions/upload-artifact@v4
+        with:
+          name: lowiro.letyoudivermx.arcpkg
+          path: fragments-category/letyoudivermx.arcpkg
+          overwrite: true
+      - uses: actions/upload-artifact@v4
+        with:
+          name: lowiro.sheriruthrmx.arcpkg
+          path: fragments-category/sheriruthrmx.arcpkg
+          overwrite: true
+      - uses: actions/upload-artifact@v4
+        with:
+          name: lowiro.eveninginscarlet.arcpkg
+          path: fragments-category/eveninginscarlet.arcpkg
+          overwrite: true
+      - uses: actions/upload-artifact@v4
+        with:
+          name: lowiro.bluecomet.arcpkg
+          path: fragments-category/bluecomet.arcpkg
+          overwrite: true
+      - uses: actions/upload-artifact@v4
+        with:
+          name: lowiro.energysynergymatrix.arcpkg
+          path: fragments-category/energysynergymatrix.arcpkg
+          overwrite: true
+      - uses: actions/upload-artifact@v4
+        with:
+          name: lowiro.gengaozo.arcpkg
+          path: fragments-category/gengaozo.arcpkg
+          overwrite: true
+      - uses: actions/upload-artifact@v4
+        with:
+          name: lowiro.goldenslaughterer.arcpkg
+          path: fragments-category/goldenslaughterer.arcpkg
+          overwrite: true
+      - uses: actions/upload-artifact@v4
+        with:
+          name: lowiro.lastendconductor.arcpkg
+          path: fragments-category/lastendconductor.arcpkg
+          overwrite: true
+      - uses: actions/upload-artifact@v4
+        with:
+          name: lowiro.redolentshape.arcpkg
+          path: fragments-category/redolentshape.arcpkg
+          overwrite: true
+      - uses: actions/upload-artifact@v4
+        with:
+          name: lowiro.cosmica.arcpkg
+          path: fragments-category/cosmica.arcpkg
+          overwrite: true
+      - uses: actions/upload-artifact@v4
+        with:
+          name: lowiro.ascent.arcpkg
+          path: fragments-category/ascent.arcpkg
+          overwrite: true
+      - uses: actions/upload-artifact@v4
+        with:
+          name: lowiro.livefastdieyoung.arcpkg
+          path: fragments-category/livefastdieyoung.arcpkg
+          overwrite: true
+      - uses: actions/upload-artifact@v4
+        with:
+          name: lowiro.summerfireworks.arcpkg
+          path: fragments-category/summerfireworks.arcpkg
+          overwrite: true
+      - uses: actions/upload-artifact@v4
+        with:
+          name: lowiro.firstsnow.arcpkg
+          path: fragments-category/firstsnow.arcpkg
+          overwrite: true
+      - uses: actions/upload-artifact@v4
+        with:
+          name: lowiro.bluerose.arcpkg
+          path: fragments-category/bluerose.arcpkg
+          overwrite: true
+      - uses: actions/upload-artifact@v4
+        with:
+          name: lowiro.blockedlibrary.arcpkg
+          path: fragments-category/blockedlibrary.arcpkg
+          overwrite: true
+      - uses: actions/upload-artifact@v4
+        with:
+          name: lowiro.neokosmo.arcpkg
+          path: fragments-category/neokosmo.arcpkg
+          overwrite: true
+      - uses: actions/upload-artifact@v4
+        with:
+          name: lowiro.lightningscrew.arcpkg
+          path: fragments-category/lightningscrew.arcpkg
+          overwrite: true
+      - uses: actions/upload-artifact@v4
+        with:
+          name: lowiro.lightsofmuse.arcpkg
+          path: fragments-category/lightsofmuse.arcpkg
+          overwrite: true
+      - uses: actions/upload-artifact@v4
+        with:
+          name: lowiro.finalstep.arcpkg
+          path: fragments-category/finalstep.arcpkg
+          overwrite: true
+      - uses: actions/upload-artifact@v4
+        with:
+          name: lowiro.akinokagerou.arcpkg
+          path: fragments-category/akinokagerou.arcpkg
+          overwrite: true
+      - uses: actions/upload-artifact@v4
+        with:
+          name: lowiro.medusa.arcpkg
+          path: fragments-category/medusa.arcpkg
+          overwrite: true
+      - uses: actions/upload-artifact@v4
+        with:
+          name: lowiro.init.arcpkg
+          path: fragments-category/init.arcpkg
+          overwrite: true
+      - uses: actions/upload-artifact@v4
+        with:
+          name: lowiro.internetoverdose.arcpkg
+          path: fragments-category/internetoverdose.arcpkg
+          overwrite: true
+      - uses: actions/upload-artifact@v4
+        with:
+          name: lowiro.sakurafubuki.arcpkg
+          path: fragments-category/sakurafubuki.arcpkg
+          overwrite: true
+      - uses: actions/upload-artifact@v4
+        with:
+          name: lowiro.nulctrl.arcpkg
+          path: fragments-category/nulctrl.arcpkg
+          overwrite: true
+      - uses: actions/upload-artifact@v4
+        with:
+          name: lowiro.macromod.arcpkg
+          path: fragments-category/macromod.arcpkg
+          overwrite: true
+      - uses: actions/upload-artifact@v4
+        with:
+          name: lowiro.neowings.arcpkg
+          path: fragments-category/neowings.arcpkg
+          overwrite: true
+      - uses: actions/upload-artifact@v4
+        with:
+          name: lowiro.kissinglucifer.arcpkg
+          path: fragments-category/kissinglucifer.arcpkg
+          overwrite: true
+      - uses: actions/upload-artifact@v4
+        with:
+          name: lowiro.avril.arcpkg
+          path: fragments-category/avril.arcpkg
+          overwrite: true
+      - uses: actions/upload-artifact@v4
+        with:
+          name: lowiro.aurgelmir.arcpkg
+          path: fragments-category/aurgelmir.arcpkg
+          overwrite: true
+      - uses: actions/upload-artifact@v4
+        with:
+          name: lowiro.headbonkache.arcpkg
+          path: fragments-category/headbonkache.arcpkg
+          overwrite: true
+      - uses: actions/upload-artifact@v4
+        with:
+          name: lowiro.ddd.arcpkg
+          path: fragments-category/ddd.arcpkg
+          overwrite: true
+      - uses: actions/upload-artifact@v4
+        with:
+          name: lowiro.prism.arcpkg
+          path: fragments-category/prism.arcpkg
+          overwrite: true
+      - uses: actions/upload-artifact@v4
+        with:
+          name: lowiro.protoflicker.arcpkg
+          path: fragments-category/protoflicker.arcpkg
+          overwrite: true
+      - uses: actions/upload-artifact@v4
+        with:
+          name: lowiro.stasis.arcpkg
+          path: fragments-category/stasis.arcpkg
+          overwrite: true
+      - uses: actions/upload-artifact@v4
+        with:
+          name: lowiro.picopicotranslation.arcpkg
+          path: fragments-category/picopicotranslation.arcpkg
+          overwrite: true
+      - uses: actions/upload-artifact@v4
+        with:
+          name: lowiro.nekonote.arcpkg
+          path: fragments-category/nekonote.arcpkg
+          overwrite: true
+      - uses: actions/upload-artifact@v4
+        with:
+          name: lowiro.mu.arcpkg
+          path: fragments-category/mu.arcpkg
+          overwrite: true
+      - uses: actions/upload-artifact@v4
+        with:
+          name: lowiro.sanskia.arcpkg
+          path: fragments-category/sanskia.arcpkg
+          overwrite: true
+      - uses: actions/upload-artifact@v4
+        with:
+          name: lowiro.altair.arcpkg
+          path: fragments-category/altair.arcpkg
+          overwrite: true
+      - uses: actions/upload-artifact@v4
+        with:
+          name: lowiro.mukishitsu.arcpkg
+          path: fragments-category/mukishitsu.arcpkg
+          overwrite: true
+      - uses: actions/upload-artifact@v4
+        with:
+          name: lowiro.trapcrow.arcpkg
+          path: fragments-category/trapcrow.arcpkg
+          overwrite: true
+      - uses: actions/upload-artifact@v4
+        with:
+          name: lowiro.pupa.arcpkg
+          path: fragments-category/pupa.arcpkg
+          overwrite: true
+      - uses: actions/upload-artifact@v4
+        with:
+          name: lowiro.defection.arcpkg
+          path: fragments-category/defection.arcpkg
+          overwrite: true
+      - uses: actions/upload-artifact@v4
+        with:
+          name: lowiro.infinitestrife.arcpkg
+          path: fragments-category/infinitestrife.arcpkg
+          overwrite: true
+      - uses: actions/upload-artifact@v4
+        with:
+          name: lowiro.worldender.arcpkg
+          path: fragments-category/worldender.arcpkg
+          overwrite: true
+      - uses: actions/upload-artifact@v4
+        with:
+          name: lowiro.pentiment.arcpkg
+          path: fragments-category/pentiment.arcpkg
+          overwrite: true
+      - uses: actions/upload-artifact@v4
+        with:
+          name: lowiro.arcanaeden.arcpkg
+          path: fragments-category/arcanaeden.arcpkg
+          overwrite: true
+      - uses: actions/upload-artifact@v4
+        with:
+          name: lowiro.testify.arcpkg
+          path: fragments-category/testify.arcpkg
+          overwrite: true
+      - uses: actions/upload-artifact@v4
+        with:
+          name: lowiro.lovelessdress.arcpkg
+          path: fragments-category/lovelessdress.arcpkg
+          overwrite: true
+      - uses: actions/upload-artifact@v4
+        with:
+          name: lowiro.last.arcpkg
+          path: fragments-category/last.arcpkg
+          overwrite: true
+      - uses: actions/upload-artifact@v4
+        with:
+          name: lowiro.lasteternity.arcpkg
+          path: fragments-category/lasteternity.arcpkg
+          overwrite: true
+      - uses: actions/upload-artifact@v4
+        with:
+          name: lowiro.callimakarma.arcpkg
+          path: fragments-category/callimakarma.arcpkg
+          overwrite: true
+      - uses: actions/upload-artifact@v4
+        with:
+          name: lowiro.kokoro.arcpkg
+          path: fragments-category/kokoro.arcpkg
+          overwrite: true
+      - uses: actions/upload-artifact@v4
+        with:
+          name: lowiro.aidrew.arcpkg
+          path: fragments-category/aidrew.arcpkg
+          overwrite: true
+      - uses: actions/upload-artifact@v4
+        with:
+          name: lowiro.fluffyflash.arcpkg
+          path: fragments-category/fluffyflash.arcpkg
+          overwrite: true
+      - uses: actions/upload-artifact@v4
+        with:
+          name: lowiro.goodbyemerry.arcpkg
+          path: fragments-category/goodbyemerry.arcpkg
+          overwrite: true
+      - uses: actions/upload-artifact@v4
+        with:
+          name: lowiro.lamia.arcpkg
+          path: fragments-category/lamia.arcpkg
+          overwrite: true
+      - uses: actions/upload-artifact@v4
+        with:
+          name: lowiro.freemyself.arcpkg
+          path: fragments-category/freemyself.arcpkg
+          overwrite: true
+      - uses: actions/upload-artifact@v4
+        with:
+          name: lowiro.cocorocosmetic.arcpkg
+          path: fragments-category/cocorocosmetic.arcpkg
+          overwrite: true
+      - uses: actions/upload-artifact@v4
+        with:
+          name: lowiro.capella.arcpkg
+          path: fragments-category/capella.arcpkg
+          overwrite: true
+      - uses: actions/upload-artifact@v4
+        with:
+          name: lowiro.dialnote.arcpkg
+          path: fragments-category/dialnote.arcpkg
+          overwrite: true
+      - uses: actions/upload-artifact@v4
+        with:
+          name: lowiro.tsukinimurakumo.arcpkg
+          path: fragments-category/tsukinimurakumo.arcpkg
+          overwrite: true
+      - uses: actions/upload-artifact@v4
+        with:
+          name: lowiro.mantis.arcpkg
+          path: fragments-category/mantis.arcpkg
+          overwrite: true
+      - uses: actions/upload-artifact@v4
+        with:
+          name: lowiro.worldfragments.arcpkg
+          path: fragments-category/worldfragments.arcpkg
+          overwrite: true
+      - uses: actions/upload-artifact@v4
+        with:
+          name: lowiro.astrawalkthrough.arcpkg
+          path: fragments-category/astrawalkthrough.arcpkg
+          overwrite: true
+      - uses: actions/upload-artifact@v4
+        with:
+          name: lowiro.chronicle.arcpkg
+          path: fragments-category/chronicle.arcpkg
+          overwrite: true
+      - uses: actions/upload-artifact@v4
+        with:
+          name: lowiro.nullapophenia.arcpkg
+          path: fragments-category/nullapophenia.arcpkg
+          overwrite: true
+      - uses: actions/upload-artifact@v4
+        with:
+          name: lowiro.crimsonthrone.arcpkg
+          path: fragments-category/crimsonthrone.arcpkg
+          overwrite: true
+      - uses: actions/upload-artifact@v4
+        with:
+          name: lowiro.manicjeer.arcpkg
+          path: fragments-category/manicjeer.arcpkg
+          overwrite: true
+      - uses: actions/upload-artifact@v4
+        with:
+          name: lowiro.hiirogekka.arcpkg
+          path: fragments-category/hiirogekka.arcpkg
+          overwrite: true
+      - uses: actions/upload-artifact@v4
+        with:
+          name: lowiro.letsrock.arcpkg
+          path: fragments-category/letsrock.arcpkg
+          overwrite: true
+      - uses: actions/upload-artifact@v4
+        with:
+          name: lowiro.cycles.arcpkg
+          path: fragments-category/cycles.arcpkg
+          overwrite: true
+      - uses: actions/upload-artifact@v4
+        with:
+          name: lowiro.maxrage.arcpkg
+          path: fragments-category/maxrage.arcpkg
+          overwrite: true
+      - uses: actions/upload-artifact@v4
+        with:
+          name: lowiro.infinity.arcpkg
+          path: fragments-category/infinity.arcpkg
+          overwrite: true
+      - uses: actions/upload-artifact@v4
+        with:
+          name: lowiro.temptation.arcpkg
+          path: fragments-category/temptation.arcpkg
+          overwrite: true
+      - uses: actions/upload-artifact@v4
+        with:
+          name: lowiro.primitivelights.arcpkg
+          path: fragments-category/primitivelights.arcpkg
+          overwrite: true
+      - uses: actions/upload-artifact@v4
+        with:
+          name: lowiro.cosmopop.arcpkg
+          path: fragments-category/cosmopop.arcpkg
+          overwrite: true
+      - uses: actions/upload-artifact@v4
+        with:
+          name: lowiro.impact.arcpkg
+          path: fragments-category/impact.arcpkg
+          overwrite: true
+      - uses: actions/upload-artifact@v4
+        with:
+          name: lowiro.genesischunithm.arcpkg
+          path: fragments-category/genesischunithm.arcpkg
+          overwrite: true
+      - uses: actions/upload-artifact@v4
+        with:
+          name: lowiro.trrricksters.arcpkg
+          path: fragments-category/trrricksters.arcpkg
+          overwrite: true
+      - uses: actions/upload-artifact@v4
+        with:
+          name: lowiro.spidersthread.arcpkg
+          path: fragments-category/spidersthread.arcpkg
+          overwrite: true
+      - uses: actions/upload-artifact@v4
+        with:
+          name: lowiro.lostemotion.arcpkg
+          path: fragments-category/lostemotion.arcpkg
+          overwrite: true
+      - uses: actions/upload-artifact@v4
+        with:
+          name: lowiro.gimmick.arcpkg
+          path: fragments-category/gimmick.arcpkg
+          overwrite: true
+      - uses: actions/upload-artifact@v4
+        with:
+          name: lowiro.thesurvivor.arcpkg
+          path: fragments-category/thesurvivor.arcpkg
+          overwrite: true
+      - uses: actions/upload-artifact@v4
+        with:
+          name: lowiro.newyorkbackraise.arcpkg
+          path: fragments-category/newyorkbackraise.arcpkg
+          overwrite: true
+      - uses: actions/upload-artifact@v4
+        with:
+          name: lowiro.galacticlove.arcpkg
+          path: fragments-category/galacticlove.arcpkg
+          overwrite: true
+      - uses: actions/upload-artifact@v4
+        with:
+          name: lowiro.lawlesspoint.arcpkg
+          path: fragments-category/lawlesspoint.arcpkg
+          overwrite: true
+      - uses: actions/upload-artifact@v4
+        with:
+          name: lowiro.lostintheabyss.arcpkg
+          path: fragments-category/lostintheabyss.arcpkg
+          overwrite: true
+      - uses: actions/upload-artifact@v4
+        with:
+          name: lowiro.hybris.arcpkg
+          path: fragments-category/hybris.arcpkg
+          overwrite: true
+      - uses: actions/upload-artifact@v4
+        with:
+          name: lowiro.tothemilkyway.arcpkg
+          path: fragments-category/tothemilkyway.arcpkg
+          overwrite: true
+      - uses: actions/upload-artifact@v4
+        with:
+          name: lowiro.internetyamero.arcpkg
+          path: fragments-category/internetyamero.arcpkg
+          overwrite: true
+      - uses: actions/upload-artifact@v4
+        with:
+          name: lowiro.bulletwaiting.arcpkg
+          path: fragments-category/bulletwaiting.arcpkg
+          overwrite: true
+      - uses: actions/upload-artifact@v4
+        with:
+          name: lowiro.devillicsphere.arcpkg
+          path: fragments-category/devillicsphere.arcpkg
+          overwrite: true
+      - uses: actions/upload-artifact@v4
+        with:
+          name: lowiro.lucidtraveler.arcpkg
+          path: fragments-category/lucidtraveler.arcpkg
+          overwrite: true
+      - uses: actions/upload-artifact@v4
+        with:
+          name: lowiro.chaos.arcpkg
+          path: fragments-category/chaos.arcpkg
+          overwrite: true
+      - uses: actions/upload-artifact@v4
+        with:
+          name: lowiro.usedtobe.arcpkg
+          path: fragments-category/usedtobe.arcpkg
+          overwrite: true
+      - uses: actions/upload-artifact@v4
+        with:
+          name: lowiro.ultimatetaste.arcpkg
+          path: fragments-category/ultimatetaste.arcpkg
+          overwrite: true
+      - uses: actions/upload-artifact@v4
+        with:
+          name: lowiro.syuten.arcpkg
+          path: fragments-category/syuten.arcpkg
+          overwrite: true
+      - uses: actions/upload-artifact@v4
+        with:
+          name: lowiro.drg.arcpkg
+          path: fragments-category/drg.arcpkg
+          overwrite: true
+      - uses: actions/upload-artifact@v4
+        with:
+          name: lowiro.nnglooms.arcpkg
+          path: fragments-category/nnglooms.arcpkg
+          overwrite: true
+      - uses: actions/upload-artifact@v4
+        with:
+          name: lowiro.ii.arcpkg
+          path: fragments-category/ii.arcpkg
+          overwrite: true
+      - uses: actions/upload-artifact@v4
+        with:
+          name: lowiro.magnolia.arcpkg
+          path: fragments-category/magnolia.arcpkg
+          overwrite: true
+      - uses: actions/upload-artifact@v4
+        with:
+          name: lowiro.sacrifice.arcpkg
+          path: fragments-category/sacrifice.arcpkg
+          overwrite: true
+      - uses: actions/upload-artifact@v4
+        with:
+          name: lowiro.rgb.arcpkg
+          path: fragments-category/rgb.arcpkg
+          overwrite: true
+      - uses: actions/upload-artifact@v4
+        with:
+          name: lowiro.waitfordawn.arcpkg
+          path: fragments-category/waitfordawn.arcpkg
+          overwrite: true
+      - uses: actions/upload-artifact@v4
+        with:
+          name: lowiro.ravenspride.arcpkg
+          path: fragments-category/ravenspride.arcpkg
+          overwrite: true
+      - uses: actions/upload-artifact@v4
+        with:
+          name: lowiro.riseoftheworld.arcpkg
+          path: fragments-category/riseoftheworld.arcpkg
+          overwrite: true
+      - uses: actions/upload-artifact@v4
+        with:
+          name: lowiro.unknownlevels.arcpkg
+          path: fragments-category/unknownlevels.arcpkg
+          overwrite: true
+      - uses: actions/upload-artifact@v4
+        with:
+          name: lowiro.abstrusedilemma.arcpkg
+          path: fragments-category/abstrusedilemma.arcpkg
+          overwrite: true
+      - uses: actions/upload-artifact@v4
+        with:
+          name: lowiro.matenrou.arcpkg
+          path: fragments-category/matenrou.arcpkg
+          overwrite: true
+      - uses: actions/upload-artifact@v4
+        with:
+          name: lowiro.tothefurthestdream.arcpkg
+          path: fragments-category/tothefurthestdream.arcpkg
+          overwrite: true
+      - uses: actions/upload-artifact@v4
+        with:
+          name: lowiro.remindthesouls.arcpkg
+          path: fragments-category/remindthesouls.arcpkg
+          overwrite: true
+      - uses: actions/upload-artifact@v4
+        with:
+          name: lowiro.dynitikos.arcpkg
+          path: fragments-category/dynitikos.arcpkg
+          overwrite: true
+      - uses: actions/upload-artifact@v4
+        with:
+          name: lowiro.amekagura.arcpkg
+          path: fragments-category/amekagura.arcpkg
+          overwrite: true
+      - uses: actions/upload-artifact@v4
+        with:
+          name: lowiro.bbkkbkk.arcpkg
+          path: fragments-category/bbkkbkk.arcpkg
+          overwrite: true
+      - uses: actions/upload-artifact@v4
+        with:
+          name: lowiro.primevaltexture.arcpkg
+          path: fragments-category/primevaltexture.arcpkg
+          overwrite: true
+      - uses: actions/upload-artifact@v4
+        with:
+          name: lowiro.technicolour.arcpkg
+          path: fragments-category/technicolour.arcpkg
+          overwrite: true
+      - uses: actions/upload-artifact@v4
+        with:
+          name: lowiro.logos.arcpkg
+          path: fragments-category/logos.arcpkg
+          overwrite: true
+      - uses: actions/upload-artifact@v4
+        with:
+          name: lowiro.egoeimi.arcpkg
+          path: fragments-category/egoeimi.arcpkg
+          overwrite: true
+      - uses: actions/upload-artifact@v4
+        with:
+          name: lowiro.arghena.arcpkg
+          path: fragments-category/arghena.arcpkg
+          overwrite: true
+      - uses: actions/upload-artifact@v4
+        with:
+          name: lowiro.fantasy.arcpkg
+          path: fragments-category/fantasy.arcpkg
+          overwrite: true
+      - uses: actions/upload-artifact@v4
+        with:
+          name: lowiro.transientspace.arcpkg
+          path: fragments-category/transientspace.arcpkg
+          overwrite: true
+      - uses: actions/upload-artifact@v4
+        with:
+          name: lowiro.namelesspassion.arcpkg
+          path: fragments-category/namelesspassion.arcpkg
+          overwrite: true
+      - uses: actions/upload-artifact@v4
+        with:
+          name: lowiro.teravolt.arcpkg
+          path: fragments-category/teravolt.arcpkg
+          overwrite: true
+      - uses: actions/upload-artifact@v4
+        with:
+          name: lowiro.stratoliner.arcpkg
+          path: fragments-category/stratoliner.arcpkg
+          overwrite: true
+      - uses: actions/upload-artifact@v4
+        with:
+          name: lowiro.ouverture.arcpkg
+          path: fragments-category/ouverture.arcpkg
+          overwrite: true
+      - uses: actions/upload-artifact@v4
+        with:
+          name: lowiro.xtreme.arcpkg
+          path: fragments-category/xtreme.arcpkg
+          overwrite: true
+      - uses: actions/upload-artifact@v4
+        with:
+          name: lowiro.edenwacca.arcpkg
+          path: fragments-category/edenwacca.arcpkg
+          overwrite: true
+      - uses: actions/upload-artifact@v4
+        with:
+          name: lowiro.metamysteria.arcpkg
+          path: fragments-category/metamysteria.arcpkg
+          overwrite: true
+      - uses: actions/upload-artifact@v4
+        with:
+          name: lowiro.aloneandlorn.arcpkg
+          path: fragments-category/aloneandlorn.arcpkg
+          overwrite: true
+      - uses: actions/upload-artifact@v4
+        with:
+          name: lowiro.wishuponasnow.arcpkg
+          path: fragments-category/wishuponasnow.arcpkg
+          overwrite: true
+      - uses: actions/upload-artifact@v4
+        with:
+          name: lowiro.overdrive.arcpkg
+          path: fragments-category/overdrive.arcpkg
+          overwrite: true
+      - uses: actions/upload-artifact@v4
+        with:
+          name: lowiro.felys.arcpkg
+          path: fragments-category/felys.arcpkg
+          overwrite: true
+      - uses: actions/upload-artifact@v4
+        with:
+          name: lowiro.onandon.arcpkg
+          path: fragments-category/onandon.arcpkg
+          overwrite: true
+      - uses: actions/upload-artifact@v4
+        with:
+          name: lowiro.lightmyway.arcpkg
+          path: fragments-category/lightmyway.arcpkg
+          overwrite: true
+      - uses: actions/upload-artifact@v4
+        with:
+          name: lowiro.hotarubinoyuki.arcpkg
+          path: fragments-category/hotarubinoyuki.arcpkg
+          overwrite: true
+      - uses: actions/upload-artifact@v4
+        with:
+          name: lowiro.theformula.arcpkg
+          path: fragments-category/theformula.arcpkg
+          overwrite: true
+      - uses: actions/upload-artifact@v4
+        with:
+          name: lowiro.lunarossa.arcpkg
+          path: fragments-category/lunarossa.arcpkg
+          overwrite: true
+      - uses: actions/upload-artifact@v4
+        with:
+          name: lowiro.jingle.arcpkg
+          path: fragments-category/jingle.arcpkg
+          overwrite: true
+      - uses: actions/upload-artifact@v4
+        with:
+          name: lowiro.innocence.arcpkg
+          path: fragments-category/innocence.arcpkg
+          overwrite: true
+      - uses: actions/upload-artifact@v4
+        with:
+          name: lowiro.ionostream.arcpkg
+          path: fragments-category/ionostream.arcpkg
+          overwrite: true
+      - uses: actions/upload-artifact@v4
+        with:
+          name: lowiro.alephzero.arcpkg
+          path: fragments-category/alephzero.arcpkg
+          overwrite: true
+      - uses: actions/upload-artifact@v4
+        with:
+          name: lowiro.masqueradelegion.arcpkg
+          path: fragments-category/masqueradelegion.arcpkg
+          overwrite: true
+      - uses: actions/upload-artifact@v4
+        with:
+          name: lowiro.kyorenromance.arcpkg
+          path: fragments-category/kyorenromance.arcpkg
+          overwrite: true
+      - uses: actions/upload-artifact@v4
+        with:
+          name: lowiro.qovat.arcpkg
+          path: fragments-category/qovat.arcpkg
+          overwrite: true
+      - uses: actions/upload-artifact@v4
+        with:
+          name: lowiro.hellohell.arcpkg
+          path: fragments-category/hellohell.arcpkg
+          overwrite: true
+      - uses: actions/upload-artifact@v4
+        with:
+          name: lowiro.ichirin.arcpkg
+          path: fragments-category/ichirin.arcpkg
+          overwrite: true
+      - uses: actions/upload-artifact@v4
+        with:
+          name: lowiro.awakeninruins.arcpkg
+          path: fragments-category/awakeninruins.arcpkg
+          overwrite: true
+      - uses: actions/upload-artifact@v4
+        with:
+          name: lowiro.morningloom.arcpkg
+          path: fragments-category/morningloom.arcpkg
+          overwrite: true
+      - uses: actions/upload-artifact@v4
+        with:
+          name: lowiro.lethalvoltage.arcpkg
+          path: fragments-category/lethalvoltage.arcpkg
+          overwrite: true
+      - uses: actions/upload-artifact@v4
+        with:
+          name: lowiro.mirinae.arcpkg
+          path: fragments-category/mirinae.arcpkg
+          overwrite: true
+      - uses: actions/upload-artifact@v4
+        with:
+          name: lowiro.ultradiaxon.arcpkg
+          path: fragments-category/ultradiaxon.arcpkg
+          overwrite: true
+      - uses: actions/upload-artifact@v4
+        with:
+          name: lowiro.leaveallbehind.arcpkg
+          path: fragments-category/leaveallbehind.arcpkg
+          overwrite: true
+      - uses: actions/upload-artifact@v4
+        with:
+          name: lowiro.distortedfate.arcpkg
+          path: fragments-category/distortedfate.arcpkg
+          overwrite: true
+      - uses: actions/upload-artifact@v4
+        with:
+          name: lowiro.floatingworld.arcpkg
+          path: fragments-category/floatingworld.arcpkg
+          overwrite: true
+      - uses: actions/upload-artifact@v4
+        with:
+          name: lowiro.chromafill.arcpkg
+          path: fragments-category/chromafill.arcpkg
+          overwrite: true
+      - uses: actions/upload-artifact@v4
+        with:
+          name: lowiro.desive.arcpkg
+          path: fragments-category/desive.arcpkg
+          overwrite: true
+      - uses: actions/upload-artifact@v4
+        with:
+          name: lowiro.epicurus.arcpkg
+          path: fragments-category/epicurus.arcpkg
+          overwrite: true
+      - uses: actions/upload-artifact@v4
+        with:
+          name: lowiro.tasogare.arcpkg
+          path: fragments-category/tasogare.arcpkg
+          overwrite: true
+      - uses: actions/upload-artifact@v4
+        with:
+          name: lowiro.oldschoolsalvage.arcpkg
+          path: fragments-category/oldschoolsalvage.arcpkg
+          overwrite: true
+      - uses: actions/upload-artifact@v4
+        with:
+          name: lowiro.beautifuldreamer.arcpkg
+          path: fragments-category/beautifuldreamer.arcpkg
+          overwrite: true
+      - uses: actions/upload-artifact@v4
+        with:
+          name: lowiro.backtobasics.arcpkg
+          path: fragments-category/backtobasics.arcpkg
+          overwrite: true
+      - uses: actions/upload-artifact@v4
+        with:
+          name: lowiro.stargateextreme.arcpkg
+          path: fragments-category/stargateextreme.arcpkg
+          overwrite: true
+      - uses: actions/upload-artifact@v4
+        with:
+          name: lowiro.signof.arcpkg
+          path: fragments-category/signof.arcpkg
+          overwrite: true
+      - uses: actions/upload-artifact@v4
+        with:
+          name: lowiro.temptationgc.arcpkg
+          path: fragments-category/temptationgc.arcpkg
+          overwrite: true
+      - uses: actions/upload-artifact@v4
+        with:
+          name: lowiro.blackmind.arcpkg
+          path: fragments-category/blackmind.arcpkg
+          overwrite: true
+      - uses: actions/upload-artifact@v4
+        with:
+          name: lowiro.hypervision.arcpkg
+          path: fragments-category/hypervision.arcpkg
+          overwrite: true
+      - uses: actions/upload-artifact@v4
+        with:
+          name: lowiro.distortionhuman.arcpkg
+          path: fragments-category/distortionhuman.arcpkg
+          overwrite: true
+      - uses: actions/upload-artifact@v4
+        with:
+          name: lowiro.shrink.arcpkg
+          path: fragments-category/shrink.arcpkg
+          overwrite: true
+      - uses: actions/upload-artifact@v4
+        with:
+          name: lowiro.invain.arcpkg
+          path: fragments-category/invain.arcpkg
+          overwrite: true
+      - uses: actions/upload-artifact@v4
+        with:
+          name: lowiro.hypnotize.arcpkg
+          path: fragments-category/hypnotize.arcpkg
+          overwrite: true
+      - uses: actions/upload-artifact@v4
+        with:
+          name: lowiro.ashenboundary.arcpkg
+          path: fragments-category/ashenboundary.arcpkg
+          overwrite: true
+      - uses: actions/upload-artifact@v4
+        with:
+          name: lowiro.judgement.arcpkg
+          path: fragments-category/judgement.arcpkg
+          overwrite: true
+      - uses: actions/upload-artifact@v4
+        with:
+          name: lowiro.alterego.arcpkg
+          path: fragments-category/alterego.arcpkg
+          overwrite: true
+      - uses: actions/upload-artifact@v4
+        with:
+          name: lowiro.epitaxy.arcpkg
+          path: fragments-category/epitaxy.arcpkg
+          overwrite: true
+      - uses: actions/upload-artifact@v4
+        with:
+          name: lowiro.waltzforlorelei.arcpkg
+          path: fragments-category/waltzforlorelei.arcpkg
+          overwrite: true
+      - uses: actions/upload-artifact@v4
+        with:
+          name: lowiro.dualdoom.arcpkg
+          path: fragments-category/dualdoom.arcpkg
+          overwrite: true
+      - uses: actions/upload-artifact@v4
+        with:
+          name: lowiro.invertedworld.arcpkg
+          path: fragments-category/invertedworld.arcpkg
+          overwrite: true
+      - uses: actions/upload-artifact@v4
+        with:
+          name: lowiro.mvurbd.arcpkg
+          path: fragments-category/mvurbd.arcpkg
+          overwrite: true
+      - uses: actions/upload-artifact@v4
+        with:
+          name: lowiro.vulcanus.arcpkg
+          path: fragments-category/vulcanus.arcpkg
+          overwrite: true
+      - uses: actions/upload-artifact@v4
+        with:
+          name: lowiro.rainofconflict.arcpkg
+          path: fragments-category/rainofconflict.arcpkg
+          overwrite: true
+      - uses: actions/upload-artifact@v4
+        with:
+          name: lowiro.saintorsinner.arcpkg
+          path: fragments-category/saintorsinner.arcpkg
+          overwrite: true
+      - uses: actions/upload-artifact@v4
+        with:
+          name: lowiro.hailstone.arcpkg
+          path: fragments-category/hailstone.arcpkg
+          overwrite: true
+      - uses: actions/upload-artifact@v4
+        with:
+          name: lowiro.furetemitai.arcpkg
+          path: fragments-category/furetemitai.arcpkg
+          overwrite: true
+      - uses: actions/upload-artifact@v4
+        with:
+          name: lowiro.gensounosatellite.arcpkg
+          path: fragments-category/gensounosatellite.arcpkg
+          overwrite: true
+      - uses: actions/upload-artifact@v4
+        with:
+          name: lowiro.prayer.arcpkg
+          path: fragments-category/prayer.arcpkg
+          overwrite: true
+      - uses: actions/upload-artifact@v4
+        with:
+          name: lowiro.crimsonquartz.arcpkg
+          path: fragments-category/crimsonquartz.arcpkg
+          overwrite: true
+      - uses: actions/upload-artifact@v4
+        with:
+          name: lowiro.thirdsun.arcpkg
+          path: fragments-category/thirdsun.arcpkg
+          overwrite: true
+      - uses: actions/upload-artifact@v4
+        with:
+          name: lowiro.spiritdauntless.arcpkg
+          path: fragments-category/spiritdauntless.arcpkg
+          overwrite: true
+      - uses: actions/upload-artifact@v4
+        with:
+          name: lowiro.diesirae.arcpkg
+          path: fragments-category/diesirae.arcpkg
+          overwrite: true
+      - uses: actions/upload-artifact@v4
+        with:
+          name: lowiro.astralexe.arcpkg
+          path: fragments-category/astralexe.arcpkg
+          overwrite: true
+      - uses: actions/upload-artifact@v4
+        with:
+          name: lowiro.liftoff.arcpkg
+          path: fragments-category/liftoff.arcpkg
+          overwrite: true
+      - uses: actions/upload-artifact@v4
+        with:
+          name: lowiro.superambulance.arcpkg
+          path: fragments-category/superambulance.arcpkg
+          overwrite: true
+      - uses: actions/upload-artifact@v4
+        with:
+          name: lowiro.dontfightmusic.arcpkg
+          path: fragments-category/dontfightmusic.arcpkg
+          overwrite: true
+      - uses: actions/upload-artifact@v4
+        with:
+          name: lowiro.andrevivemelody.arcpkg
+          path: fragments-category/andrevivemelody.arcpkg
+          overwrite: true
+      - uses: actions/upload-artifact@v4
+        with:
+          name: lowiro.swansong.arcpkg
+          path: fragments-category/swansong.arcpkg
+          overwrite: true
+      - uses: actions/upload-artifact@v4
+        with:
+          name: lowiro.renegade.arcpkg
+          path: fragments-category/renegade.arcpkg
+          overwrite: true
+      - uses: actions/upload-artifact@v4
+        with:
+          name: lowiro.raysofremnant.arcpkg
+          path: fragments-category/raysofremnant.arcpkg
+          overwrite: true
+      - uses: actions/upload-artifact@v4
+        with:
+          name: lowiro.breachoffaith.arcpkg
+          path: fragments-category/breachoffaith.arcpkg
+          overwrite: true
+      - uses: actions/upload-artifact@v4
+        with:
+          name: lowiro.lamentrain.arcpkg
+          path: fragments-category/lamentrain.arcpkg
+          overwrite: true
+      - uses: actions/upload-artifact@v4
+        with:
+          name: lowiro.designant.arcpkg
+          path: fragments-category/designant.arcpkg
+          overwrite: true
+      - uses: actions/upload-artifact@v4
+        with:
+          name: lowiro.astralquant.arcpkg
+          path: fragments-category/astralquant.arcpkg
+          overwrite: true
+      - uses: actions/upload-artifact@v4
+        with:
+          name: lowiro.ignition.arcpkg
+          path: fragments-category/ignition.arcpkg
+          overwrite: true
+      - uses: actions/upload-artifact@v4
+        with:
+          name: lowiro.blazingair.arcpkg
+          path: fragments-category/blazingair.arcpkg
+          overwrite: true
+      - uses: actions/upload-artifact@v4
+        with:
+          name: lowiro.eightem.arcpkg
+          path: fragments-category/eightem.arcpkg
+          overwrite: true
+      - uses: actions/upload-artifact@v4
+        with:
+          name: lowiro.daat.arcpkg
+          path: fragments-category/daat.arcpkg
+          overwrite: true
+      - uses: actions/upload-artifact@v4
+        with:
+          name: lowiro.breakbreak.arcpkg
+          path: fragments-category/breakbreak.arcpkg
+          overwrite: true
+      - uses: actions/upload-artifact@v4
+        with:
+          name: lowiro.straightintolights.arcpkg
+          path: fragments-category/straightintolights.arcpkg
+          overwrite: true
+      - uses: actions/upload-artifact@v4
+        with:
+          name: lowiro.virtus.arcpkg
+          path: fragments-category/virtus.arcpkg
+          overwrite: true
+      - uses: actions/upload-artifact@v4
+        with:
+          name: lowiro.yomibitoshirazu.arcpkg
+          path: fragments-category/yomibitoshirazu.arcpkg
+          overwrite: true
+      - uses: actions/upload-artifact@v4
+        with:
+          name: lowiro.aethercrest.arcpkg
+          path: fragments-category/aethercrest.arcpkg
+          overwrite: true
+      - uses: actions/upload-artifact@v4
+        with:
+          name: lowiro.heartache.arcpkg
+          path: fragments-category/heartache.arcpkg
+          overwrite: true
+      - uses: actions/upload-artifact@v4
+        with:
+          name: lowiro.deathbyglamour.arcpkg
+          path: fragments-category/deathbyglamour.arcpkg
+          overwrite: true
+      - uses: actions/upload-artifact@v4
+        with:
+          name: lowiro.yourbestnightmare.arcpkg
+          path: fragments-category/yourbestnightmare.arcpkg
+          overwrite: true
+      - uses: actions/upload-artifact@v4
+        with:
+          name: lowiro.lastgoodbye.arcpkg
+          path: fragments-category/lastgoodbye.arcpkg
+          overwrite: true
+      - uses: actions/upload-artifact@v4
+        with:
+          name: lowiro.megalovania.arcpkg
+          path: fragments-category/megalovania.arcpkg
+          overwrite: true
+      - uses: actions/upload-artifact@v4
+        with:
+          name: lowiro.megalovaniarmx.arcpkg
+          path: fragments-category/megalovaniarmx.arcpkg
+          overwrite: true
+      - uses: actions/upload-artifact@v4
+        with:
+          name: lowiro.placebobattler.arcpkg
+          path: fragments-category/placebobattler.arcpkg
+          overwrite: true
