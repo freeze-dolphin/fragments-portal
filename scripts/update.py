@@ -1,7 +1,4 @@
 import json
-import os
-from urllib.request import urlretrieve
-import zipfile
 
 # TOKEN = os.environ.get("CATEGORY_TOKEN")
 
@@ -48,7 +45,14 @@ jobs:
           repository: freeze-dolphin/fragments-category
           path: fragments-category
           ref: master
-          token: ${{ secrets.CATEGORY_TOKEN }}"""
+          token: ${{ secrets.CATEGORY_TOKEN }}
+          
+      - uses: actions/setup-java@v4
+        with:
+          distribution: 'temurin'
+          java-version: '17'
+          
+      - run: python scripts/generate_arcpkgs.py"""
 
 
 def song(song_id: str) -> str:
@@ -73,17 +77,6 @@ if __name__ == "__main__":
     with open("fragments-category/songs/songlist", "r", encoding="utf-8") as songlist_f:
         songlist = json.loads(songlist_f.read())["songs"]
 
-    etoile_release = "v0.1.0"
-    etoile_version = "EtoileResurrection-c2d303d"
-    etoile_zip_file = "EtoileResurrection.zip"
-    urlretrieve(
-        f"https://github.com/freeze-dolphin/EtoileResurrection/releases/download/{etoile_release}/{etoile_version}.zip",
-        etoile_zip_file,
-    )
-
-    with zipfile.ZipFile(etoile_zip_file, "r") as zip_ref:
-        zip_ref.extractall("scripts/")
-
     for song_info in songlist:
         song_id = song_info["id"]
 
@@ -91,9 +84,6 @@ if __name__ == "__main__":
 
         PACKER_ACTION_CONTENT += song(song_id)
         PACKER_ARCPKG_ACTION_CONTENT += song_arcpkg(song_id)
-        os.system(
-            f"scripts/{etoile_version}/bin/EtoileResurrection pack fragments-category/songs --songId={song_id} --prefix=lowiro -o ."
-        )
         print(f"- {song_id}")
 
     with open(".github/workflows/packer.yml", "w") as packer_f:
