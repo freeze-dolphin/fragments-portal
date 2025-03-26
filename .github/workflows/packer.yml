@@ -661,11 +661,6 @@ jobs:
           overwrite: true
       - uses: actions/upload-artifact@v4
         with:
-          name: particlearts
-          path: fragments-category/songs/particlearts
-          overwrite: true
-      - uses: actions/upload-artifact@v4
-        with:
           name: vindication
           path: fragments-category/songs/vindication
           overwrite: true
