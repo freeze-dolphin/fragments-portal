@@ -1,5 +1,6 @@
 import os
 import json
+import sys
 from urllib.request import urlretrieve
 import zipfile
 
@@ -19,13 +20,24 @@ if __name__ == "__main__":
     with zipfile.ZipFile(etoile_zip_file, "r") as zip_ref:
         zip_ref.extractall("scripts/")
 
+    if not sys.platform.startswith("win"):
+        os.system(f"chmod +x scripts/{etoile_version}/bin/EtoileResurrection")
+
+    print("EtoileResurrection Extracted")
+
+    os.mkdir("arcpkgs")
+
     for song_info in songlist:
         if "deleted" in song_info and song_info["deleted"]:
             continue
 
         song_id = song_info["id"]
 
-        os.system(
-            f"scripts/{etoile_version}/bin/EtoileResurrection pack fragments-category/songs --songId={song_id} --prefix=lowiro -o ."
-        )
-        print(f"- {song_id}")
+        if sys.platform.startswith("win"):
+            os.system(
+                f"scripts\\{etoile_version}\\bin\\EtoileResurrection pack fragments-category\\songs --songId={song_id} --prefix=lowiro -o arcpkgs"
+            )
+        else:
+            os.system(
+                f"scripts/{etoile_version}/bin/EtoileResurrection pack fragments-category/songs --songId={song_id} --prefix=lowiro -o arcpkgs"
+            )

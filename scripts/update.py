@@ -69,7 +69,7 @@ def song_arcpkg(song_id: str) -> str:
       - uses: actions/upload-artifact@v4
         with:
           name: {song_id}
-          path: lowiro.{song_id}.arcpkg
+          path: arcpkgs/lowiro.{song_id}.arcpkg
           overwrite: true"""
 
 
