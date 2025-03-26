@@ -1,0 +1,17 @@
+name: packer-arcpkg
+
+on:
+  workflow_dispatch:
+
+jobs:
+  pack_arcpkg:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/checkout@v4
+        with: 
+          repository: freeze-dolphin/fragments-category
+          path: fragments-category
+          ref: master
+          token: ${{ secrets.CATEGORY_TOKEN }}

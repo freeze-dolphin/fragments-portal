@@ -1,1 +1,6 @@
-fragments-category/
+fragments-category
+
+*.arcpkg
+EtoileResurrection.zip
+
+scripts/EtoileResurrection-*
