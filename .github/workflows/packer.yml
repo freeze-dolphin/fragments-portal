@@ -2274,3 +2274,38 @@ jobs:
           name: placebobattler
           path: fragments-category/songs/placebobattler
           overwrite: true
+      - uses: actions/upload-artifact@v4
+        with:
+          name: ignotusafterburn
+          path: fragments-category/songs/ignotusafterburn
+          overwrite: true
+      - uses: actions/upload-artifact@v4
+        with:
+          name: redandblueandgreen
+          path: fragments-category/songs/redandblueandgreen
+          overwrite: true
+      - uses: actions/upload-artifact@v4
+        with:
+          name: singularityvvvip
+          path: fragments-category/songs/singularityvvvip
+          overwrite: true
+      - uses: actions/upload-artifact@v4
+        with:
+          name: overdead
+          path: fragments-category/songs/overdead
+          overwrite: true
+      - uses: actions/upload-artifact@v4
+        with:
+          name: mismal
+          path: fragments-category/songs/mismal
+          overwrite: true
+      - uses: actions/upload-artifact@v4
+        with:
+          name: ifirmx
+          path: fragments-category/songs/ifirmx
+          overwrite: true
+      - uses: actions/upload-artifact@v4
+        with:
+          name: hivemindrmx
+          path: fragments-category/songs/hivemindrmx
+          overwrite: true
