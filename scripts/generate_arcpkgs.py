@@ -1,17 +1,9 @@
 import os
-import json
 import sys
 from urllib.request import urlretrieve
 import zipfile
 
-
 if __name__ == "__main__":
-    with open("fragments-category/songs/songlist", "r", encoding="utf-8") as songlist_f:
-        songlist = json.loads(songlist_f.read())["songs"]
-
-    with open("fragments-category/songs/songlist_aprilfools", "r", encoding="utf-8") as songlist_f:
-        songlist += json.loads(songlist_f.read())["songs"]
-
     etoile_release = "v0.1.1"
     etoile_version = "EtoileResurrection-4e2392f"
     etoile_zip_file = "EtoileResurrection.zip"
@@ -30,17 +22,17 @@ if __name__ == "__main__":
 
     os.mkdir("arcpkgs")
 
-    for song_info in songlist:
-        if "deleted" in song_info and song_info["deleted"]:
-            continue
-
-        song_id = song_info["id"]
-
-        if sys.platform.startswith("win"):
-            os.system(
-                f"scripts\\{etoile_version}\\bin\\EtoileResurrection pack fragments-category\\songs --songId={song_id} --prefix=lowiro -o arcpkgs"
-            )
-        else:
-            os.system(
-                f"scripts/{etoile_version}/bin/EtoileResurrection pack fragments-category/songs --songId={song_id} --prefix=lowiro -o arcpkgs"
-            )
+    if sys.platform.startswith("win"):
+        os.system(
+            f"scripts\\{etoile_version}\\bin\\EtoileResurrection pack fragments-category\\songs\\songlist --songId=.* -re --prefix=lowiro -o arcpkgs"
+        )
+        os.system(
+            f"scripts\\{etoile_version}\\bin\\EtoileResurrection pack fragments-category\\songs\\songlist_aprilfools --songId=.* -re --prefix=lowiro -o arcpkgs"
+        )
+    else:
+        os.system(
+            f"scripts/{etoile_version}/bin/EtoileResurrection pack fragments-category/songs/songlist --songId=.* -re --prefix=lowiro -o arcpkgs"
+        )
+        os.system(
+            f"scripts/{etoile_version}/bin/EtoileResurrection pack fragments-category/songs/songlist_aprilfools --songId=.* -re --prefix=lowiro -o arcpkgs"
+        )
