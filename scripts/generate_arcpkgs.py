@@ -9,6 +9,9 @@ if __name__ == "__main__":
     with open("fragments-category/songs/songlist", "r", encoding="utf-8") as songlist_f:
         songlist = json.loads(songlist_f.read())["songs"]
 
+    with open("fragments-category/songs/songlist_aprilfools", "r", encoding="utf-8") as songlist_f:
+        songlist += json.loads(songlist_f.read())["songs"]
+
     etoile_release = "v0.1.0"
     etoile_version = "EtoileResurrection-c2d303d"
     etoile_zip_file = "EtoileResurrection.zip"

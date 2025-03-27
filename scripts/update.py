@@ -77,6 +77,9 @@ if __name__ == "__main__":
     with open("fragments-category/songs/songlist", "r", encoding="utf-8") as songlist_f:
         songlist = json.loads(songlist_f.read())["songs"]
 
+    with open("fragments-category/songs/songlist_aprilfools", "r", encoding="utf-8") as songlist_f:
+        songlist += json.loads(songlist_f.read())["songs"]
+
     for song_info in songlist:
         if "deleted" in song_info and song_info["deleted"]:
             continue
