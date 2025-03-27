@@ -2272,3 +2272,38 @@ jobs:
           name: placebobattler
           path: arcpkgs/lowiro.placebobattler.arcpkg
           overwrite: true
+      - uses: actions/upload-artifact@v4
+        with:
+          name: ignotusafterburn
+          path: arcpkgs/lowiro.ignotusafterburn.arcpkg
+          overwrite: true
+      - uses: actions/upload-artifact@v4
+        with:
+          name: redandblueandgreen
+          path: arcpkgs/lowiro.redandblueandgreen.arcpkg
+          overwrite: true
+      - uses: actions/upload-artifact@v4
+        with:
+          name: singularityvvvip
+          path: arcpkgs/lowiro.singularityvvvip.arcpkg
+          overwrite: true
+      - uses: actions/upload-artifact@v4
+        with:
+          name: overdead
+          path: arcpkgs/lowiro.overdead.arcpkg
+          overwrite: true
+      - uses: actions/upload-artifact@v4
+        with:
+          name: mismal
+          path: arcpkgs/lowiro.mismal.arcpkg
+          overwrite: true
+      - uses: actions/upload-artifact@v4
+        with:
+          name: ifirmx
+          path: arcpkgs/lowiro.ifirmx.arcpkg
+          overwrite: true
+      - uses: actions/upload-artifact@v4
+        with:
+          name: hivemindrmx
+          path: arcpkgs/lowiro.hivemindrmx.arcpkg
+          overwrite: true
