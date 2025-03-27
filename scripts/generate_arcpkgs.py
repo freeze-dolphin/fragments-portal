@@ -12,8 +12,8 @@ if __name__ == "__main__":
     with open("fragments-category/songs/songlist_aprilfools", "r", encoding="utf-8") as songlist_f:
         songlist += json.loads(songlist_f.read())["songs"]
 
-    etoile_release = "v0.1.0"
-    etoile_version = "EtoileResurrection-c2d303d"
+    etoile_release = "v0.1.1"
+    etoile_version = "EtoileResurrection-4e2392f"
     etoile_zip_file = "EtoileResurrection.zip"
     urlretrieve(
         f"https://github.com/freeze-dolphin/EtoileResurrection/releases/download/{etoile_release}/{etoile_version}.zip",
