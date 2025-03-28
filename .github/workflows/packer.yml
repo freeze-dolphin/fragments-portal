@@ -2726,6 +2726,24 @@ jobs:
           name: placebobattler
           path: fragments-category/songs/placebobattler
           overwrite: true
+      - name: Upload artifact 'blackmirror'
+        uses: actions/upload-artifact@v4
+        with:
+          name: blackmirror
+          path: fragments-category/songs/blackmirror
+          overwrite: true
+      - name: Upload artifact 'shinchoku'
+        uses: actions/upload-artifact@v4
+        with:
+          name: shinchoku
+          path: fragments-category/songs/shinchoku
+          overwrite: true
+      - name: Upload artifact 'trpno'
+        uses: actions/upload-artifact@v4
+        with:
+          name: trpno
+          path: fragments-category/songs/trpno
+          overwrite: true
       - name: Upload artifact 'ignotusafterburn'
         uses: actions/upload-artifact@v4
         with:

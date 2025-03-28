@@ -2723,6 +2723,24 @@ jobs:
           name: placebobattler
           path: arcpkgs/lowiro.placebobattler.arcpkg
           overwrite: true
+      - name: Upload artifact 'blackmirror'
+        uses: actions/upload-artifact@v4
+        with:
+          name: blackmirror
+          path: arcpkgs/lowiro.blackmirror.arcpkg
+          overwrite: true
+      - name: Upload artifact 'shinchoku'
+        uses: actions/upload-artifact@v4
+        with:
+          name: shinchoku
+          path: arcpkgs/lowiro.shinchoku.arcpkg
+          overwrite: true
+      - name: Upload artifact 'trpno'
+        uses: actions/upload-artifact@v4
+        with:
+          name: trpno
+          path: arcpkgs/lowiro.trpno.arcpkg
+          overwrite: true
       - name: Upload artifact 'ignotusafterburn'
         uses: actions/upload-artifact@v4
         with:
