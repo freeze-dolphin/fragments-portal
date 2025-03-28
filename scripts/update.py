@@ -13,14 +13,16 @@ jobs:
     steps:
       - uses: actions/checkout@v4
 
-      - uses: actions/checkout@v4
+      - name: Checkout category repo
+        uses: actions/checkout@v4
         with: 
           repository: freeze-dolphin/fragments-category
           path: fragments-category
           ref: master
           token: ${{ secrets.CATEGORY_TOKEN }}
 
-      - uses: actions/upload-artifact@v4
+      - name: Upload metadata
+        uses: actions/upload-artifact@v4
         with:
           name: metadata
           path: |
@@ -40,7 +42,8 @@ jobs:
     steps:
       - uses: actions/checkout@v4
 
-      - uses: actions/checkout@v4
+      - name: Checkout category repo
+        uses: actions/checkout@v4
         with: 
           repository: freeze-dolphin/fragments-category
           path: fragments-category
@@ -57,7 +60,8 @@ jobs:
 
 def song(song_id: str) -> str:
     return f"""
-      - uses: actions/upload-artifact@v4
+      - name: Upload artifact: {song_id}
+        uses: actions/upload-artifact@v4
         with:
           name: {song_id}
           path: fragments-category/songs/{song_id}
@@ -66,7 +70,8 @@ def song(song_id: str) -> str:
 
 def song_arcpkg(song_id: str) -> str:
     return f"""
-      - uses: actions/upload-artifact@v4
+      - name: Upload artifact: {song_id}
+        uses: actions/upload-artifact@v4
         with:
           name: {song_id}
           path: arcpkgs/lowiro.{song_id}.arcpkg
@@ -77,7 +82,9 @@ if __name__ == "__main__":
     with open("fragments-category/songs/songlist", "r", encoding="utf-8") as songlist_f:
         songlist = json.loads(songlist_f.read())["songs"]
 
-    with open("fragments-category/songs/songlist_aprilfools", "r", encoding="utf-8") as songlist_f:
+    with open(
+        "fragments-category/songs/songlist_aprilfools", "r", encoding="utf-8"
+    ) as songlist_f:
         songlist += json.loads(songlist_f.read())["songs"]
 
     for song_info in songlist:
