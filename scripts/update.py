@@ -60,7 +60,7 @@ jobs:
 
 def song(song_id: str) -> str:
     return f"""
-      - name: Upload artifact: {song_id}
+      - name: Upload artifact '{song_id}'
         uses: actions/upload-artifact@v4
         with:
           name: {song_id}
@@ -70,7 +70,7 @@ def song(song_id: str) -> str:
 
 def song_arcpkg(song_id: str) -> str:
     return f"""
-      - name: Upload artifact: {song_id}
+      - name: Upload artifact '{song_id}'
         uses: actions/upload-artifact@v4
         with:
           name: {song_id}
