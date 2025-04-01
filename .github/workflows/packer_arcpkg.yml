@@ -2783,3 +2783,9 @@ jobs:
           name: hivemindrmx
           path: arcpkgs/lowiro.hivemindrmx.arcpkg
           overwrite: true
+      - name: Upload artifact 'lfdyrmx'
+        uses: actions/upload-artifact@v4
+        with:
+          name: lfdyrmx
+          path: arcpkgs/lowiro.lfdyrmx.arcpkg
+          overwrite: true
