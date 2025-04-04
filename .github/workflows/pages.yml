@@ -42,7 +42,7 @@ jobs:
         run: |
           pip install beautifulsoup4
           pip install lxml
-          python fragments-category/scripts/gen_songdoc.py
+          cd fragments-category && python scripts/gen_songdoc.py
       
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
