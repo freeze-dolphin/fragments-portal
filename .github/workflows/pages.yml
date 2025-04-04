@@ -27,6 +27,13 @@ jobs:
     steps:
       - name: Checkout
         uses: actions/checkout@v4
+
+      - uses: actions/checkout@v4
+        with: 
+          repository: freeze-dolphin/fragments-category
+          path: fragments-category
+          ref: master
+          token: ${{ secrets.CATEGORY_TOKEN }}
         
       - name: Setup Pages
         uses: actions/configure-pages@v5
