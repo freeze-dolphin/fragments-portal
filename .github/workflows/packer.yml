@@ -2744,6 +2744,18 @@ jobs:
           name: trpno
           path: fragments-category/songs/trpno
           overwrite: true
+      - name: Upload artifact 'tau'
+        uses: actions/upload-artifact@v4
+        with:
+          name: tau
+          path: fragments-category/songs/tau
+          overwrite: true
+      - name: Upload artifact 'dullblade'
+        uses: actions/upload-artifact@v4
+        with:
+          name: dullblade
+          path: fragments-category/songs/dullblade
+          overwrite: true
       - name: Upload artifact 'ignotusafterburn'
         uses: actions/upload-artifact@v4
         with:
