@@ -2756,6 +2756,54 @@ jobs:
           name: dullblade
           path: fragments-category/songs/dullblade
           overwrite: true
+      - name: Upload artifact 'wontbackdown'
+        uses: actions/upload-artifact@v4
+        with:
+          name: wontbackdown
+          path: fragments-category/songs/wontbackdown
+          overwrite: true
+      - name: Upload artifact 'dontdie'
+        uses: actions/upload-artifact@v4
+        with:
+          name: dontdie
+          path: fragments-category/songs/dontdie
+          overwrite: true
+      - name: Upload artifact 'ladymadestar'
+        uses: actions/upload-artifact@v4
+        with:
+          name: ladymadestar
+          path: fragments-category/songs/ladymadestar
+          overwrite: true
+      - name: Upload artifact 'endmoonlight'
+        uses: actions/upload-artifact@v4
+        with:
+          name: endmoonlight
+          path: fragments-category/songs/endmoonlight
+          overwrite: true
+      - name: Upload artifact 'uad'
+        uses: actions/upload-artifact@v4
+        with:
+          name: uad
+          path: fragments-category/songs/uad
+          overwrite: true
+      - name: Upload artifact 'oblivion'
+        uses: actions/upload-artifact@v4
+        with:
+          name: oblivion
+          path: fragments-category/songs/oblivion
+          overwrite: true
+      - name: Upload artifact 'nightmare'
+        uses: actions/upload-artifact@v4
+        with:
+          name: nightmare
+          path: fragments-category/songs/nightmare
+          overwrite: true
+      - name: Upload artifact 'tictactoe'
+        uses: actions/upload-artifact@v4
+        with:
+          name: tictactoe
+          path: fragments-category/songs/tictactoe
+          overwrite: true
       - name: Upload artifact 'ignotusafterburn'
         uses: actions/upload-artifact@v4
         with:
