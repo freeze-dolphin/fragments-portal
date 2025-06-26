@@ -2804,6 +2804,54 @@ jobs:
           name: tictactoe
           path: fragments-category/songs/tictactoe
           overwrite: true
+      - name: Upload artifact 'satisfaction'
+        uses: actions/upload-artifact@v4
+        with:
+          name: satisfaction
+          path: fragments-category/songs/satisfaction
+          overwrite: true
+      - name: Upload artifact 'someday'
+        uses: actions/upload-artifact@v4
+        with:
+          name: someday
+          path: fragments-category/songs/someday
+          overwrite: true
+      - name: Upload artifact 'miles'
+        uses: actions/upload-artifact@v4
+        with:
+          name: miles
+          path: fragments-category/songs/miles
+          overwrite: true
+      - name: Upload artifact 'iwantyou'
+        uses: actions/upload-artifact@v4
+        with:
+          name: iwantyou
+          path: fragments-category/songs/iwantyou
+          overwrite: true
+      - name: Upload artifact 'syriana'
+        uses: actions/upload-artifact@v4
+        with:
+          name: syriana
+          path: fragments-category/songs/syriana
+          overwrite: true
+      - name: Upload artifact 'liar'
+        uses: actions/upload-artifact@v4
+        with:
+          name: liar
+          path: fragments-category/songs/liar
+          overwrite: true
+      - name: Upload artifact 'blythe'
+        uses: actions/upload-artifact@v4
+        with:
+          name: blythe
+          path: fragments-category/songs/blythe
+          overwrite: true
+      - name: Upload artifact 'wereallgonnadie'
+        uses: actions/upload-artifact@v4
+        with:
+          name: wereallgonnadie
+          path: fragments-category/songs/wereallgonnadie
+          overwrite: true
       - name: Upload artifact 'ignotusafterburn'
         uses: actions/upload-artifact@v4
         with:
