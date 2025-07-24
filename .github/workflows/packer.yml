@@ -2852,6 +2852,42 @@ jobs:
           name: wereallgonnadie
           path: fragments-category/songs/wereallgonnadie
           overwrite: true
+      - name: Upload artifact 'dematerialized'
+        uses: actions/upload-artifact@v4
+        with:
+          name: dematerialized
+          path: fragments-category/songs/dematerialized
+          overwrite: true
+      - name: Upload artifact 'seethelights'
+        uses: actions/upload-artifact@v4
+        with:
+          name: seethelights
+          path: fragments-category/songs/seethelights
+          overwrite: true
+      - name: Upload artifact 'scarletlunar'
+        uses: actions/upload-artifact@v4
+        with:
+          name: scarletlunar
+          path: fragments-category/songs/scarletlunar
+          overwrite: true
+      - name: Upload artifact 'dualdependency'
+        uses: actions/upload-artifact@v4
+        with:
+          name: dualdependency
+          path: fragments-category/songs/dualdependency
+          overwrite: true
+      - name: Upload artifact 'lilly'
+        uses: actions/upload-artifact@v4
+        with:
+          name: lilly
+          path: fragments-category/songs/lilly
+          overwrite: true
+      - name: Upload artifact 'extradimensional'
+        uses: actions/upload-artifact@v4
+        with:
+          name: extradimensional
+          path: fragments-category/songs/extradimensional
+          overwrite: true
       - name: Upload artifact 'ignotusafterburn'
         uses: actions/upload-artifact@v4
         with:
