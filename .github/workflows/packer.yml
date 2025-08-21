@@ -2888,6 +2888,42 @@ jobs:
           name: extradimensional
           path: fragments-category/songs/extradimensional
           overwrite: true
+      - name: Upload artifact 'disintegration'
+        uses: actions/upload-artifact@v4
+        with:
+          name: disintegration
+          path: fragments-category/songs/disintegration
+          overwrite: true
+      - name: Upload artifact 'factorder'
+        uses: actions/upload-artifact@v4
+        with:
+          name: factorder
+          path: fragments-category/songs/factorder
+          overwrite: true
+      - name: Upload artifact 'incompleteone'
+        uses: actions/upload-artifact@v4
+        with:
+          name: incompleteone
+          path: fragments-category/songs/incompleteone
+          overwrite: true
+      - name: Upload artifact 'chaosblast'
+        uses: actions/upload-artifact@v4
+        with:
+          name: chaosblast
+          path: fragments-category/songs/chaosblast
+          overwrite: true
+      - name: Upload artifact 'welcomequeen'
+        uses: actions/upload-artifact@v4
+        with:
+          name: welcomequeen
+          path: fragments-category/songs/welcomequeen
+          overwrite: true
+      - name: Upload artifact 'altergate'
+        uses: actions/upload-artifact@v4
+        with:
+          name: altergate
+          path: fragments-category/songs/altergate
+          overwrite: true
       - name: Upload artifact 'ignotusafterburn'
         uses: actions/upload-artifact@v4
         with:
