@@ -2930,6 +2930,12 @@ jobs:
           name: acheron
           path: fragments-category/songs/acheron
           overwrite: true
+      - name: Upload artifact 'eternitybreak'
+        uses: actions/upload-artifact@v4
+        with:
+          name: eternitybreak
+          path: fragments-category/songs/eternitybreak
+          overwrite: true
       - name: Upload artifact 'ignotusafterburn'
         uses: actions/upload-artifact@v4
         with:
