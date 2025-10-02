@@ -2936,6 +2936,42 @@ jobs:
           name: eternitybreak
           path: fragments-category/songs/eternitybreak
           overwrite: true
+      - name: Upload artifact 'rostpagegene'
+        uses: actions/upload-artifact@v4
+        with:
+          name: rostpagegene
+          path: fragments-category/songs/rostpagegene
+          overwrite: true
+      - name: Upload artifact 'violaillyria'
+        uses: actions/upload-artifact@v4
+        with:
+          name: violaillyria
+          path: fragments-category/songs/violaillyria
+          overwrite: true
+      - name: Upload artifact 'vainspire'
+        uses: actions/upload-artifact@v4
+        with:
+          name: vainspire
+          path: fragments-category/songs/vainspire
+          overwrite: true
+      - name: Upload artifact 'nowayback'
+        uses: actions/upload-artifact@v4
+        with:
+          name: nowayback
+          path: fragments-category/songs/nowayback
+          overwrite: true
+      - name: Upload artifact 'andorxor'
+        uses: actions/upload-artifact@v4
+        with:
+          name: andorxor
+          path: fragments-category/songs/andorxor
+          overwrite: true
+      - name: Upload artifact 'undyingmacula'
+        uses: actions/upload-artifact@v4
+        with:
+          name: undyingmacula
+          path: fragments-category/songs/undyingmacula
+          overwrite: true
       - name: Upload artifact 'ignotusafterburn'
         uses: actions/upload-artifact@v4
         with:
