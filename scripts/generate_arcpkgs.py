@@ -50,5 +50,5 @@ if __name__ == "__main__":
             f"scripts/{etoile_version}/bin/EtoileResurrection combine --prefix=lowiro -o arcpkgs/combine -s.* -re --append-single arcpkgs/*.arcpkg fragments-category/songs/songlist fragments-category/songs/packlist"
         )
         os.system(
-            f"scripts{etoile_version}/bin/EtoileResurrection combine --prefix=lowiro -o arcpkgs/aprilfools/combine -s.* -re arcpkgs/aprilfools/*.arcpkg fragments-category/songs/songlist_aprilfools fragments-category/songs/packlist_aprilfools"
+            f"scripts/{etoile_version}/bin/EtoileResurrection combine --prefix=lowiro -o arcpkgs/aprilfools/combine -s.* -re arcpkgs/aprilfools/*.arcpkg fragments-category/songs/songlist_aprilfools fragments-category/songs/packlist_aprilfools"
         )
