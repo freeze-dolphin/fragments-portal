@@ -2972,6 +2972,48 @@ jobs:
           name: undyingmacula
           path: fragments-category/songs/undyingmacula
           overwrite: true
+      - name: Upload artifact 'awakening'
+        uses: actions/upload-artifact@v4
+        with:
+          name: awakening
+          path: fragments-category/songs/awakening
+          overwrite: true
+      - name: Upload artifact 'mod'
+        uses: actions/upload-artifact@v4
+        with:
+          name: mod
+          path: fragments-category/songs/mod
+          overwrite: true
+      - name: Upload artifact 'particle'
+        uses: actions/upload-artifact@v4
+        with:
+          name: particle
+          path: fragments-category/songs/particle
+          overwrite: true
+      - name: Upload artifact 'paradoxpalette'
+        uses: actions/upload-artifact@v4
+        with:
+          name: paradoxpalette
+          path: fragments-category/songs/paradoxpalette
+          overwrite: true
+      - name: Upload artifact 'xxium'
+        uses: actions/upload-artifact@v4
+        with:
+          name: xxium
+          path: fragments-category/songs/xxium
+          overwrite: true
+      - name: Upload artifact 'angelsboundary'
+        uses: actions/upload-artifact@v4
+        with:
+          name: angelsboundary
+          path: fragments-category/songs/angelsboundary
+          overwrite: true
+      - name: Upload artifact 'xterfusion'
+        uses: actions/upload-artifact@v4
+        with:
+          name: xterfusion
+          path: fragments-category/songs/xterfusion
+          overwrite: true
       - name: Upload artifact 'ignotusafterburn'
         uses: actions/upload-artifact@v4
         with:
