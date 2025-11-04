@@ -31,11 +31,6 @@ jobs:
           repository: freeze-dolphin/fragments-category
           path: fragments-category
           ref: master
-          sparse-checkout: |
-            img
-            scripts
-            songdoc
-            songs
           token: ${{ secrets.CATEGORY_TOKEN }}
           
       - name: Setup Pages
@@ -58,7 +53,7 @@ jobs:
       - name: Generate Page Content
         run: |
           pip install beautifulsoup4 lxml pillow pytz
-          cd fragments-category && python scripts/gen_songdoc.py
+          cd ../fragments-category && python scripts/gen_songdoc.py
 
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
