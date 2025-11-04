@@ -4,8 +4,8 @@ from urllib.request import urlretrieve
 import zipfile
 
 if __name__ == "__main__":
-    etoile_release = "v1.0.8"
-    etoile_version = "EtoileResurrection-1b6e21c"
+    etoile_release = "v1.0.9"
+    etoile_version = "EtoileResurrection-4c159e3"
     etoile_zip_file = "EtoileResurrection.zip"
     urlretrieve(
         f"https://github.com/freeze-dolphin/EtoileResurrection/releases/download/{etoile_release}/{etoile_version}.zip",
