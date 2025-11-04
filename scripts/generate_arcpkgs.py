@@ -52,9 +52,14 @@ if __name__ == "__main__":
     os.system(
         f"{executor_rslv} pack {str(slst_aprilfools_p.resolve())} --songId=.* -re --prefix=lowiro -o arcpkgs/aprilfools -j1"
     )
+
+    """
+    disable combine
+
     os.system(
         f"{executor_rslv} combine --prefix=lowiro -o arcpkgs/combine -s.* -re --append-single arcpkgs/*.arcpkg {str(slst_p.resolve())} {str(plst_p.resolve())}"
     )
     os.system(
         f"{executor_rslv} combine --prefix=lowiro -o arcpkgs/aprilfools/combine -s.* -re arcpkgs/aprilfools/*.arcpkg {str(slst_aprilfools_p.resolve())} {str(plst_aprilfools_p.resolve())}"
     )
+    """
