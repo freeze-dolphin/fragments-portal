@@ -17,11 +17,13 @@ jobs:
     environment:
       name: github-pages
       url: ${{ steps.deployment.outputs.page_url }}
+
     runs-on: self-hosted
+
     steps:
       - uses: actions/checkout@v4
 
-      - name: Checkout category repo
+      - name: Checkout fragments-category
         uses: actions/checkout@v4
         with: 
           repository: freeze-dolphin/fragments-category
@@ -32,14 +34,21 @@ jobs:
       - name: Setup Pages
         uses: actions/configure-pages@v5
 
-      - uses: actions/setup-java@v4
+      - name: Setup Temurin JDK 17
+        uses: actions/setup-java@v4
         with:
           distribution: 'temurin'
           java-version: '17'
-            
-      - run: python scripts/generate_arcpkgs.py
+      
+      - name: Setup Python 3.13
+        uses: actions/setup-python@v6.0.0
+        with:
+          python-version: '3.13' 
+      
+      - name: Generate ArcCreate Packages
+        run: python scripts/generate_arcpkgs.py
 
-      - name: Generate page content
+      - name: Generate Page Content
         run: |
           pip install beautifulsoup4 lxml pillow pytz
           cd fragments-category && python scripts/gen_songdoc.py
