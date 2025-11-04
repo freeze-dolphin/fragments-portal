@@ -22,6 +22,8 @@ jobs:
 
     steps:
       - uses: actions/checkout@v4
+        with:
+          path: fragments-portal
 
       - name: Checkout fragments-category
         uses: actions/checkout@v4
@@ -29,6 +31,12 @@ jobs:
           repository: freeze-dolphin/fragments-category
           path: fragments-category
           ref: master
+          lfs: true
+          sparse-checkout: |
+            img
+            scripts
+            songdoc
+            songs
           token: ${{ secrets.CATEGORY_TOKEN }}
           
       - name: Setup Pages

@@ -2,11 +2,15 @@ import os
 import sys
 from urllib.request import urlretrieve
 import zipfile
+import multiprocessing
+from pathlib import Path
+
+num_cores = multiprocessing.cpu_count()
 
 if __name__ == "__main__":
     etoile_release = "v1.0.9"
     etoile_version = "EtoileResurrection-4c159e3"
-    etoile_zip_file = "EtoileResurrection.zip"
+    etoile_zip_file = "scripts/EtoileResurrection.zip"
     urlretrieve(
         f"https://github.com/freeze-dolphin/EtoileResurrection/releases/download/{etoile_release}/{etoile_version}.zip",
         etoile_zip_file,
@@ -20,35 +24,37 @@ if __name__ == "__main__":
 
     print("EtoileResurrection Extracted")
 
-    paths = ["arcpkgs", "arcpkgs/combine", "arcpkgs/aprilfools", "arcpkgs/aprilfools/combine"]
+    paths = [
+        "arcpkgs",
+        "arcpkgs/combine",
+        "arcpkgs/aprilfools",
+        "arcpkgs/aprilfools/combine",
+    ]
 
     for path in paths:
         if not os.path.exists(path):
             os.mkdir(path)
 
-    if sys.platform.startswith("win"):
-        os.system(
-            f"scripts\\{etoile_version}\\bin\\EtoileResurrection pack fragments-category\\songs\\songlist --songId=.* -re --prefix=lowiro -o arcpkgs"
-        )
-        os.system(
-            f"scripts\\{etoile_version}\\bin\\EtoileResurrection pack fragments-category\\songs\\songlist_aprilfools --songId=.* -re --prefix=lowiro -o arcpkgs\\aprilfools"
-        )
-        os.system(
-            f"scripts\\{etoile_version}\\bin\\EtoileResurrection combine --prefix=lowiro -o arcpkgs\\combine -s.* -re --append-single arcpkgs\\*.arcpkg fragments-category\\songs\\songlist fragments-category\\songs\\packlist"
-        )
-        os.system(
-            f"scripts\\{etoile_version}\\bin\\EtoileResurrection combine --prefix=lowiro -o arcpkgs\\aprilfools\\combine -s.* -re arcpkgs\\aprilfools\\*.arcpkg fragments-category\\songs\\songlist_aprilfools fragments-category\\songs\\packlist_aprilfools"
-        )
-    else:
-        os.system(
-            f"scripts/{etoile_version}/bin/EtoileResurrection pack fragments-category/songs/songlist --songId=.* -re --prefix=lowiro -o arcpkgs"
-        )
-        os.system(
-            f"scripts/{etoile_version}/bin/EtoileResurrection pack fragments-category/songs/songlist_aprilfools --songId=.* -re --prefix=lowiro -o arcpkgs/aprilfools"
-        )
-        os.system(
-            f"scripts/{etoile_version}/bin/EtoileResurrection combine --prefix=lowiro -o arcpkgs/combine -s.* -re --append-single arcpkgs/*.arcpkg fragments-category/songs/songlist fragments-category/songs/packlist"
-        )
-        os.system(
-            f"scripts/{etoile_version}/bin/EtoileResurrection combine --prefix=lowiro -o arcpkgs/aprilfools/combine -s.* -re arcpkgs/aprilfools/*.arcpkg fragments-category/songs/songlist_aprilfools fragments-category/songs/packlist_aprilfools"
-        )
+    executor_p = Path("scripts") / etoile_version / "bin" / "EtoileResurrection"
+    category_p = Path("..") / "fragments-category"
+    arcpkgs_p = Path("arcpkgs")
+
+    slst_p = category_p / "songs" / "songlist"
+    slst_aprilfools_p = category_p / "songs" / "songlist_aprilfools"
+    plst_p = category_p / "songs" / "packlist"
+    plst_aprilfools_p = category_p / "songs" / "packlist_aprilfools"
+
+    executor_rslv = str(executor_p.resolve())
+
+    os.system(
+        f"{executor_rslv} pack {str(slst_p.resolve())} --songId=.* -re --prefix=lowiro -o arcpkgs -j{num_cores}"
+    )
+    os.system(
+        f"{executor_rslv} pack {str(slst_aprilfools_p.resolve())} --songId=.* -re --prefix=lowiro -o arcpkgs/aprilfools -j1"
+    )
+    os.system(
+        f"{executor_rslv} combine --prefix=lowiro -o arcpkgs/combine -s.* -re --append-single arcpkgs/*.arcpkg {str(slst_p.resolve())} {str(plst_p.resolve())}"
+    )
+    os.system(
+        f"{executor_rslv} combine --prefix=lowiro -o arcpkgs/aprilfools/combine -s.* -re arcpkgs/aprilfools/*.arcpkg {str(slst_aprilfools_p.resolve())} {str(plst_aprilfools_p.resolve())}"
+    )
