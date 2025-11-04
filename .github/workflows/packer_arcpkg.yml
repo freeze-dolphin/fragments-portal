@@ -31,7 +31,6 @@ jobs:
           repository: freeze-dolphin/fragments-category
           path: fragments-category
           ref: master
-          lfs: true
           sparse-checkout: |
             img
             scripts
