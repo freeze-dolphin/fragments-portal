@@ -35,6 +35,7 @@ jobs:
 
       - uses: stefanzweifel/git-auto-commit-action@v5
         with:
+          repository: fragments-portal
           commit_message: "update.py triggered"
       
       - uses: benc-uk/workflow-dispatch@v1
