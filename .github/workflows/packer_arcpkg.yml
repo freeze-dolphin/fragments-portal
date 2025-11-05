@@ -52,7 +52,7 @@ jobs:
 
       - name: Generate Page Content
         run: |
-          pip install beautifulsoup4 lxml pillow pytz gitpython
+          pip install beautifulsoup4 lxml pillow pytz
           cd fragments-category && python scripts/generate_songdoc.py && cd ..
 
       - name: Upload artifact
@@ -64,7 +64,7 @@ jobs:
         uses: s0/git-publish-subdir-action@develop
         env:
           REPO: self
-          BRANCH: assets_da7a748
+          BRANCH: assets_d6fafef
           FOLDER: fragments-category/songdoc/assets
           GITHUB_TOKEN: ${{ secrets.PAT }}
 
