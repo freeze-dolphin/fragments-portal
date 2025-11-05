@@ -1,0 +1,17 @@
+name: Stale Assets Branch Cleanup
+on:
+  schedule:
+    - cron: '0 0 * * 0'  # Run every Sunday at midnight
+  workflow_dispatch:  # Allow manual triggers
+
+jobs:
+  cleanup:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+    steps:
+      - uses: rkneela0912/branch-cleanup-bot@v1
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          delete_stale: true
+          stale_days: 1
