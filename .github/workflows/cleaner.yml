@@ -11,7 +11,7 @@ jobs:
     permissions:
       contents: write
     steps:
-      - uses: rkneela0912/branch-cleanup-bot@v1
+      - uses: rkneela0912/branch-cleanup-bot@V2.0.0
         with:
             protected_branches: master,pages
             github_token: ${{ secrets.GITHUB_TOKEN }}
