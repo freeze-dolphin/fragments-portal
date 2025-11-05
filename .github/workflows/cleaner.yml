@@ -1,4 +1,5 @@
-name: Stale Assets Branch Cleanup
+name: cleaner
+
 on:
   schedule:
     - cron: '0 0 * * 0'  # Run every Sunday at midnight
@@ -12,6 +13,7 @@ jobs:
     steps:
       - uses: rkneela0912/branch-cleanup-bot@v1
         with:
-          github_token: ${{ secrets.GITHUB_TOKEN }}
-          delete_stale: true
-          stale_days: 1
+            protected_branches: master,pages
+            github_token: ${{ secrets.GITHUB_TOKEN }}
+            delete_stale: true
+            stale_days: 1
