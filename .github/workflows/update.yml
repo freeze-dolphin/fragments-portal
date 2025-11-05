@@ -13,6 +13,7 @@ jobs:
     steps:
       - uses: actions/checkout@v4
         with:
+          path: fragments-portal
           token: ${{ secrets.PAT }}
       
       - uses: actions/checkout@v4
@@ -22,7 +23,15 @@ jobs:
           ref: master
           token: ${{ secrets.CATEGORY_TOKEN }}
 
-      - run: python scripts/update.py
+      - name: Setup Python 3.13
+        uses: actions/setup-python@v6.0.0
+        with:
+          python-version: '3.13' 
+
+      - name: Update Workflows
+        run: |
+          pip install gitpython
+          cd fragments-portal && python scripts/update.py
 
       - uses: stefanzweifel/git-auto-commit-action@v5
         with:
