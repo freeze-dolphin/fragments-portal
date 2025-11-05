@@ -86,7 +86,7 @@ jobs:
 
       - name: Generate Page Content
         run: |
-          pip install beautifulsoup4 lxml pillow pytz
+          pip install beautifulsoup4 lxml pillow pytz gitpython
           cd fragments-category && python scripts/generate_songdoc.py && cd ..
 
       - name: Upload artifact
