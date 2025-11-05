@@ -11,9 +11,9 @@ jobs:
     permissions:
       contents: write
     steps:
-      - uses: rkneela0912/branch-cleanup-bot@V2.0.0
+      - uses: freeze-dolphin/branch-cleanup-bot@main
         with:
-            protected_branches: master,pages
-            github_token: ${{ secrets.GITHUB_TOKEN }}
-            delete_stale: true
-            stale_days: 1
+          protected_branches: master,pages
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          delete_stale: true
+          stale_days: 1
