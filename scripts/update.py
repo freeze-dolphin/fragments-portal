@@ -106,6 +106,26 @@ jobs:
         id: deployment
         uses: actions/deploy-pages@v4"""
 
+CLEANER_CONTENT = """name: cleaner
+
+on:
+  schedule:
+    - cron: '0 0 * * *'
+  workflow_dispatch:
+
+jobs:
+  cleanup:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+    steps:
+      - uses: freeze-dolphin/branch-cleanup-bot@main
+        with:
+          protected_branches: %protected_branches%
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          delete_stale: true
+          stale_days: 1"""
+
 
 def song(song_id: str) -> str:
     return f"""
@@ -123,7 +143,9 @@ def get_latest_commit_hash(repo_path: str) -> str:
 
 
 if __name__ == "__main__":
-    with open("../fragments-category/songs/songlist", "r", encoding="utf-8") as songlist_f:
+    with open(
+        "../fragments-category/songs/songlist", "r", encoding="utf-8"
+    ) as songlist_f:
         songlist = json.loads(songlist_f.read())["songs"]
 
     with open(
@@ -143,9 +165,15 @@ if __name__ == "__main__":
     with open(".github/workflows/packer.yml", "w") as packer_f:
         packer_f.write(PACKER_ACTION_CONTENT)
 
+    category_last_commit_hash = get_latest_commit_hash("../fragments-category")[:7]
+
     with open(".github/workflows/packer_arcpkg.yml", "w") as packer_arcpkg_f:
         packer_arcpkg_f.write(
             PACKER_ARCPKG_CONTENT.replace(
-                "%target_branch%", f"assets_{get_latest_commit_hash("../fragments-category")[:7]}"
+                "%target_branch%",
+                f"assets_{category_last_commit_hash}",
             )
         )
+
+    with open(".github/workflows/cleaner.yml", "w") as cleaner_f:
+        cleaner_f.write(CLEANER_CONTENT.replace("%protected_branches%", f"master,pages,assets_{category_last_commit_hash}"))
