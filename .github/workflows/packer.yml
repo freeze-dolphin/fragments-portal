@@ -3014,6 +3014,42 @@ jobs:
           name: xterfusion
           path: fragments-category/songs/xterfusion
           overwrite: true
+      - name: Upload artifact 'infinitedim'
+        uses: actions/upload-artifact@v4
+        with:
+          name: infinitedim
+          path: fragments-category/songs/infinitedim
+          overwrite: true
+      - name: Upload artifact 'incarnator'
+        uses: actions/upload-artifact@v4
+        with:
+          name: incarnator
+          path: fragments-category/songs/incarnator
+          overwrite: true
+      - name: Upload artifact 'zephyrlast'
+        uses: actions/upload-artifact@v4
+        with:
+          name: zephyrlast
+          path: fragments-category/songs/zephyrlast
+          overwrite: true
+      - name: Upload artifact 'marenyx'
+        uses: actions/upload-artifact@v4
+        with:
+          name: marenyx
+          path: fragments-category/songs/marenyx
+          overwrite: true
+      - name: Upload artifact 'codeoblivion'
+        uses: actions/upload-artifact@v4
+        with:
+          name: codeoblivion
+          path: fragments-category/songs/codeoblivion
+          overwrite: true
+      - name: Upload artifact 'azalea'
+        uses: actions/upload-artifact@v4
+        with:
+          name: azalea
+          path: fragments-category/songs/azalea
+          overwrite: true
       - name: Upload artifact 'ignotusafterburn'
         uses: actions/upload-artifact@v4
         with:
