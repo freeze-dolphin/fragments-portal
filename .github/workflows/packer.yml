@@ -3050,6 +3050,18 @@ jobs:
           name: azalea
           path: fragments-category/songs/azalea
           overwrite: true
+      - name: Upload artifact 'tabootears'
+        uses: actions/upload-artifact@v4
+        with:
+          name: tabootears
+          path: fragments-category/songs/tabootears
+          overwrite: true
+      - name: Upload artifact 'grandspell'
+        uses: actions/upload-artifact@v4
+        with:
+          name: grandspell
+          path: fragments-category/songs/grandspell
+          overwrite: true
       - name: Upload artifact 'ignotusafterburn'
         uses: actions/upload-artifact@v4
         with:

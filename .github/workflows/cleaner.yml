@@ -13,7 +13,7 @@ jobs:
     steps:
       - uses: freeze-dolphin/branch-cleanup-bot@main
         with:
-          protected_branches: master,pages,assets_32fa534
+          protected_branches: master,pages,assets_21466ac
           github_token: ${{ secrets.GITHUB_TOKEN }}
           delete_stale: true
           stale_days: 1
