@@ -3062,6 +3062,24 @@ jobs:
           name: grandspell
           path: fragments-category/songs/grandspell
           overwrite: true
+      - name: Upload artifact 'undefined'
+        uses: actions/upload-artifact@v4
+        with:
+          name: undefined
+          path: fragments-category/songs/undefined
+          overwrite: true
+      - name: Upload artifact 'mask'
+        uses: actions/upload-artifact@v4
+        with:
+          name: mask
+          path: fragments-category/songs/mask
+          overwrite: true
+      - name: Upload artifact 'paranoidarc'
+        uses: actions/upload-artifact@v4
+        with:
+          name: paranoidarc
+          path: fragments-category/songs/paranoidarc
+          overwrite: true
       - name: Upload artifact 'ignotusafterburn'
         uses: actions/upload-artifact@v4
         with:
