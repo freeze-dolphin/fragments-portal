@@ -3080,6 +3080,12 @@ jobs:
           name: paranoidarc
           path: fragments-category/songs/paranoidarc
           overwrite: true
+      - name: Upload artifact 'subsphere'
+        uses: actions/upload-artifact@v4
+        with:
+          name: subsphere
+          path: fragments-category/songs/subsphere
+          overwrite: true
       - name: Upload artifact 'ignotusafterburn'
         uses: actions/upload-artifact@v4
         with:
