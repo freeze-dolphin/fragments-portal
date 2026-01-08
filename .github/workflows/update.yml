@@ -38,9 +38,9 @@ jobs:
           repository: fragments-portal
           commit_message: "update.py triggered"
       
-      - uses: benc-uk/workflow-dispatch@v1
-        with:
-          workflow: packer.yml
+      # - uses: benc-uk/workflow-dispatch@v1
+      #   with:
+      #     workflow: packer.yml
       
       - uses: benc-uk/workflow-dispatch@v1
         with:
