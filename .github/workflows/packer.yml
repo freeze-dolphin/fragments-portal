@@ -3086,6 +3086,12 @@ jobs:
           name: subsphere
           path: fragments-category/songs/subsphere
           overwrite: true
+      - name: Upload artifact 'theraft'
+        uses: actions/upload-artifact@v4
+        with:
+          name: theraft
+          path: fragments-category/songs/theraft
+          overwrite: true
       - name: Upload artifact 'ignotusafterburn'
         uses: actions/upload-artifact@v4
         with:
