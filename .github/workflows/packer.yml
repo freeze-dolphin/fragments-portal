@@ -3092,6 +3092,42 @@ jobs:
           name: theraft
           path: fragments-category/songs/theraft
           overwrite: true
+      - name: Upload artifact 'omajinai'
+        uses: actions/upload-artifact@v4
+        with:
+          name: omajinai
+          path: fragments-category/songs/omajinai
+          overwrite: true
+      - name: Upload artifact 'chaintonite'
+        uses: actions/upload-artifact@v4
+        with:
+          name: chaintonite
+          path: fragments-category/songs/chaintonite
+          overwrite: true
+      - name: Upload artifact 'onestepcloser'
+        uses: actions/upload-artifact@v4
+        with:
+          name: onestepcloser
+          path: fragments-category/songs/onestepcloser
+          overwrite: true
+      - name: Upload artifact 'mylifeismine'
+        uses: actions/upload-artifact@v4
+        with:
+          name: mylifeismine
+          path: fragments-category/songs/mylifeismine
+          overwrite: true
+      - name: Upload artifact 'meltyrhapsody'
+        uses: actions/upload-artifact@v4
+        with:
+          name: meltyrhapsody
+          path: fragments-category/songs/meltyrhapsody
+          overwrite: true
+      - name: Upload artifact 'signal'
+        uses: actions/upload-artifact@v4
+        with:
+          name: signal
+          path: fragments-category/songs/signal
+          overwrite: true
       - name: Upload artifact 'ignotusafterburn'
         uses: actions/upload-artifact@v4
         with:
