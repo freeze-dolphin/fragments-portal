@@ -127,7 +127,7 @@ let etoileConfig =
        PackagePrefix = "lowiro" |}
 
 let expandFilePath (ext: string) =
-    Path.Combine [| ".."; "fragments-category"; "songs"; ext |] |> Path.GetFullPath
+    Path.Combine [| "fragments-category"; "songs"; ext |] |> Path.GetFullPath
 
 let filePaths =
     {| Songlist = expandFilePath "songlist"
