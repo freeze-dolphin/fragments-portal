@@ -4,11 +4,11 @@
 #r "nuget: DotNetEnv, 3.1.1"
 #r "nuget: ShellProgressBar, 5.2.0"
 
+open System.Linq
 open ShellProgressBar
 open System
 open System.Diagnostics
 open System.IO.Compression
-open System.Net
 open System.Net.Http
 open System.Net.Mime
 open System.Runtime.InteropServices
@@ -60,15 +60,13 @@ let runCommand (cmd: string) (args: string) =
     let proc = Process.Start(psi)
     proc.WaitForExit()
 
-let s3ObjectExistsAsync (s3: #IAmazonS3) (bucket: string) (key: string) =
+let s3ListObjectAsync (s3: #IAmazonS3) (bucket: string) (prefix: string option) =
     task {
-        let req = GetObjectMetadataRequest(BucketName = bucket, Key = key)
+        let req =
+            ListObjectsV2Request(BucketName = bucket, Prefix = (prefix |> Option.defaultValue null))
 
-        try
-            let! _ = s3.GetObjectMetadataAsync req
-            return true
-        with :? AmazonS3Exception as ex when ex.StatusCode = HttpStatusCode.NotFound ->
-            return false
+        let! resp = s3.ListObjectsV2Async(req) |> Async.AwaitTask
+        return resp.S3Objects :> seq<S3Object>
     }
 
 let removeStart (prefix: string) (s: string) =
@@ -77,17 +75,14 @@ let removeStart (prefix: string) (s: string) =
     else
         s
 
-let s3PutObjectAsync (s3: #IAmazonS3) (bucket: string) (filePath: string) (skipIfExist: bool) =
+let getSongId (filePath: string) =
+    Path.GetFileNameWithoutExtension filePath |> removeStart "lowiro."
+
+let getKey (filePath: string) = $"arcpkgs/{getSongId filePath}"
+
+let s3PutObjectAsync (s3: #IAmazonS3) (bucket: string) (filePath: string) =
     task {
-        let songId = Path.GetFileNameWithoutExtension filePath |> removeStart "lowiro."
-
-        let key = $"arcpkgs/{songId}"
-
-        if skipIfExist then
-            let! exists = s3ObjectExistsAsync s3 bucket key
-
-            if exists then
-                return ()
+        let key = getKey filePath
 
         use fileStream = File.OpenRead filePath
 
@@ -160,30 +155,30 @@ createDirectoryIfNotExist filePaths.OutputPath
 
 (* main *)
 
-let httpClient = new HttpClient()
-
-let etoile =
-    {| Url = $"https://github.com/freeze-dolphin/EtoileResurrection/releases/download/{etoileConfig.Release}/{etoileConfig.Version}.zip"
-       BinPath = $"{etoileConfig.ExtractPath}/{etoileConfig.Version}/bin/EtoileResurrection" |}
-
-// download étoile
-if not (Path.Exists etoile.BinPath) then
-    downloadAsStream httpClient etoile.Url |> unzipStreamTo
-    <| etoileConfig.ExtractPath
-
-// make étoile script runnable on unix
-if not (RuntimeInformation.IsOSPlatform OSPlatform.Windows) then
-    makeExecutable etoile.BinPath
-
-// run étoile
 if Environment.GetEnvironmentVariable("SKIP_PACK") |> String.IsNullOrWhiteSpace then
+    let httpClient = new HttpClient()
+
+    let etoile =
+        {| Url = $"https://github.com/freeze-dolphin/EtoileResurrection/releases/download/{etoileConfig.Release}/{etoileConfig.Version}.zip"
+           BinPath = $"{etoileConfig.ExtractPath}/{etoileConfig.Version}/bin/EtoileResurrection" |}
+
+    // download étoile
+    if not (Path.Exists etoile.BinPath) then
+        downloadAsStream httpClient etoile.Url |> unzipStreamTo
+        <| etoileConfig.ExtractPath
+
+    // make étoile script runnable on unix
+    if not (RuntimeInformation.IsOSPlatform OSPlatform.Windows) then
+        makeExecutable etoile.BinPath
+
+    // run étoile
     runCommand
         etoile.BinPath
         $"pack {filePaths.Songlist} --songId=.* -re --prefix={etoileConfig.PackagePrefix} -o {filePaths.OutputPath} -j{Environment.ProcessorCount}"
 
     runCommand
         etoile.BinPath
-        $"pack {filePaths.SonglistApril} --songId=.* -re --prefix={etoileConfig.PackagePrefix} -o {filePaths.OutputPath} -j{Environment.ProcessorCount}"
+        $"pack {filePaths.SonglistApril} --songId=.* -re --prefix={etoileConfig.PackagePrefix} -o {filePaths.OutputPath} -j1"
 
 // upload to r2
 
@@ -193,15 +188,27 @@ let s3 =
         AmazonS3Config(ServiceURL = s3Config.Api, ForcePathStyle = true)
     )
 
+let existingSongIds =
+    (s3ListObjectAsync s3 s3Config.BucketName None)
+    |> Async.AwaitTask
+    |> Async.RunSynchronously
+    |> Seq.map (fun x -> removeStart "arcpkgs/" x.Key)
+    |> List.ofSeq
+
 let arcpkgPaths = listArcpkgFiles filePaths.OutputPath |> List.ofSeq
 
-printfn $"Total packages: {arcpkgPaths.Length}"
+let arcpkgPathsToUpload =
+    arcpkgPaths
+    |> Seq.filter (fun x -> not (existingSongIds.Contains(getSongId x)))
+    |> List.ofSeq
 
-let bar = new ProgressBar(arcpkgPaths.Length, String.Empty)
+printfn $"Total packages: {arcpkgPathsToUpload.Length} ({arcpkgPaths.Length - arcpkgPathsToUpload.Length} filtered out)"
 
-for arcpkgPath in arcpkgPaths do
+let bar = new ProgressBar(arcpkgPathsToUpload.Length, String.Empty)
+
+for arcpkgPath in arcpkgPathsToUpload do
     bar.Tick($"Uploading: {arcpkgPath}")
 
-    s3PutObjectAsync s3 s3Config.BucketName arcpkgPath true
+    s3PutObjectAsync s3 s3Config.BucketName arcpkgPath
     |> Async.AwaitTask
     |> Async.RunSynchronously
