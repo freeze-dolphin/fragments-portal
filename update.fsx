@@ -65,8 +65,12 @@ let s3ListObjectAsync (s3: #IAmazonS3) (bucket: string) (prefix: string option) 
         let req =
             ListObjectsV2Request(BucketName = bucket, Prefix = (prefix |> Option.defaultValue null))
 
-        let! resp = s3.ListObjectsV2Async(req) |> Async.AwaitTask
-        return resp.S3Objects :> seq<S3Object>
+        let! resp = s3.ListObjectsV2Async(req)
+
+        return
+            match resp.S3Objects with
+            | null -> Seq.empty<S3Object>
+            | obj -> obj :> seq<S3Object>
     }
 
 let removeStart (prefix: string) (s: string) =
@@ -151,6 +155,14 @@ if
 then
     raise (FileNotFoundException "`fragments-category` not found")
 
+if
+    String.IsNullOrWhiteSpace s3Config.Api
+    || String.IsNullOrWhiteSpace s3Config.AccessKey
+    || String.IsNullOrWhiteSpace s3Config.SecretAccessKey
+    || String.IsNullOrWhiteSpace s3Config.BucketName
+then
+    raise (ArgumentNullException "s3 not configured")
+
 createDirectoryIfNotExist filePaths.OutputPath
 
 (* main *)
@@ -189,7 +201,7 @@ let s3 =
     )
 
 let existingSongIds =
-    (s3ListObjectAsync s3 s3Config.BucketName None)
+    s3ListObjectAsync s3 s3Config.BucketName None
     |> Async.AwaitTask
     |> Async.RunSynchronously
     |> Seq.map (fun x -> getSongId x.Key)
@@ -207,8 +219,8 @@ printfn $"[Upload] Total packages: {arcpkgPathsToUpload.Length} ({arcpkgPaths.Le
 let bar = new ProgressBar(arcpkgPathsToUpload.Length, String.Empty)
 
 for arcpkgPath in arcpkgPathsToUpload do
-    bar.Tick($"Uploading: {arcpkgPath}")
-
     s3PutObjectAsync s3 s3Config.BucketName arcpkgPath
     |> Async.AwaitTask
     |> Async.RunSynchronously
+
+    bar.Tick($"Uploaded: {arcpkgPath}")
