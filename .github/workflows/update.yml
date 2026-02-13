@@ -23,8 +23,32 @@ jobs:
           ref: master
           token: ${{ secrets.CATEGORY_TOKEN }}
 
+      - name: Setup Pages
+        uses: actions/configure-pages@v5
+
+      - name: Setup Temurin JDK 17
+        uses: actions/setup-java@v4
+        with:
+          distribution: 'temurin'
+          java-version: '17'
+
+      - name: Setup Python 3.13
+        uses: actions/setup-python@v6.0.0
+        with:
+          python-version: '3.13'
+
+      - name: Generate Page Content
+        run: |
+          pip install beautifulsoup4 lxml pillow pytz gitpython
+          cd fragments-category && python scripts/generate_songdoc.py && cd ..
+
+      - name: Upload artifact
+        uses: actions/upload-pages-artifact@v3
+        with:
+          path: 'fragments-category/songdoc/pages'
+
       - name: Setup dotnet 10
-      - uses: actions/setup-dotnet@v5
+        uses: actions/setup-dotnet@v5
         with:
           dotnet-version: '10.0.x'
 
