@@ -23,25 +23,11 @@ jobs:
           ref: master
           token: ${{ secrets.CATEGORY_TOKEN }}
 
-      - name: Setup Python 3.13
-        uses: actions/setup-python@v6.0.0
+      - name: Setup dotnet 10
+      - uses: actions/setup-dotnet@v5
         with:
-          python-version: '3.13' 
+          dotnet-version: '10.0.x'
 
       - name: Update Workflows
         run: |
-          pip install gitpython
-          cd fragments-portal && python scripts/update.py
-
-      - uses: stefanzweifel/git-auto-commit-action@v5
-        with:
-          repository: fragments-portal
-          commit_message: "update.py triggered"
-      
-      # - uses: benc-uk/workflow-dispatch@v1
-      #   with:
-      #     workflow: packer.yml
-      
-      - uses: benc-uk/workflow-dispatch@v1
-        with:
-          workflow: packer_arcpkg.yml
+          dotnet fsi update.fsx
