@@ -35,6 +35,11 @@ jobs:
           dotnet-version: '10.0.x'
 
       - name: Generate arcpkgs and upload
+        env:
+          S3_API: ${{ secrets.S3_API }}
+          S3_ACCESS_KEY: ${{ secrets.S3_ACCESS_KEY }}
+          S3_SECRET_ACCESS_KEY: ${{ secrets.S3_SECRET_ACCESS_KEY }}
+          S3_BUCKET: ${{ secrets.S3_BUCKET }}
         run: |
           dotnet fsi fragments-portal/update.fsx
 
