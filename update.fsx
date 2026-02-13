@@ -202,7 +202,7 @@ let arcpkgPathsToUpload =
     |> Seq.filter (fun x -> not (existingSongIds.Contains(getSongId x)))
     |> List.ofSeq
 
-printfn $"Total packages: {arcpkgPathsToUpload.Length} ({arcpkgPaths.Length - arcpkgPathsToUpload.Length} filtered out)"
+printfn $"[Upload] Total packages: {arcpkgPathsToUpload.Length} ({arcpkgPaths.Length - arcpkgPathsToUpload.Length} filtered out)"
 
 let bar = new ProgressBar(arcpkgPathsToUpload.Length, String.Empty)
 
