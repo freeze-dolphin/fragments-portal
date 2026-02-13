@@ -78,7 +78,7 @@ let removeStart (prefix: string) (s: string) =
 let getSongId (filePath: string) =
     Path.GetFileNameWithoutExtension filePath |> removeStart "lowiro."
 
-let getKey (filePath: string) = $"arcpkgs/{getSongId filePath}"
+let getKey (filePath: string) = $"arcpkgs/{getSongId filePath}.arcpkg"
 
 let s3PutObjectAsync (s3: #IAmazonS3) (bucket: string) (filePath: string) =
     task {
@@ -192,7 +192,7 @@ let existingSongIds =
     (s3ListObjectAsync s3 s3Config.BucketName None)
     |> Async.AwaitTask
     |> Async.RunSynchronously
-    |> Seq.map (fun x -> removeStart "arcpkgs/" x.Key)
+    |> Seq.map (fun x -> getSongId x.Key)
     |> List.ofSeq
 
 let arcpkgPaths = listArcpkgFiles filePaths.OutputPath |> List.ofSeq
