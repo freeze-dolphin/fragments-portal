@@ -36,7 +36,7 @@ jobs:
 
       - name: Generate arcpkgs and upload
         run: |
-          ls && dotnet fsi ../update.fsx
+          dotnet fsi fragments-portal/update.fsx
 
       - name: Setup Pages
         uses: actions/configure-pages@v5
