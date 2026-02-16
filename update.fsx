@@ -224,3 +224,5 @@ for arcpkgPath in arcpkgPathsToUpload do
     |> Async.RunSynchronously
 
     bar.Tick($"Uploaded: {arcpkgPath}")
+
+bar.Dispose()

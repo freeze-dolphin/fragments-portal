@@ -40,7 +40,7 @@ jobs:
         with:
           dotnet-version: '10.0.x'
 
-      - name: Generate arcpkgs and upload
+      - name: Generate arcpkgs and upload to S3
         env:
           S3_API: ${{ secrets.S3_API }}
           S3_ACCESS_KEY: ${{ secrets.S3_ACCESS_KEY }}
@@ -52,20 +52,14 @@ jobs:
       - name: Setup Pages
         uses: actions/configure-pages@v5
 
-      - name: Setup Python 3.13
-        uses: actions/setup-python@v6.0.0
-        with:
-          python-version: '3.13'
-
       - name: Generate Page Content
         run: |
-          pip install beautifulsoup4 lxml pillow pytz gitpython
-          cd fragments-category && python scripts/generate_songdoc.py && cd ..
+          dotnet fsi fragments-portal/make_songdoc.fsx
 
-      - name: Upload artifact
+      - name: Upload Page Artifact
         uses: actions/upload-pages-artifact@v3
         with:
-          path: 'fragments-category/songdoc/pages'
+          path: 'songdoc'
 
       - name: Deploy to GitHub Pages
         id: deployment
