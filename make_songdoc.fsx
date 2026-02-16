@@ -158,12 +158,12 @@ let SongMatrix (matrixWidth: int) fillByEmpty groupTitle (songs: list<SongInfo>)
 
 (* main *)
 
-let parseSongList filePath =
-    (File.ReadAllText filePath
-     |> JsonValue.Parse
-     |> fun j -> j["songs"].AsArray().ToArray())
-
 let songMetaList =
+    let parseSongList filePath =
+        (File.ReadAllText filePath
+         |> JsonValue.Parse
+         |> fun j -> j["songs"].AsArray().ToArray())
+    
     [ parseSongList "fragments-category/songs/songlist"
       parseSongList "fragments-category/songs/songlist_aprilfools" ]
     |> Array.concat

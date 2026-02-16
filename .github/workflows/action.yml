@@ -16,6 +16,10 @@ jobs:
   build:
     runs-on: ubuntu-latest
 
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+
     steps:
       - uses: actions/checkout@v4
         with:
@@ -47,17 +51,8 @@ jobs:
           S3_SECRET_ACCESS_KEY: ${{ secrets.S3_SECRET_ACCESS_KEY }}
           S3_BUCKET: ${{ secrets.S3_BUCKET }}
         run: |
-          dotnet fsi fragments-portal/update.fsx
-  deploy:
-    needs: build
-    
-    runs-on: ubuntu-latest
+          dotnet fsi fragments-portal/upload_artifacts.fsx
 
-    environment:
-      name: github-pages
-      url: ${{ steps.deployment.outputs.page_url }}
-
-    steps:
       - name: Setup Pages
         uses: actions/configure-pages@v5
 
