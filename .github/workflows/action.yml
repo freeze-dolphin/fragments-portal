@@ -1,4 +1,4 @@
-name: update
+name: action
 
 on:
   workflow_dispatch:
@@ -13,7 +13,7 @@ concurrency:
   cancel-in-progress: false
 
 jobs:
-  update:
+  build:
     runs-on: ubuntu-latest
 
     steps:
@@ -48,7 +48,16 @@ jobs:
           S3_BUCKET: ${{ secrets.S3_BUCKET }}
         run: |
           dotnet fsi fragments-portal/update.fsx
+  deploy:
+    needs: build
+    
+    runs-on: ubuntu-latest
 
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+
+    steps:
       - name: Setup Pages
         uses: actions/configure-pages@v5
 
