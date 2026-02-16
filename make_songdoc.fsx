@@ -64,7 +64,7 @@ let getCombinedMessage (repoPath: string) =
 
 let SimpleAnalyticsEmbedded =
     _p
-        [ _align_ "center" ]
+        [ style "margin-top: 24px"; align "center" ]
         [ _a
               [ _href_ "https://dashboard.simpleanalytics.com/freeze-dolphin.github.io"
                 _referrerpolicy_ "origin"
@@ -77,7 +77,7 @@ let SimpleAnalyticsEmbedded =
 
 let BuildTime (dateTime: DateTime option) =
     _h3
-        []
+        [ style "margin-bottom: 0" ]
         [ _text (
               "Build Time: "
               + (match dateTime with
@@ -88,7 +88,7 @@ let BuildTime (dateTime: DateTime option) =
 
 let CommitMessage repoPath =
     seq {
-        _h3 [] [ _text "Latest commit message:" ]
+        _h3 [ style "margin-top: 0" ] [ _text "Latest commit message:" ]
         _blockquote [] [ _text (getCombinedMessage repoPath) ]
     }
 
@@ -104,15 +104,35 @@ let PageTemplate repoPath (songMatrixes: seq<XmlNode>) =
                 _style
                     []
                     [ _text "table { table-layout: fixed; border-collapse: collapse; }"
-                      _text "td { width: 120px; height: auto; overflow: hidden; white-space: nowrap; text-overflow: clip; }"
+                      _text "td { width: 90px; height: auto; overflow: hidden; white-space: nowrap; text-overflow: clip; }"
                       _text "td table { width: 100%; }"
                       _text ".songs td table tr:nth-child(2) td { font-size: 12px; line-height: 1.2; white-space: nowrap; }"
                       _text "img { max-width: 100%; height: auto; }" ] ]
           _body
               []
-              [ _h1 [] [ _text "fragments-portal" ]
+              [ _h1
+                    [ style "margin-bottom: 0.2em" ]
+                    [ _text "fragments-portal "
+                      _a
+                          [ href "https://github.com/freeze-dolphin/fragments-portal" ]
+                          [ _img [ src "https://img.shields.io/github/stars/freeze-dolphin/fragments-portal" ] ] ]
+                _h5
+                    [ style "margin-top: 0.2em; margin-bottom: 2.0em" ]
+                    [ _text "powered by: "
+                      _a
+                          [ href "https://github.com/freeze-dolphin/EtoileResurrection" ]
+                          [ _img
+                                [ style "vertical-align: bottom"
+                                  src "https://img.shields.io/badge/EtoileResurrection-repo-blue?logo=github" ] ]
+                      _text " "
+                      _a
+                          [ href "https://github.com/freeze-dolphin/aff-compose" ]
+                          [ _img
+                                [ style "vertical-align: bottom"
+                                  src "https://img.shields.io/badge/aff--compose-repo-33cccc?logo=github" ] ] ]
                 BuildTime None
                 yield! CommitMessage repoPath
+                _hr []
                 _div [ _class_ "songs" ] [ yield! songMatrixes ]
                 SimpleAnalyticsEmbedded ] ]
 
@@ -163,7 +183,7 @@ let songMetaList =
         (File.ReadAllText filePath
          |> JsonValue.Parse
          |> fun j -> j["songs"].AsArray().ToArray())
-    
+
     [ parseSongList "fragments-category/songs/songlist"
       parseSongList "fragments-category/songs/songlist_aprilfools" ]
     |> Array.concat
@@ -198,7 +218,7 @@ let songMatrixes width =
                   Title = y.Title
                   DownloadUrl = $"https://pub-748f36e6cae345198861f65a9a8f5218.r2.dev/arcpkgs/{y.Id}.arcpkg" })
 
-        SongMatrix width false $"{cap}" songInfos)
+        SongMatrix width true $"{cap}" songInfos)
     |> Seq.collect (fun x -> x)
 
 if not (Path.Exists "songdoc/thumbnails") then
@@ -218,20 +238,24 @@ let getJacketPath songId =
         failwith $"unable to detect jacket path for {songId}"
 
 // generate thumbnails
-let thumbnailMetaList =
-    songMetaList
-    |> List.map (fun x ->
-        {| JacketPath = Path.GetFullPath($"fragments-category/songs/{x.Id}/{getJacketPath x.Id}")
-           ThumbnailPath = Path.GetFullPath($"songdoc/thumbnails/{x.Id}.jpg") |})
+if
+    Environment.GetEnvironmentVariable("SKIP_THUMBNAIL")
+    |> String.IsNullOrWhiteSpace
+then
+    let thumbnailMetaList =
+        songMetaList
+        |> List.map (fun x ->
+            {| JacketPath = Path.GetFullPath($"fragments-category/songs/{x.Id}/{getJacketPath x.Id}")
+               ThumbnailPath = Path.GetFullPath($"songdoc/thumbnails/{x.Id}.jpg") |})
 
-let bar = new ProgressBar(thumbnailMetaList.Length, String.Empty)
+    let bar = new ProgressBar(thumbnailMetaList.Length, String.Empty)
 
-for thumbnailMeta in thumbnailMetaList do
-    use jacket = Image.Load thumbnailMeta.JacketPath
+    for thumbnailMeta in thumbnailMetaList do
+        use jacket = Image.Load thumbnailMeta.JacketPath
 
-    jacket.Mutate(fun ctx -> ctx.Resize(110, 110) |> ignore)
-    jacket.Save(thumbnailMeta.ThumbnailPath)
+        jacket.Mutate(fun ctx -> ctx.Resize(110, 110) |> ignore)
+        jacket.Save(thumbnailMeta.ThumbnailPath)
 
-    bar.Tick("Generated thumbnail: " + Path.GetRelativePath(".", thumbnailMeta.ThumbnailPath))
+        bar.Tick("Generated thumbnail: " + Path.GetRelativePath(".", thumbnailMeta.ThumbnailPath))
 
-bar.Dispose()
+    bar.Dispose()
