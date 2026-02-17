@@ -117,8 +117,8 @@ let createDirectoryIfNotExist (dirPath: string) =
 (* configurations *)
 
 let etoileConfig =
-    {| Release = "v2.0.0"
-       Version = "EtoileResurrection.Console-universal-3b9efcf"
+    {| Release = "v2.0.2"
+       Version = "EtoileResurrection.Console-universal-d4119ee"
        DownloadPath = "EtoileResurrection.zip"
        ExtractPath = "."
        PackagePrefix = "lowiro" |}
