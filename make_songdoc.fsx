@@ -70,7 +70,7 @@ let SimpleAnalyticsEmbedded =
                 _referrerpolicy_ "origin"
                 _target_ "_blank" ]
               [ _img
-                    [ _src_ "https://simpleanalyticsbadges.com/freeze-dolphin.github.io?mode=light"
+                    [ _src_ "https://simpleanalyticsbadges.com/freeze-dolphin.github.io?mode=dark"
                       _loading_ "lazy"
                       _referrerpolicy_ "no-referrer"
                       _crossorigin_ "anonymous" ] ] ]
