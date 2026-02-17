@@ -167,9 +167,11 @@ let SongMatrix (matrixWidth: int) fillByEmpty groupTitle (songs: list<SongInfo>)
                     _td [ width "40"; align "right" ] [ _h3 [ style "padding-right: 8px" ] [ _text groupTitle ] ] ] ]
 
         _div
-            [ style "display:flex; flex-wrap:wrap; gap:16px; max-width:800px; justify-content:center;" ]
-            [ for song in songs do
-                  SongCell song ]
+            [ style "display:flex; justify-content:center;" ]
+            [ _div
+                  [ style "display:flex; flex-wrap:wrap; gap:16px; max-width:800px; justify-content:center;" ]
+                  [ for song in songs do
+                        SongCell song ] ]
     }
 
 (* main *)
