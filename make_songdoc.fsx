@@ -89,12 +89,15 @@ let BuildTime (dateTime: DateTime option) =
 let CommitMessage repoPath =
     seq {
         _h3 [ style "margin-top: 0" ] [ _text "Latest commit message:" ]
-        _blockquote [] [ _text (getCombinedMessage repoPath) ]
+
+        _blockquote
+            [ style "border-left: 2px lightblue solid;padding-left: 16px;" ]
+            [ _text (getCombinedMessage repoPath) ]
     }
 
 let PageTemplate repoPath (songMatrixes: seq<XmlNode>) =
     _html
-        []
+        [ style "background-color:#242424; color:white;" ]
         [ _head
               []
               [ _meta [ _charset_ "UTF-8" ]
@@ -104,9 +107,11 @@ let PageTemplate repoPath (songMatrixes: seq<XmlNode>) =
                 _style
                     []
                     [ _text "table { table-layout: fixed; border-collapse: collapse; }"
-                      _text "td { width: 90px; height: auto; overflow: hidden; white-space: nowrap; text-overflow: clip; }"
+                      _text
+                          "td { width: 90px; height: auto; overflow: hidden; white-space: nowrap; text-overflow: clip; }"
                       _text "td table { width: 100%; }"
-                      _text ".songs td table tr:nth-child(2) td { font-size: 12px; line-height: 1.2; white-space: nowrap; }"
+                      _text
+                          ".songs td table tr:nth-child(2) td { font-size: 12px; line-height: 1.2; white-space: nowrap; }"
                       _text "img { max-width: 100%; height: auto; }" ] ]
           _body
               []
@@ -143,13 +148,13 @@ type SongInfo =
 
 let SongCell songInfo =
     _a
-        [ href songInfo.DownloadUrl ]
-        [ _table
-              []
-              [ _tbody
-                    [ align "center" ]
-                    [ _tr [] [ _td [] [ _img [ src songInfo.JacketUrl; width "90"; decoding "async"; loading "lazy" ] ] ]
-                      _tr [] [ _td [] [ _text songInfo.Title ] ] ] ] ]
+        [ href songInfo.DownloadUrl
+          style
+              "gap:6px;display:flex;flex-direction:column;align-items:center;text-decoration:none;border:rgba(255,255,255,0.6) solid 1px; border-radius:4px; padding:4px; backdrop-filter:brightness(0.5);display:flex;flex-direction:column;" ]
+        [ _img [ src songInfo.JacketUrl; width "90"; decoding "async"; loading "lazy" ]
+          _span
+              [ style "color:white;max-width:90px;text-wrap:nowrap;overflow:clip;font-size:small;" ]
+              [ _text songInfo.Title ] ]
 
 let SongMatrix (matrixWidth: int) fillByEmpty groupTitle (songs: list<SongInfo>) =
     seq {
@@ -161,19 +166,10 @@ let SongMatrix (matrixWidth: int) fillByEmpty groupTitle (songs: list<SongInfo>)
                     _td [ align "center" ] [ _h3 [ style "color:#999999" ] [ _text groupTitle ] ]
                     _td [ width "40"; align "right" ] [ _h3 [ style "padding-right: 8px" ] [ _text groupTitle ] ] ] ]
 
-        _table
-            [ border "1"; align "center" ]
-            [ _tbody
-                  []
-                  [ for chunk in List.chunkBySize matrixWidth songs do
-                        _tr
-                            []
-                            [ for song in chunk do
-                                  _td [] [ SongCell song ]
-
-                              if fillByEmpty then
-                                  for _ in chunk.Length .. matrixWidth - 1 do
-                                      _td [] [] ] ] ]
+        _div
+            [ style "display:flex; flex-wrap:wrap; gap:16px; max-width:800px; justify-content:center;" ]
+            [ for song in songs do
+                  SongCell song ]
     }
 
 (* main *)
