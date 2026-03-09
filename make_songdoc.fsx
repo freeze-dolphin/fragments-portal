@@ -58,7 +58,11 @@ let getCombinedMessage (repoPath: string) =
     | Some headMsg ->
         match tryGetLatestVersionMessage repo with
         | None -> headMsg
-        | Some versionMsg -> headMsg + " [" + versionMsg.TrimStart '#' + "]"
+        | Some versionMsg ->
+            if (headMsg = versionMsg) then
+                versionMsg.TrimStart '#'
+            else
+                headMsg + " [" + versionMsg.TrimStart '#' + "]"
 
 (* page template functions*)
 
@@ -90,9 +94,7 @@ let CommitMessage repoPath =
     seq {
         _h3 [ style "margin-top: 0" ] [ _text "Latest commit message:" ]
 
-        _blockquote
-            [ style "border-left: 2px lightblue solid;padding-left: 16px;" ]
-            [ _text (getCombinedMessage repoPath) ]
+        _blockquote [ style "border-left: 2px lightblue solid;padding-left: 16px;" ] [ _text (getCombinedMessage repoPath) ]
     }
 
 let PageTemplate repoPath (songMatrixes: seq<XmlNode>) =
@@ -107,11 +109,9 @@ let PageTemplate repoPath (songMatrixes: seq<XmlNode>) =
                 _style
                     []
                     [ _text "table { table-layout: fixed; border-collapse: collapse; }"
-                      _text
-                          "td { width: 90px; height: auto; overflow: hidden; white-space: nowrap; text-overflow: clip; }"
+                      _text "td { width: 90px; height: auto; overflow: hidden; white-space: nowrap; text-overflow: clip; }"
                       _text "td table { width: 100%; }"
-                      _text
-                          ".songs td table tr:nth-child(2) td { font-size: 12px; line-height: 1.2; white-space: nowrap; }"
+                      _text ".songs td table tr:nth-child(2) td { font-size: 12px; line-height: 1.2; white-space: nowrap; }"
                       _text "img { max-width: 100%; height: auto; }" ] ]
           _body
               []
@@ -152,9 +152,7 @@ let SongCell songInfo =
           style
               "gap:6px;display:flex;flex-direction:column;align-items:center;text-decoration:none;border:rgba(255,255,255,0.6) solid 1px; border-radius:4px; padding:4px; backdrop-filter:brightness(0.5);display:flex;flex-direction:column;" ]
         [ _img [ src songInfo.JacketUrl; width "90"; decoding "async"; loading "lazy" ]
-          _span
-              [ style "color:white;max-width:90px;text-wrap:nowrap;overflow:clip;font-size:small;" ]
-              [ _text songInfo.Title ] ]
+          _span [ style "color:white;max-width:90px;text-wrap:nowrap;overflow:clip;font-size:small;" ] [ _text songInfo.Title ] ]
 
 let SongMatrix (matrixWidth: int) fillByEmpty groupTitle (songs: list<SongInfo>) =
     seq {
