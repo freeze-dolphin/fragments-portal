@@ -50,13 +50,14 @@ let getHeadMessage (repo: Repository) =
         | null -> None
         | commit -> Some(commit.Message.TrimEnd([| '\r'; '\n' |]))
 
-let getCombinedMessage (repoPath: string) =
-    use repo = new Repository(repoPath)
+let getCombinedMessage (portalRepoPath: string) (categoryRepoPath: string) =
+    use portalRepo = new Repository(portalRepoPath)
+    use categoryRepo = new Repository(categoryRepoPath)
 
-    match getHeadMessage repo with
+    match getHeadMessage portalRepo with
     | None -> ""
     | Some headMsg ->
-        match tryGetLatestVersionMessage repo with
+        match tryGetLatestVersionMessage categoryRepo with
         | None -> headMsg
         | Some versionMsg ->
             if (headMsg.TrimStart '#' = versionMsg) then
@@ -90,14 +91,14 @@ let BuildTime (dateTime: DateTime option) =
                   .ToString("u")
           ) ]
 
-let CommitMessage repoPath =
+let CommitMessage portalRepoPath categoryRepoPath =
     seq {
         _h3 [ style "margin-top: 0" ] [ _text "Latest commit message:" ]
 
-        _blockquote [ style "border-left: 2px lightblue solid;padding-left: 16px;" ] [ _text (getCombinedMessage repoPath) ]
+        _blockquote [ style "border-left: 2px lightblue solid;padding-left: 16px;" ] [ _text (getCombinedMessage portalRepoPath categoryRepoPath) ]
     }
 
-let PageTemplate repoPath (songMatrixes: seq<XmlNode>) =
+let PageTemplate portalRepoPath categoryRepoPath (songMatrixes: seq<XmlNode>) =
     _html
         [ style "background-color:#242424; color:white;" ]
         [ _head
@@ -136,7 +137,7 @@ let PageTemplate repoPath (songMatrixes: seq<XmlNode>) =
                                 [ style "vertical-align: bottom"
                                   src "https://img.shields.io/badge/aff--compose-repo-33cccc?logo=github" ] ] ]
                 BuildTime None
-                yield! CommitMessage repoPath
+                yield! CommitMessage portalRepoPath categoryRepoPath
                 _hr []
                 _div [ _class_ "songs" ] [ yield! songMatrixes ]
                 SimpleAnalyticsEmbedded ] ]
@@ -221,7 +222,7 @@ if not (Path.Exists "songdoc/thumbnails") then
     Directory.CreateDirectory "songdoc/thumbnails" |> ignore
 
 // generate index.html
-PageTemplate "fragments-category" (songMatrixes 7)
+PageTemplate "fragments-portal" "fragments-category" (songMatrixes 7)
 |> renderHtml
 |> (fun x -> File.WriteAllText("songdoc/index.html", x))
 
