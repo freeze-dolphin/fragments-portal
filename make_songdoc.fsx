@@ -29,7 +29,7 @@ let tryGetLatestVersionMessage (repo: Repository) =
         let msg = commit.Message.TrimStart()
 
         if msg.StartsWith "#" then
-            let trimmed = msg.TrimStart([| '#'; ' '; '\t' |]).Trim()
+            let trimmed = msg.TrimStart('#').TrimEnd([| '\r'; '\n' |]);
 
             if trimmed.Length > 0 then
                 found <- Some trimmed
@@ -59,10 +59,10 @@ let getCombinedMessage (repoPath: string) =
         match tryGetLatestVersionMessage repo with
         | None -> headMsg
         | Some versionMsg ->
-            if (headMsg = versionMsg) then
-                versionMsg.TrimStart '#'
+            if (headMsg.TrimStart '#' = versionMsg) then
+                versionMsg
             else
-                headMsg + " [" + versionMsg.TrimStart '#' + "]"
+                headMsg + $" [{versionMsg}]"
 
 (* page template functions*)
 
