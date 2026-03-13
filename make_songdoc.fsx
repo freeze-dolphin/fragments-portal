@@ -213,7 +213,7 @@ let songMatrixes width =
             |> List.map (fun y ->
                 { JacketUrl = $"https://freeze-dolphin.github.io/fragments-portal/thumbnails/{y.Id}.jpg"
                   Title = y.Title
-                  DownloadUrl = $"https://pub-748f36e6cae345198861f65a9a8f5218.r2.dev/arcpkgs/{y.Id}.arcpkg" })
+                  DownloadUrl = $"https://pub-748f36e6cae345198861f65a9a8f5218.r2.dev/arcpkgs/lowiro.{y.Id}.arcpkg" })
 
         SongMatrix width true $"{cap}" songInfos)
     |> Seq.collect (fun x -> x)

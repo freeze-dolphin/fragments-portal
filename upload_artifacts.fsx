@@ -18,6 +18,13 @@ open Amazon.Runtime
 open Amazon.S3
 open Amazon.S3.Model
 
+let etoileConfig =
+    {| Release = "v2.1.6"
+       Version = "EtoileResurrection.Console-universal-3e9b5eb"
+       DownloadPath = "EtoileResurrection.zip"
+       ExtractPath = "."
+       PackagePrefix = "lowiro" |}
+
 (* utility functions *)
 
 let downloadAsStream (httpClient: HttpClient) (url: string) =
@@ -83,7 +90,7 @@ let removeStart (prefix: string) (s: string) =
 let getSongId (filePath: string) =
     Path.GetFileNameWithoutExtension filePath |> removeStart "lowiro."
 
-let getKey (filePath: string) = $"arcpkgs/{getSongId filePath}.arcpkg"
+let getKey (filePath: string) = $"arcpkgs/{etoileConfig.PackagePrefix}.{getSongId filePath}.arcpkg"
 
 let s3PutObjectAsync (s3: #IAmazonS3) (bucket: string) (filePath: string) =
     task {
@@ -116,12 +123,7 @@ let createDirectoryIfNotExist (dirPath: string) =
 
 (* configurations *)
 
-let etoileConfig =
-    {| Release = "v2.1.6"
-       Version = "EtoileResurrection.Console-universal-3e9b5eb"
-       DownloadPath = "EtoileResurrection.zip"
-       ExtractPath = "."
-       PackagePrefix = "lowiro" |}
+
 
 let expandFilePath (ext: string) =
     Path.Combine [| "fragments-category"; "songs"; ext |] |> Path.GetFullPath
@@ -200,7 +202,10 @@ let remoteSongIds =
     |> List.ofSeq
 
 let songsToBePacked =
-    localSongIds |> List.filter (fun x -> not (remoteSongIds.Contains(x)))
+    if (not (Environment.GetEnvironmentVariable("CLEAN_PACK") |> String.IsNullOrWhiteSpace)) then
+        localSongIds
+    else
+        localSongIds |> List.filter (fun x -> not (remoteSongIds.Contains(x)))
 
 let songIdPattern = "(" + String.Join("|", songsToBePacked) + ")"
 
@@ -212,7 +217,11 @@ then
 
     let etoile =
         {| Url = $"https://github.com/freeze-dolphin/EtoileResurrection/releases/download/{etoileConfig.Release}/{etoileConfig.Version}.zip"
-           BinPath = $"{etoileConfig.ExtractPath}/{etoileConfig.Version}/bin/EtoileResurrection" |}
+           BinPath =
+            if (RuntimeInformation.IsOSPlatform OSPlatform.Windows) then
+                $"{etoileConfig.ExtractPath}/{etoileConfig.Version}/bin/EtoileResurrection.bat"
+            else
+                $"{etoileConfig.ExtractPath}/{etoileConfig.Version}/bin/EtoileResurrection" |}
 
     // download étoile
     if not (Path.Exists etoile.BinPath) then
