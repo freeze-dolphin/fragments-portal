@@ -19,8 +19,8 @@ open Amazon.S3
 open Amazon.S3.Model
 
 let etoileConfig =
-    {| Release = "v2.1.7"
-       Version = "EtoileResurrection.Console-universal-b9ce64a"
+    {| Release = "v2.1.8"
+       Version = "EtoileResurrection.Console-universal-4c78b9f"
        DownloadPath = "EtoileResurrection.zip"
        ExtractPath = "."
        PackagePrefix = "lowiro" |}
