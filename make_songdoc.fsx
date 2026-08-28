@@ -133,7 +133,7 @@ let PageTemplate portalRepoPath categoryRepoPath (songMatrixes: seq<XmlNode>) =
                                 [ style "vertical-align: bottom"
                                   src "https://img.shields.io/badge/Etoile.Lite-repo-blue?logo=github" ] ] ]
                 _h3
-                    [ style "margin-top: 0.2em; margin-bottom: 0.5em" ]
+                    [ style "margin-top: 0.2em; margin-bottom: 0.8em" ]
                     [ _text "Web Design By: "
                       _a
                           [ href "https://github.com/WhiteNightAWA" ]
