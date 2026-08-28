@@ -29,7 +29,7 @@ let tryGetLatestVersionMessage (repo: Repository) =
         let msg = commit.Message.TrimStart()
 
         if msg.StartsWith "#" then
-            let trimmed = msg.TrimStart('#').TrimEnd([| '\r'; '\n' |]);
+            let trimmed = msg.TrimStart('#').TrimEnd([| '\r'; '\n' |])
 
             if trimmed.Length > 0 then
                 found <- Some trimmed
@@ -63,7 +63,7 @@ let getCombinedMessage (portalRepoPath: string) (categoryRepoPath: string) =
             if (headMsg.TrimStart '#' = versionMsg) then
                 versionMsg
             else
-                headMsg + $" [{versionMsg}]"
+                $"<b>[{versionMsg}]</b> " + headMsg
 
 (* page template functions*)
 
@@ -82,7 +82,7 @@ let SimpleAnalyticsEmbedded =
 
 let BuildTime (dateTime: DateTime option) =
     _h3
-        [ style "margin-bottom: 0" ]
+        [ style "margin-top: 0em; margin-bottom: 0em" ]
         [ _text (
               "Build Time: "
               + (match dateTime with
@@ -93,9 +93,11 @@ let BuildTime (dateTime: DateTime option) =
 
 let CommitMessage portalRepoPath categoryRepoPath =
     seq {
-        _h3 [ style "margin-top: 0" ] [ _text "Latest commit message:" ]
+        _h3 [ style "margin-top: 0.2em; margin-bottom: 0em" ] [ _text "Latest commit message:" ]
 
-        _blockquote [ style "border-left: 2px lightblue solid;padding-left: 16px;" ] [ _text (getCombinedMessage portalRepoPath categoryRepoPath) ]
+        _blockquote
+            [ style "border-left: 2px lightblue solid; padding-left: 16px;" ]
+            [ _text (getCombinedMessage portalRepoPath categoryRepoPath) ]
     }
 
 let PageTemplate portalRepoPath categoryRepoPath (songMatrixes: seq<XmlNode>) =
@@ -122,20 +124,22 @@ let PageTemplate portalRepoPath categoryRepoPath (songMatrixes: seq<XmlNode>) =
                       _a
                           [ href "https://github.com/freeze-dolphin/fragments-portal" ]
                           [ _img [ src "https://img.shields.io/github/stars/freeze-dolphin/fragments-portal" ] ] ]
-                _h5
-                    [ style "margin-top: 0.2em; margin-bottom: 2.0em" ]
-                    [ _text "powered by: "
+                _h3
+                    [ style "margin-top: 0.2em; margin-bottom: 0em" ]
+                    [ _text "Powered By: "
                       _a
-                          [ href "https://github.com/freeze-dolphin/EtoileResurrection" ]
+                          [ href "https://github.com/freeze-dolphin/Etoile.Lite" ]
                           [ _img
                                 [ style "vertical-align: bottom"
-                                  src "https://img.shields.io/badge/EtoileResurrection-repo-blue?logo=github" ] ]
-                      _text " "
+                                  src "https://img.shields.io/badge/Etoile.Lite-repo-blue?logo=github" ] ] ]
+                _h3
+                    [ style "margin-top: 0.2em; margin-bottom: 0.5em" ]
+                    [ _text "Web Design By: "
                       _a
-                          [ href "https://github.com/freeze-dolphin/aff-compose" ]
+                          [ href "https://github.com/WhiteNightAWA" ]
                           [ _img
                                 [ style "vertical-align: bottom"
-                                  src "https://img.shields.io/badge/aff--compose-repo-33cccc?logo=github" ] ] ]
+                                  src "https://img.shields.io/badge/WhiteNightAWA-user-6694b9?logo=github" ] ] ]
                 BuildTime None
                 yield! CommitMessage portalRepoPath categoryRepoPath
                 _hr []

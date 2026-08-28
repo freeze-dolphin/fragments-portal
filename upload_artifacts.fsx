@@ -3,10 +3,13 @@
 #r "nuget: AWSSDK.S3, 4.0.18.5"
 #r "nuget: DotNetEnv, 3.1.1"
 #r "nuget: ShellProgressBar, 5.2.0"
+#r "nuget: SharpCompress, 0.50.4"
 
+open ShellProgressBar
+open SharpCompress.Common
+open SharpCompress.Readers
 open System.Linq
 open System.Text.Json.Nodes
-open ShellProgressBar
 open System
 open System.Diagnostics
 open System.IO.Compression
@@ -19,9 +22,13 @@ open Amazon.S3
 open Amazon.S3.Model
 
 let etoileConfig =
-    {| Release = "v2.1.8"
-       Version = "EtoileResurrection.Console-universal-4c78b9f"
-       DownloadPath = "EtoileResurrection.zip"
+    {| Release = "v0.1.0"
+       DistributionName =
+        if (RuntimeInformation.IsOSPlatform OSPlatform.Windows) then
+            "Etoile.Lite-v0.1.0-win-x64.zip"
+        else
+            "Etoile.Lite-v0.1.0-linux-x64.tar.gz"
+       DownloadPath = "Etoile.Lite.tar.gz"
        ExtractPath = "."
        PackagePrefix = "lowiro" |}
 
@@ -36,19 +43,15 @@ let downloadAsStream (httpClient: HttpClient) (url: string) =
     |> Async.AwaitTask
     |> Async.RunSynchronously
 
-let unzipStreamTo (stream: Stream) (outputDir: string) =
+let extractStreamTo (stream: Stream) (outputDir: string) =
     Directory.CreateDirectory outputDir |> ignore
 
-    use archive = new ZipArchive(stream, ZipArchiveMode.Read)
+    use reader = ReaderFactory.OpenReader(stream, ReaderOptions.ForExternalStream)
+    let extractionOptions = ExtractionOptions(ExtractFullPath = false, Overwrite = true)
 
-    for entry in archive.Entries do
-        if not (String.IsNullOrEmpty entry.Name) then
-            let destPath = Path.Combine(outputDir, entry.FullName)
-            Directory.CreateDirectory(Path.GetDirectoryName(destPath)) |> ignore
-
-            use entryStream = entry.Open()
-            use fileStream = File.Create(destPath)
-            entryStream.CopyTo fileStream
+    while reader.MoveToNextEntry() do
+        if not reader.Entry.IsDirectory then
+            reader.WriteEntryToDirectory(outputDir, extractionOptions)
 
 let makeExecutable (filePath: string) =
     File.SetUnixFileMode(
@@ -63,6 +66,8 @@ let makeExecutable (filePath: string) =
     )
 
 let runCommand (cmd: string) (args: string) =
+    Console.WriteLine $"Executing: {cmd} {args}"
+    
     let psi = ProcessStartInfo(cmd, args)
     psi.UseShellExecute <- false
     let proc = Process.Start(psi)
@@ -90,7 +95,8 @@ let removeStart (prefix: string) (s: string) =
 let getSongId (filePath: string) =
     Path.GetFileNameWithoutExtension filePath |> removeStart "lowiro."
 
-let getKey (filePath: string) = $"arcpkgs/{etoileConfig.PackagePrefix}.{getSongId filePath}.arcpkg"
+let getKey (filePath: string) =
+    $"arcpkgs/{etoileConfig.PackagePrefix}.{getSongId filePath}.arcpkg"
 
 let s3PutObjectAsync (s3: #IAmazonS3) (bucket: string) (filePath: string) =
     task {
@@ -207,7 +213,7 @@ let songsToBePacked =
     else
         localSongIds |> List.filter (fun x -> not (remoteSongIds.Contains(x)))
 
-let songIdPattern = "(" + String.Join("|", songsToBePacked) + ")"
+let songIdPattern = "^(" + String.Join("|", songsToBePacked) + ")$"
 
 if
     Environment.GetEnvironmentVariable("SKIP_PACK") |> String.IsNullOrWhiteSpace
@@ -216,16 +222,18 @@ then
     let httpClient = new HttpClient()
 
     let etoile =
-        {| Url = $"https://github.com/freeze-dolphin/EtoileResurrection/releases/download/{etoileConfig.Release}/{etoileConfig.Version}.zip"
+        {| Url = $"https://github.com/freeze-dolphin/Etoile.Lite/releases/download/{etoileConfig.Release}/{etoileConfig.DistributionName}"
            BinPath =
             if (RuntimeInformation.IsOSPlatform OSPlatform.Windows) then
-                $"{etoileConfig.ExtractPath}/{etoileConfig.Version}/bin/EtoileResurrection.bat"
+                $"{etoileConfig.ExtractPath}/Etoile.Lite.exe"
             else
-                $"{etoileConfig.ExtractPath}/{etoileConfig.Version}/bin/EtoileResurrection" |}
+                $"{etoileConfig.ExtractPath}/Etoile.Lite" |}
+
+    Console.WriteLine("Downloading: " + etoile.Url)
 
     // download étoile
     if not (Path.Exists etoile.BinPath) then
-        downloadAsStream httpClient etoile.Url |> unzipStreamTo
+        downloadAsStream httpClient etoile.Url |> extractStreamTo
         <| etoileConfig.ExtractPath
 
     // make étoile script runnable on unix
@@ -235,11 +243,11 @@ then
     // run étoile
     runCommand
         etoile.BinPath
-        $"pack {filePaths.Songlist} --songId={songIdPattern} -re --prefix={etoileConfig.PackagePrefix} -o {filePaths.OutputPath} -j{Environment.ProcessorCount}"
+        $"{filePaths.Songlist} --songs={songIdPattern} -re --prefix={etoileConfig.PackagePrefix} -o {filePaths.OutputPath} -j {Environment.ProcessorCount}"
 
     runCommand
         etoile.BinPath
-        $"pack {filePaths.SonglistApril} --songId={songIdPattern} -re --prefix={etoileConfig.PackagePrefix} -o {filePaths.OutputPath} -j1"
+        $"{filePaths.SonglistApril} --songs={songIdPattern} -re --prefix={etoileConfig.PackagePrefix} -o {filePaths.OutputPath} -j 1"
 else
     printfn "no package is being packed"
 
