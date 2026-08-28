@@ -12,7 +12,6 @@ open System.Linq
 open System.Text.Json.Nodes
 open System
 open System.Diagnostics
-open System.IO.Compression
 open System.Net.Http
 open System.Net.Mime
 open System.Runtime.InteropServices
@@ -21,13 +20,15 @@ open Amazon.Runtime
 open Amazon.S3
 open Amazon.S3.Model
 
+let etoileVersion = "v0.1.1"
+
 let etoileConfig =
-    {| Release = "v0.1.0"
+    {| Release = etoileVersion
        DistributionName =
         if (RuntimeInformation.IsOSPlatform OSPlatform.Windows) then
-            "Etoile.Lite-v0.1.0-win-x64.zip"
+            $"Etoile.Lite-{etoileVersion}-win-x64.zip"
         else
-            "Etoile.Lite-v0.1.0-linux-x64.tar.gz"
+            $"Etoile.Lite-{etoileVersion}-linux-x64.tar.gz"
        DownloadPath = "Etoile.Lite.tar.gz"
        ExtractPath = "."
        PackagePrefix = "lowiro" |}
@@ -67,7 +68,7 @@ let makeExecutable (filePath: string) =
 
 let runCommand (cmd: string) (args: string) =
     Console.WriteLine $"Executing: {cmd} {args}"
-    
+
     let psi = ProcessStartInfo(cmd, args)
     psi.UseShellExecute <- false
     let proc = Process.Start(psi)
@@ -229,10 +230,11 @@ then
             else
                 $"{etoileConfig.ExtractPath}/Etoile.Lite" |}
 
-    Console.WriteLine("Downloading: " + etoile.Url)
 
     // download étoile
     if not (Path.Exists etoile.BinPath) then
+        Console.WriteLine("Downloading: " + etoile.Url)
+
         downloadAsStream httpClient etoile.Url |> extractStreamTo
         <| etoileConfig.ExtractPath
 
@@ -243,11 +245,11 @@ then
     // run étoile
     runCommand
         etoile.BinPath
-        $"{filePaths.Songlist} --songs={songIdPattern} -re --prefix={etoileConfig.PackagePrefix} -o {filePaths.OutputPath} -j {Environment.ProcessorCount}"
+        $"{filePaths.Songlist} --songs={songIdPattern} -re --prefix={etoileConfig.PackagePrefix} -o {filePaths.OutputPath}"
 
     runCommand
         etoile.BinPath
-        $"{filePaths.SonglistApril} --songs={songIdPattern} -re --prefix={etoileConfig.PackagePrefix} -o {filePaths.OutputPath} -j 1"
+        $"{filePaths.SonglistApril} --songs={songIdPattern} -re --prefix={etoileConfig.PackagePrefix} -o {filePaths.OutputPath}"
 else
     printfn "no package is being packed"
 
