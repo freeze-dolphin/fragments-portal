@@ -20,16 +20,15 @@ open Amazon.Runtime
 open Amazon.S3
 open Amazon.S3.Model
 
-let etoileVersion = "v0.1.2"
+let etoileVersion = "v0.1.3"
 
 let etoileConfig =
     {| Release = etoileVersion
        DistributionName =
         if (RuntimeInformation.IsOSPlatform OSPlatform.Windows) then
-            $"Etoile.Lite-{etoileVersion}-win-x64.zip"
+            $"Etoile.Lite-{etoileVersion}-win-x64-noruntime.zip"
         else
-            $"Etoile.Lite-{etoileVersion}-linux-x64.tar.gz"
-       DownloadPath = "Etoile.Lite.tar.gz"
+            $"Etoile.Lite-{etoileVersion}-linux-x64-noruntime.tar.gz"
        ExtractPath = "."
        PackagePrefix = "lowiro" |}
 
@@ -229,7 +228,6 @@ then
                 $"{etoileConfig.ExtractPath}/Etoile.Lite.exe"
             else
                 $"{etoileConfig.ExtractPath}/Etoile.Lite" |}
-
 
     // download étoile
     if not (Path.Exists etoile.BinPath) then
