@@ -43,8 +43,8 @@ let rec parseArgs = function
     | "--dry-run" :: rest -> dryRun <- true; parseArgs rest
     | "--help" :: _ | "-h" :: _ ->
         printfn "Usage: dotnet fsi organize_dl.fsx [--dl <dir>] [--dest <dir>] [--copy] [--dry-run]"
-        printfn "  --dl       Source folder (default: C:\Shrine\dl)"
-        printfn "  --dest     Root folder containing the songId folders (default: this script's folder)"
+        printfn "  --dl       Path to the `dl` folder"
+        printfn "  --dest     Path to the folder containing the songId folders"
         printfn "  --copy     Copy only; keep source files (default is move)"
         printfn "  --dry-run  Preview only; make no changes"
         exit 0
