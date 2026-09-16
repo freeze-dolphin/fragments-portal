@@ -20,7 +20,7 @@ open Amazon.Runtime
 open Amazon.S3
 open Amazon.S3.Model
 
-let etoileVersion = "v0.1.4"
+let etoileVersion = "v0.1.5"
 
 let etoileConfig =
     {| Release = etoileVersion
