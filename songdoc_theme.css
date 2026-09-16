@@ -1,0 +1,308 @@
+/* GitHub Dark inspired theme + cross-platform sans-serif stacks */
+
+:root {
+    --bg: #0d1117;
+    --surface: #161b22;
+    --muted: #8b949e;
+    --text: #c9d1d9;
+    --accent: #58a6ff;
+    --success: #3fb950;
+    --danger: #f85149;
+    --border: #30363d;
+}
+
+html, body {
+    height: 100%;
+}
+
+body {
+    background: var(--bg);
+    color: var(--text);
+    margin: 0;
+    padding: 24px;
+    box-sizing: border-box;
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Noto Sans', 'Helvetica Neue', Arial, system-ui, sans-serif;
+    font-size: 16px;
+    line-height: 1.45;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+
+h1 {
+    margin: 0 0 0.5rem 0;
+    padding: 0;
+    font-size: 1.75rem;
+}
+
+h2 {
+    margin: 0.75rem 0 0.4rem 0;
+    padding: 0;
+    font-size: 1.25rem;
+}
+
+h3 {
+    margin: 0.5rem 0 0.25rem 0;
+    padding: 0;
+    font-size: 1rem;
+}
+
+.header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 16px;
+    margin-bottom: 8px;
+    flex-wrap: wrap;
+}
+
+.header-badges {
+    display: flex;
+    gap: 8px;
+    align-items: center;
+}
+
+.meta {
+    color: var(--muted);
+    font-size: 0.95rem;
+    display: inline-flex;
+    align-items: baseline;
+    gap: 8px;
+}
+
+.build-time {
+    font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, "Roboto Mono", "Segoe UI Mono", "Lucida Console", monospace;
+    color: var(--muted);
+    font-weight: 500;
+    font-size: 0.85rem;
+} 
+
+.site-footer {
+    margin-top: 24px;
+    border-top: 1px solid var(--border);
+    padding-top: 12px;
+    padding-bottom: 12px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    color: var(--muted);
+    font-size: 0.95rem;
+}
+
+.footer-left {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.footer-right {
+    color: var(--muted);
+}
+
+.footer-note a {
+    color: var(--accent);
+    text-decoration: none;
+}
+
+.footer-left img {
+    height: 20px;
+}
+
+.footer-stats {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.footer-stats img {
+    height: 20px;
+}
+
+table {
+    table-layout: fixed;
+    border-collapse: collapse;
+}
+
+td {
+    width: 90px;
+    height: auto;
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: clip;
+}
+
+td table {
+    width: 100%;
+}
+
+.songs td table tr:nth-child(2) td {
+    font-size: 12px;
+    line-height: 1.2;
+    white-space: nowrap;
+}
+
+img {
+    max-width: 100%;
+    height: auto;
+}
+
+blockquote {
+    margin: 0;
+}
+
+.commit-message {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    border-left: 4px solid rgba(88, 166, 255, 0.35);
+    background: rgba(255, 255, 255, 0.02);
+    padding: 12px 16px;
+    margin: 0.5rem 0;
+    border-radius: 6px;
+    color: var(--muted);
+    box-shadow: 0 1px 0 rgba(255, 255, 255, 0.02) inset;
+    font-style: normal;
+}
+
+.simple-analytics {
+    margin-top: 24px;
+}
+
+.commit-head {
+    flex: 0 0 auto;
+    background: rgba(88, 166, 255, 0.12);
+    color: var(--accent);
+    padding: 6px 10px;
+    border-radius: 4px;
+    font-weight: 600;
+    white-space: nowrap;
+}
+
+.commit-body {
+    flex: 1;
+    color: var(--text);
+    opacity: 0.95;
+    word-break: break-word;
+}
+
+.page {
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 12px;
+}
+
+.songs-grid {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 16px;
+    justify-content: center;
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+.song-card {
+    gap: 6px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-decoration: none;
+    border: 1px solid var(--border);
+    /* darker, subtle diagonal gradient so cards sit slightly above the page */
+    background: linear-gradient(135deg,
+    #21262d 0%,
+    #161b22 100%);
+    color: var(--text);
+    border-radius: 8px;
+    padding: 8px;
+}
+
+.song-card img {
+    border-radius: 6px;
+    width: 90px;
+    height: 90px;
+    object-fit: cover;
+}
+
+.song-title {
+    width: 90px;
+    overflow: hidden;
+    color: var(--text);
+    font-size: 0.85em;
+    text-align: center;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+}
+
+.song-title-inner {
+    display: inline-block;
+    white-space: nowrap;
+}
+
+.group-title-left {
+    padding-left: 8px;
+    color: var(--muted);
+    margin: 0;
+    font-size: 0.95rem;
+}
+
+.group-title-center {
+    color: var(--muted);
+    text-align: center;
+    margin: 0;
+    display: inline-block;
+}
+
+.group-title-right {
+    padding-right: 8px;
+    color: var(--muted);
+    margin: 0;
+    font-size: 0.95rem;
+}
+
+.group-divider {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 8px;
+    margin: 1rem 0;
+}
+
+.group-pill {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    color: var(--text);
+    /* fixed width so all pills align */
+    width: 120px;
+    text-align: center;
+    padding: 6px 8px;
+    border-radius: 999px;
+    font-weight: 700;
+    letter-spacing: 0.04em;
+    font-size: 1rem;
+    display: inline-block;
+    margin: 10px 0 14px;
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+}
+
+.group-side {
+    display: none
+}
+
+.group-center {
+    display: none
+}
+
+.group-line {
+    display: none
+}
+
+.group-badge {
+    display: none
+}
+
+.header-badges img {
+    vertical-align: middle;
+    height: 20px;
+}

@@ -5,7 +5,7 @@
 #r "nuget: Falco.Markup, 1.4.0"
 #r "nuget: LibGit2Sharp, 0.31.0"
 #r "nuget: SixLabors.ImageSharp, 3.1.12"
-#r "nuget: ShellProgressBar, 5.2.0"
+#r "nuget: NUglify, 1.23.0"
 
 open System
 open System.IO
@@ -14,11 +14,59 @@ open System.Text.Json.Nodes
 open Falco.Markup
 open Falco.Markup.Attr
 open LibGit2Sharp
-open ShellProgressBar
 open SixLabors.ImageSharp
 open SixLabors.ImageSharp.Processing
+open NUglify
 
 (* utility functions *)
+
+let themeCss =
+    try
+        File.ReadAllText(Path.Combine(__SOURCE_DIRECTORY__, "songdoc_theme.css"))
+        |> Uglify.Css
+        |> _.Code
+    with _ ->
+        ""
+
+let buildTimeIso = DateTime.UtcNow.ToString("o")
+
+let relativeTimeScript = (* language=javascript *)
+    $"""(function(){{
+  let iso = '{buildTimeIso}';
+  function rel(iso){{
+    let d=new Date(iso), now=new Date(), s=Math.floor((now-d)/1000);
+    if(s<60) return "just now";
+    if(s<3600) return Math.floor(s/60) + " minutes ago";
+    if(s<86400) return Math.floor(s/3600) + " hours ago";
+    return "previously";
+  }}
+  function fmtLocal(iso){{
+    let d=new Date(iso); return d.toLocaleString();
+  }}
+  function render(){{
+    let root = document.getElementById('build-time-root'); if(!root) return;
+    root.innerHTML = '';
+    let h3 = document.createElement('h3'); h3.className = 'meta';
+    h3.appendChild(document.createTextNode('Built'));
+    let strong = document.createElement('strong'); strong.textContent = rel(iso); h3.appendChild(strong);
+    h3.appendChild(document.createTextNode(' • '));
+    let span = document.createElement('span'); span.className = 'build-time'; span.setAttribute('title', iso); span.textContent = fmtLocal(iso); h3.appendChild(span);
+    root.appendChild(h3);
+  }}
+  function update(){{
+    let root = document.getElementById('build-time-root'); if(!root) return;
+    let strong = root.querySelector('strong');
+    let span = root.querySelector('.build-time');
+    if(!strong || !span) {{ render(); return; }}
+    strong.textContent = rel(iso);
+    span.textContent = fmtLocal(iso);
+  }}
+  function init(){{ try{{ render(); update(); setInterval(update, 60000); }}catch(e){{}} }}
+  if (document.readyState === 'loading') {{ document.addEventListener('DOMContentLoaded', init); }} else {{ init(); }}
+}})();
+"""
+    |> Uglify.Js
+    |> _.Code
 
 let tryGetLatestVersionMessage (repo: Repository) =
     let mutable found = None
@@ -65,86 +113,96 @@ let getCombinedMessage (portalRepoPath: string) (categoryRepoPath: string) =
             else
                 $"<b>[{versionMsg}]</b> " + headMsg
 
-(* page template functions*)
-
-let SimpleAnalyticsEmbedded =
-    _p
-        [ style "margin-top: 24px"; align "center" ]
-        [ _a
-              [ _href_ "https://dashboard.simpleanalytics.com/freeze-dolphin.github.io"
-                _referrerpolicy_ "origin"
-                _target_ "_blank" ]
-              [ _img
-                    [ _src_ "https://simpleanalyticsbadges.com/freeze-dolphin.github.io?mode=dark"
-                      _loading_ "lazy"
-                      _referrerpolicy_ "no-referrer"
-                      _crossorigin_ "anonymous" ] ] ]
-
-let BuildTime (dateTime: DateTime option) =
-    _h3
-        [ style "margin-top: 0em; margin-bottom: 0em" ]
-        [ _text (
-              "Build Time: "
-              + (match dateTime with
-                 | None -> DateTime.UtcNow
-                 | Some time -> time)
-                  .ToString("u")
-          ) ]
+(* page template functions *)
 
 let CommitMessage portalRepoPath categoryRepoPath =
     seq {
-        _h3 [ style "margin-top: 0.2em; margin-bottom: 0em" ] [ _text "Latest commit message:" ]
+        let versionOpt, headOpt =
+            use portalRepo = new Repository(portalRepoPath)
+            use categoryRepo = new Repository(categoryRepoPath)
+            let h = getHeadMessage portalRepo
+            let v = tryGetLatestVersionMessage categoryRepo
+            v, h
+
+        let versionText =
+            match versionOpt with
+            | Some v -> v
+            | None -> ""
+
+        let headText =
+            match headOpt with
+            | Some h -> h
+            | None -> ""
+
+        let messageText =
+            if versionText <> "" && headText.TrimStart '#' = versionText then
+                ""
+            else
+                headText
 
         _blockquote
-            [ style "border-left: 2px lightblue solid; padding-left: 16px;" ]
-            [ _text (getCombinedMessage portalRepoPath categoryRepoPath) ]
+            [ _class_ "commit-message" ]
+            ((if versionText <> "" then
+                  [ _div [ _class_ "commit-head" ] [ _text versionText ] ]
+              else
+                  [])
+             @ (if messageText <> "" then
+                    [ _div [ _class_ "commit-body" ] [ _text messageText ] ]
+                else
+                    []))
     }
+
+let SimpleAnalyticsBadge =
+    _a
+        [ href "https://dashboard.simpleanalytics.com/freeze-dolphin.github.io"
+          _target_ "_blank"
+          _referrerpolicy_ "origin" ]
+        [ _img
+              [ src
+                    "https://img.shields.io/badge/dynamic/json?url=https%3A%2F%2Fsimpleanalytics.com%2Ffreeze-dolphin.github.io.json%3Fversion%3D6%26fields%3Dvisitors%26start%3Dtoday-30d%26end%3Dyesterday&query=%24.visitors&logo=simpleanalytics&label=Monthly%20visitors&color=%23FF4F64"
+                // _loading_ "lazy"
+                _referrerpolicy_ "no-referrer"
+                _crossorigin_ "anonymous" ] ]
+
+let FooterNote =
+    _div
+        [ _class_ "footer-note" ]
+        [ _text "Powered by: "
+          _a [ href "https://github.com/freeze-dolphin/Etoile.Lite" ] [ _text "Etoile.Lite" ]
+          _text " • "
+          _text "Web design by: "
+          _a [ href "https://github.com/WhiteNightAWA" ] [ _text "WhiteNightAWA" ] ]
 
 let PageTemplate portalRepoPath categoryRepoPath (songMatrixes: seq<XmlNode>) =
     _html
-        [ style "background-color:#242424; color:white;" ]
+        []
         [ _head
               []
               [ _meta [ _charset_ "UTF-8" ]
                 _meta [ _name_ "viewport"; _content_ "width=device-width, initial-scale=1.0" ]
                 _title [] [ _text "fragments-portal" ]
                 _script [ _async_; _src_ "https://scripts.simpleanalyticscdn.com/latest.js" ] []
-                _style
-                    []
-                    [ _text "table { table-layout: fixed; border-collapse: collapse; }"
-                      _text "td { width: 90px; height: auto; overflow: hidden; white-space: nowrap; text-overflow: clip; }"
-                      _text "td table { width: 100%; }"
-                      _text ".songs td table tr:nth-child(2) td { font-size: 12px; line-height: 1.2; white-space: nowrap; }"
-                      _text "img { max-width: 100%; height: auto; }" ] ]
+                _script [] [ _text relativeTimeScript ]
+                _style [] [ _text themeCss ] ]
           _body
               []
-              [ _h1
-                    [ style "margin-bottom: 0.2em" ]
-                    [ _text "fragments-portal "
-                      _a
-                          [ href "https://github.com/freeze-dolphin/fragments-portal" ]
-                          [ _img [ src "https://img.shields.io/github/stars/freeze-dolphin/fragments-portal" ] ] ]
-                _h3
-                    [ style "margin-top: 0.2em; margin-bottom: 0em" ]
-                    [ _text "Powered By: "
-                      _a
-                          [ href "https://github.com/freeze-dolphin/Etoile.Lite" ]
-                          [ _img
-                                [ style "vertical-align: bottom"
-                                  src "https://img.shields.io/badge/Etoile.Lite-repo-blue?logo=github" ] ] ]
-                _h3
-                    [ style "margin-top: 0.2em; margin-bottom: 0.8em" ]
-                    [ _text "Web Design By: "
-                      _a
-                          [ href "https://github.com/WhiteNightAWA" ]
-                          [ _img
-                                [ style "vertical-align: bottom"
-                                  src "https://img.shields.io/badge/WhiteNightAWA-user-6694b9?logo=github" ] ] ]
-                BuildTime None
+              [ _div
+                    [ _class_ "header" ]
+                    [ _div
+                          [ _class_ "header-main" ]
+                          [ _h1
+                                []
+                                [ _text "fragments-portal "
+                                  _a
+                                      [ href "https://github.com/freeze-dolphin/fragments-portal" ]
+                                      [ _img [ src "https://img.shields.io/github/stars/freeze-dolphin/fragments-portal" ] ] ]
+                            _div [ _id_ "build-time-root" ] [] ] ]
                 yield! CommitMessage portalRepoPath categoryRepoPath
-                _hr []
                 _div [ _class_ "songs" ] [ yield! songMatrixes ]
-                SimpleAnalyticsEmbedded ] ]
+                _footer
+                    [ _class_ "site-footer" ]
+                    [ _div [ _class_ "footer-left" ] [ SimpleAnalyticsBadge ]
+                      _div [ _class_ "footer-right" ] [ FooterNote ] ] ] ]
 
 type SongInfo =
     { JacketUrl: string
@@ -153,26 +211,18 @@ type SongInfo =
 
 let SongCell songInfo =
     _a
-        [ href songInfo.DownloadUrl
-          style
-              "gap:6px;display:flex;flex-direction:column;align-items:center;text-decoration:none;border:rgba(255,255,255,0.6) solid 1px; border-radius:4px; padding:4px; backdrop-filter:brightness(0.5);display:flex;flex-direction:column;" ]
+        [ href songInfo.DownloadUrl; _class_ "song-card" ]
         [ _img [ src songInfo.JacketUrl; width "90"; decoding "async"; loading "lazy" ]
-          _span [ style "color:white;max-width:90px;text-wrap:nowrap;overflow:clip;font-size:small;" ] [ _text songInfo.Title ] ]
+          _span [ _class_ "song-title" ] [ _span [ _class_ "song-title-inner" ] [ _text songInfo.Title ] ] ]
 
-let SongMatrix (matrixWidth: int) fillByEmpty groupTitle (songs: list<SongInfo>) =
+let SongMatrix groupTitle (songs: list<SongInfo>) =
     seq {
-        _table
-            [ width "100%"; border "0" ]
-            [ _tr
-                  []
-                  [ _td [ width "40"; align "left" ] [ _h3 [ style "padding-left: 8px" ] [ _text groupTitle ] ]
-                    _td [ align "center" ] [ _h3 [ style "color:#999999" ] [ _text groupTitle ] ]
-                    _td [ width "40"; align "right" ] [ _h3 [ style "padding-right: 8px" ] [ _text groupTitle ] ] ] ]
+        _div [ _class_ "group-divider" ] [ _div [ _class_ "group-pill" ] [ _text groupTitle ] ]
 
         _div
-            [ style "display:flex; justify-content:center;" ]
+            []
             [ _div
-                  [ style "display:flex; flex-wrap:wrap; gap:16px; max-width:800px; justify-content:center;" ]
+                  [ _class_ "songs-grid" ]
                   [ for song in songs do
                         SongCell song ] ]
     }
@@ -219,7 +269,7 @@ let songMatrixes width =
                   Title = y.Title
                   DownloadUrl = $"https://pub-748f36e6cae345198861f65a9a8f5218.r2.dev/arcpkgs/lowiro.{y.Id}.arcpkg" })
 
-        SongMatrix width true $"{cap}" songInfos)
+        SongMatrix $"{cap}" songInfos)
     |> Seq.collect (fun x -> x)
 
 if not (Path.Exists "songdoc/thumbnails") then
@@ -228,6 +278,8 @@ if not (Path.Exists "songdoc/thumbnails") then
 // generate index.html
 PageTemplate "fragments-portal" "fragments-category" (songMatrixes 7)
 |> renderHtml
+|> Uglify.Html
+|> _.Code
 |> (fun x -> File.WriteAllText("songdoc/index.html", x))
 
 let getJacketPath songId =
@@ -239,24 +291,15 @@ let getJacketPath songId =
         failwith $"unable to detect jacket path for {songId}"
 
 // generate thumbnails
-if
-    Environment.GetEnvironmentVariable("SKIP_THUMBNAIL")
-    |> String.IsNullOrWhiteSpace
-then
-    let thumbnailMetaList =
-        songMetaList
-        |> List.map (fun x ->
-            {| JacketPath = Path.GetFullPath($"fragments-category/songs/{x.Id}/{getJacketPath x.Id}")
-               ThumbnailPath = Path.GetFullPath($"songdoc/thumbnails/{x.Id}.jpg") |})
+let thumbnailMetaList =
+    songMetaList
+    |> List.map (fun x ->
+        {| JacketPath = Path.GetFullPath($"fragments-category/songs/{x.Id}/{getJacketPath x.Id}")
+           ThumbnailPath = Path.GetFullPath($"songdoc/thumbnails/{x.Id}.jpg") |})
 
-    let bar = new ProgressBar(thumbnailMetaList.Length, String.Empty)
-
-    for thumbnailMeta in thumbnailMetaList do
+for thumbnailMeta in thumbnailMetaList do
+    if not (Path.Exists thumbnailMeta.ThumbnailPath) then
         use jacket = Image.Load thumbnailMeta.JacketPath
 
         jacket.Mutate(fun ctx -> ctx.Resize(110, 110) |> ignore)
         jacket.Save(thumbnailMeta.ThumbnailPath)
-
-        bar.Tick("Generated thumbnail: " + Path.GetRelativePath(".", thumbnailMeta.ThumbnailPath))
-
-    bar.Dispose()
