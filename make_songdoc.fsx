@@ -10,6 +10,7 @@
 open System
 open System.IO
 open System.Linq
+open System.Net
 open System.Text.Json.Nodes
 open Falco.Markup
 open Falco.Markup.Attr
@@ -159,7 +160,16 @@ let SimpleAnalyticsBadge =
           _referrerpolicy_ "origin" ]
         [ _img
               [ src
-                    "https://img.shields.io/badge/dynamic/json?url=https%3A%2F%2Fsimpleanalytics.com%2Ffreeze-dolphin.github.io.json%3Fversion%3D6%26fields%3Dvisitors%26start%3Dtoday-30d%26end%3Dyesterday&query=%24.visitors&logo=simpleanalytics&label=Monthly%20visitors&color=%23FF4F64"
+                    $"""
+https://img.shields.io/badge/dynamic/json
+?url={WebUtility.UrlEncode "https://simpleanalytics.com/freeze-dolphin.github.io.json?version=6&fields=visitors&start=today-30d&end=yesterday"}
+&query={WebUtility.UrlEncode "$.visitors"}
+&logo={WebUtility.UrlEncode "simpleanalytics"}
+&label={WebUtility.UrlEncode "Monthly visitors"}
+&color={WebUtility.UrlEncode "#FF4F64"}
+&labelColor={WebUtility.UrlEncode "#30363D"}
+&style={WebUtility.UrlEncode "for-the-badge"}
+"""
                 // _loading_ "lazy"
                 _referrerpolicy_ "no-referrer"
                 _crossorigin_ "anonymous" ] ]
