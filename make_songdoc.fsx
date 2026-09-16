@@ -37,8 +37,10 @@ let relativeTimeScript = (* language=javascript *)
   function rel(iso){{
     let d=new Date(iso), now=new Date(), s=Math.floor((now-d)/1000);
     if(s<60) return "just now";
-    if(s<3600) return Math.floor(s/60) + " minutes ago";
-    if(s<86400) return Math.floor(s/3600) + " hours ago";
+    if(s<60*60) return Math.floor(s/60) + " minutes ago";
+    if(s<24*60*60) return Math.floor(s/60/60) + " hours ago";
+    if(s<30*24*60*60) return Math.floor(s/24/60/60) + " days ago";
+    if(s<365*24*60*60) return Math.floor(s/30/24/60/60) + " months ago";
     return "previously";
   }}
   function fmtLocal(iso){{
